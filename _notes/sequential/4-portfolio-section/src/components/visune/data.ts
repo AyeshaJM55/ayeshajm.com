@@ -1,19 +1,5 @@
 export const CDN = "https://visune.io/cdn/shop/files";
 
-import card1 from "@/assets/card1.png.asset.json";
-import card2 from "@/assets/card2.jpg.asset.json";
-import card3 from "@/assets/card3.png.asset.json";
-import card4 from "@/assets/card4.png.asset.json";
-import featured1 from "@/assets/featured1.png.asset.json";
-import featured2 from "@/assets/featured2.png.asset.json";
-import featured3 from "@/assets/featured3.png.asset.json";
-import featured4 from "@/assets/featured4.png.asset.json";
-import featured5 from "@/assets/featured5.png.asset.json";
-import featured6 from "@/assets/featured6.png.asset.json";
-import featured7 from "@/assets/featured7.png.asset.json";
-import featured8 from "@/assets/featured8.png.asset.json";
-
-
 export const brandLogos = [
   { name: "Google", src: `${CDN}/Google_15cf49cb-7381-407d-a99d-a7b9a431209b.png?v=1773394355&width=400` },
   { name: "Logitech", src: `${CDN}/Logitech_b9b8ec09-ed24-4d6f-9ad5-cb86186bdf43.png?v=1773394358&width=400` },
@@ -30,37 +16,37 @@ export const bringToLifeCards = [
     title: "Studio Renders",
     body: "Photorealistic product renders for e-commerce, advertising, and packaging.",
     cta: "Eplore",
-    img: card1.url,
+    img: "/images/services/studio-render-image.png",
   },
   {
     title: "Product Animation",
     body: "High-quality animations that showcase features and elevate your marketing.",
     cta: "Eplore",
-    img: card2.url,
+    img: "/images/services/product-animation.png",
   },
   {
     title: "Materials",
     body: "Custom materials for realistic and consistent product visualization.",
     cta: "Eplore",
-    img: card3.url,
+    img: "/images/services/materials.png",
   },
   {
     title: "Interactive 3D",
     body: "Interactive 3D experiences for websites.",
     cta: "Eplore",
-    img: card4.url,
+    img: "/images/services/interactive-3d.png",
   },
 ];
 
 export const featured = [
-  { title: "Ledge Studio (Gen2)", price: "30", img: featured1.url },
-  { title: "Window Sill Diorama (Gen2)", price: "30", img: featured2.url },
-  { title: "Material Fade Reference Studio", price: "50", img: featured3.url },
-  { title: "Still Life Studio", price: "35", img: featured4.url },
-  { title: "Østerbro Townhouse", price: "80", img: featured5.url },
-  { title: "Floating Product Studio (Gen2)", price: "25", img: featured6.url },
-  { title: "Dining Room Diorama 2", price: "30", img: featured7.url },
-  { title: "Hand Elements", price: "70", img: featured8.url },
+  { title: "Ledge Studio (Gen2)", price: "30", img: "/images/featured/1.png" },
+  { title: "Window Sill Diorama (Gen2)", price: "30", img: "/images/featured/2.png" },
+  { title: "Material Fade Reference Studio", price: "50", img: "/images/featured/3.png" },
+  { title: "Still Life Studio", price: "35", img: "/images/featured/4.png" },
+  { title: "Østerbro Townhouse", price: "80", img: "/images/featured/5.png" },
+  { title: "Floating Product Studio (Gen2)", price: "25", img: "/images/featured/6.png" },
+  { title: "Dining Room Diorama 2", price: "30", img: "/images/featured/7.png" },
+  { title: "Hand Elements", price: "70", img: "/images/featured/8.png" },
 
   { title: "Contemporary Living", tag: "Subscription exclusive", price: "80", img: `${CDN}/Visune-ContemporaryLiving_INT144__Sunny_Lounge.jpg?v=1762419272&width=800` },
 ];

@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Lock, Cloud, Download } from "lucide-react";
 import { brandLogos, bringToLifeCards, featured, goto, buildYourImage, whyChoose, CDN } from "./data";
-import heroAsset from "@/assets/hero5.jpg.asset.json";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -32,7 +31,7 @@ export function Hero() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7 }}
         className="relative overflow-hidden rounded-3xl bg-black bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('${heroAsset.url}')` }}
+        style={{ backgroundImage: "url('/images/hero-background.jpg')" }}
       >
         <div className="flex min-h-[520px] items-center p-8 text-white sm:p-12 lg:min-h-[640px] lg:p-16">
           <div className="max-w-xl">
