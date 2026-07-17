@@ -1,0 +1,201 @@
+/*
+ * Design tokens as CSS variables — the single source of truth for theming.
+ *
+ *   :root                         → default-light
+ *   :root[data-theme="dark"]      → default-dark
+ *   :root[data-brand="amber"]     → "amber" brand (the SRC gold identity),
+ *                                   overriding existing token VALUES only.
+ *
+ * Colors are HSL channels so Tailwind can apply opacity:
+ *   hsl(var(--color-brand-500) / <alpha-value>)
+ *
+ * Switching theme/brand = flipping data-theme / data-brand on <html>.
+ */
+
+:root {
+  /* brand — default (indigo) */
+  --color-brand-50: 226 100% 97%;
+  --color-brand-100: 226 100% 94%;
+  --color-brand-200: 228 96% 89%;
+  --color-brand-300: 230 94% 82%;
+  --color-brand-400: 234 89% 74%;
+  --color-brand-500: 239 84% 67%;
+  --color-brand-600: 243 75% 59%;
+  --color-brand-700: 245 58% 51%;
+  --color-brand-800: 244 55% 41%;
+  --color-brand-900: 242 47% 34%;
+  --color-brand-foreground: 0 0% 100%;
+
+  /* accent — default (teal) */
+  --color-accent-50: 166 76% 97%;
+  --color-accent-100: 167 85% 89%;
+  --color-accent-200: 168 84% 78%;
+  --color-accent-300: 171 77% 64%;
+  --color-accent-400: 172 66% 50%;
+  --color-accent-500: 173 80% 40%;
+  --color-accent-600: 175 84% 32%;
+  --color-accent-700: 175 77% 26%;
+  --color-accent-800: 176 69% 22%;
+  --color-accent-900: 176 61% 19%;
+  --color-accent-foreground: 0 0% 100%;
+
+  /* neutral */
+  --color-neutral-0: 0 0% 100%;
+  --color-neutral-50: 210 20% 98%;
+  --color-neutral-100: 220 14% 96%;
+  --color-neutral-200: 220 13% 91%;
+  --color-neutral-300: 216 12% 84%;
+  --color-neutral-400: 218 11% 65%;
+  --color-neutral-500: 220 9% 46%;
+  --color-neutral-600: 215 14% 34%;
+  --color-neutral-700: 217 19% 27%;
+  --color-neutral-800: 215 28% 17%;
+  --color-neutral-900: 221 39% 11%;
+  --color-neutral-1000: 0 0% 0%;
+
+  /* surfaces */
+  --color-bg-app: 210 20% 99%;
+  --color-bg-surface: 0 0% 100%;
+  --color-bg-surface-muted: 220 14% 96%;
+  --color-bg-overlay: 222 47% 11%;
+
+  /* text */
+  --color-fg-default: 222 39% 11%;
+  --color-fg-muted: 220 9% 40%;
+  --color-fg-subtle: 220 9% 55%;
+  --color-fg-disabled: 220 9% 72%;
+  --color-fg-on-brand: 0 0% 100%;
+
+  /* borders */
+  --color-border-default: 220 13% 88%;
+  --color-border-subtle: 220 14% 93%;
+  --color-border-strong: 220 13% 74%;
+
+  /* semantic */
+  --color-success: 142 71% 45%;
+  --color-success-fg: 142 64% 24%;
+  --color-success-bg: 138 76% 95%;
+  --color-success-border: 142 52% 80%;
+  --color-warning: 38 92% 50%;
+  --color-warning-fg: 30 80% 30%;
+  --color-warning-bg: 48 96% 92%;
+  --color-warning-border: 45 90% 75%;
+  --color-danger: 0 72% 51%;
+  --color-danger-fg: 0 65% 38%;
+  --color-danger-bg: 0 86% 96%;
+  --color-danger-border: 0 80% 85%;
+  --color-info: 217 91% 60%;
+  --color-info-fg: 220 70% 38%;
+  --color-info-bg: 214 95% 95%;
+  --color-info-border: 213 90% 82%;
+
+  /* typography */
+  --font-display: "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: ui-monospace, "JetBrains Mono", "SFMono-Regular", monospace;
+  --font-size-display-2: clamp(2.5rem, 5vw, 4rem);
+  --font-size-display-1: clamp(2rem, 4vw, 2.75rem);
+  --font-size-heading: 1.5rem;
+  --font-size-body-lg: 1.125rem;
+  --font-size-body-md: 1rem;
+  --font-size-body-sm: 0.875rem;
+  --font-size-label: 0.6875rem;
+
+  /* radii */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.25rem;
+
+  /* shadows */
+  --shadow-1: 0 1px 2px hsl(220 20% 20% / 0.08);
+  --shadow-2: 0 2px 8px hsl(220 20% 20% / 0.1);
+  --shadow-3: 0 8px 24px hsl(220 20% 20% / 0.14);
+  --shadow-4: 0 20px 48px hsl(220 20% 20% / 0.22);
+
+  /* motion */
+  --motion-fast: 150ms;
+  --motion-base: 250ms;
+  --motion-slow: 500ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-entrance: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+
+  /* z-index */
+  --z-base: 0;
+  --z-dropdown: 1000;
+  --z-sticky: 1100;
+  --z-overlay: 1200;
+  --z-modal: 1300;
+  --z-toast: 1400;
+}
+
+/* ── DARK ─────────────────────────────────────────── */
+:root[data-theme="dark"] {
+  --color-bg-app: 222 30% 7%;
+  --color-bg-surface: 222 24% 11%;
+  --color-bg-surface-muted: 222 20% 15%;
+  --color-bg-overlay: 222 47% 4%;
+
+  --color-fg-default: 210 20% 98%;
+  --color-fg-muted: 217 12% 65%;
+  --color-fg-subtle: 217 10% 52%;
+  --color-fg-disabled: 217 10% 38%;
+  --color-fg-on-brand: 0 0% 100%;
+
+  --color-border-default: 217 19% 22%;
+  --color-border-subtle: 217 19% 16%;
+  --color-border-strong: 217 15% 32%;
+
+  --color-success-bg: 142 40% 12%;
+  --color-success-fg: 142 60% 70%;
+  --color-success-border: 142 40% 25%;
+  --color-warning-bg: 38 50% 12%;
+  --color-warning-fg: 45 90% 70%;
+  --color-warning-border: 38 50% 28%;
+  --color-danger-bg: 0 50% 14%;
+  --color-danger-fg: 0 80% 75%;
+  --color-danger-border: 0 50% 30%;
+  --color-info-bg: 217 50% 14%;
+  --color-info-fg: 213 90% 75%;
+  --color-info-border: 217 50% 30%;
+
+  --shadow-1: 0 1px 2px hsl(0 0% 0% / 0.4);
+  --shadow-2: 0 2px 10px hsl(0 0% 0% / 0.45);
+  --shadow-3: 0 10px 28px hsl(0 0% 0% / 0.5);
+  --shadow-4: 0 24px 56px hsl(0 0% 0% / 0.6);
+}
+
+/* ── BRAND: amber (SRC gold) ──────────────────────── */
+:root[data-brand="amber"] {
+  --color-brand-50: 43 80% 96%;
+  --color-brand-100: 43 78% 90%;
+  --color-brand-200: 43 72% 80%;
+  --color-brand-300: 43 64% 71%;
+  --color-brand-400: 41 56% 64%;
+  --color-brand-500: 43 49% 56%;
+  --color-brand-600: 40 54% 40%;
+  --color-brand-700: 38 59% 33%;
+  --color-brand-800: 36 60% 26%;
+  --color-brand-900: 34 60% 20%;
+  --color-brand-foreground: 0 0% 4%;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+}
+
+:root[data-brand="amber"][data-theme="dark"] {
+  --color-bg-app: 0 0% 4%;
+  --color-bg-surface: 0 0% 7%;
+  --color-bg-surface-muted: 0 0% 10%;
+  --color-border-default: 40 12% 18%;
+  --color-border-subtle: 40 12% 13%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

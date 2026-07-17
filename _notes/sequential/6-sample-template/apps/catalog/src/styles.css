@@ -1,0 +1,12 @@
+@import "../../../packages/ui/src/styles/globals.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  background: hsl(var(--color-bg-app));
+  color: hsl(var(--color-fg-default));
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}

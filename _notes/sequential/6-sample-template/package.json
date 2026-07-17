@@ -1,0 +1,16 @@
+{
+  "name": "srctemplate",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Reusable React UI template (tokens, themes, layered components, catalog) extracted from the SRC web project.",
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "dev": "pnpm --filter @tpl/catalog dev",
+    "build": "pnpm --filter @tpl/ui build && pnpm --filter @tpl/catalog build",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}
