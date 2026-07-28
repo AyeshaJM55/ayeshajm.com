@@ -5,6 +5,8 @@ import HighlightCards from './sections/HighlightCards/HighlightCards'
 import FeaturedWork from './sections/FeaturedWork/FeaturedWork'
 import Services from './sections/Services/Services'
 import Testimonials from './sections/Testimonials/Testimonials'
+import BookNowStrip from './sections/BookNowStrip/BookNowStrip'
+import Faq from './sections/Faq/Faq'
 
 function Home() {
   return (
@@ -16,6 +18,8 @@ function Home() {
         <FeaturedWork />
         <Services />
         <Testimonials />
+        <BookNowStrip />
+        <Faq />
       </main>
     </SiteLayout>
   )

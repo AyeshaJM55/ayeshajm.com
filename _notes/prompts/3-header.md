@@ -364,6 +364,10 @@ let me know when book now is ready.
 
 ---
 
+minor update for testimonials:
+- they have navy blue in caret and pills that are active
+- instead black. because we are using black and white hteme here.
+
 FAQs:
 - Add FAQ accordions next
 - on big screens, 2 columns
@@ -372,6 +376,14 @@ FAQs:
 - and matching website's elements
 
 let me know when done.
+
+---
+
+why 1st is opened by default ? all should be closed by default. we do not need a full height section for this. make heading "FAQs" right aligned. no para. just accordions. 5 only.  this is not supposed to be a full 100vh section. 
+
+---
+
+Leave a message full 100vh form before fAQs.
 
 ---
 
