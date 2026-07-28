@@ -145,6 +145,20 @@ for those logos:
 
 ---
 
+those circles (between logos) are small. make them 2x.
+
+---
+
+Cards counts:
+- counts in those cards are fixed
+- they are 4+, 400+, etc.
+- but add counter animation
+- that starts with scroll trigger
+- i.e., make the trigger and delay etc or something in a manner, so that it starts as user gest to that page
+- and it takes some time so that user clearly notices that time starts counting.
+
+---
+
 Pre-req:
 - there are images for services that i provide at `_notes/sequential/12-images`
 - from project `_notes/sequential/7-visune-io-lovable-project`, learn about layout and structure of how section with heading "Go-to Resources" is designed

@@ -105,11 +105,11 @@ function PartnersStrip() {
                 ref={(element) => {
                   itemRefs.current[index] = element
                 }}
-                className='select-none whitespace-nowrap px-8 py-3 text-xl font-semibold italic leading-none text-strip-ink opacity-15 sm:px-10 sm:py-4 sm:text-2xl lg:px-12 lg:text-[1.8rem]'
+                className='select-none whitespace-nowrap px-8 py-5 text-xl font-semibold italic leading-none text-strip-ink opacity-15 sm:px-10 sm:py-6 sm:text-2xl lg:px-12 lg:text-[1.8rem]'
               >
                 {name}
               </span>
-              <span aria-hidden='true' className='size-1.5 shrink-0 rounded-full bg-strip-dot' />
+              <span aria-hidden='true' className='size-3 shrink-0 rounded-full bg-strip-dot' />
             </div>
           ))}
         </div>
