@@ -1,0 +1,13 @@
+:root {
+  --theme-canvas: #ffffff;
+  --theme-foreground: #111827;
+  --theme-primary: #2563eb;
+  --theme-radius: 0.75rem;
+}
+
+@theme {
+  --color-canvas: var(--theme-canvas);
+  --color-foreground: var(--theme-foreground);
+  --color-primary: var(--theme-primary);
+  --radius-theme: var(--theme-radius);
+}

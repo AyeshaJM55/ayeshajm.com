@@ -1,0 +1,19 @@
+@import 'tailwindcss';
+@import './theme/tokens.css';
+
+@layer base {
+  html {
+    background: var(--theme-canvas);
+    color: var(--theme-foreground);
+  }
+
+  body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+}
