@@ -18,16 +18,4 @@ export const services = [
     title: 'Lifestyle Renders',
     description: 'Context-rich scenes that place products naturally inside carefully art-directed environments and everyday settings.',
   },
-  {
-    title: '360° Rotation Animations',
-    description: 'Smooth turntable animation that presents every angle clearly for e-commerce, product pages, and presentations.',
-  },
-  {
-    title: 'Exploded View',
-    description: 'Structured visual breakdowns that reveal internal parts, construction, assembly, and technical relationships.',
-  },
-  {
-    title: 'Amazon Studio Renders',
-    description: 'Clean, conversion-focused studio visuals designed to meet marketplace expectations and strengthen product listings.',
-  },
 ]

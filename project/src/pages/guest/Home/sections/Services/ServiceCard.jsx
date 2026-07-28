@@ -32,7 +32,7 @@ function ServiceCard({ index, isActive, service, videoRef }) {
         <p className='text-xs font-semibold uppercase tracking-[0.16em] text-white/55'>
           {String(index + 1).padStart(2, '0')}
         </p>
-        <h3 className='mt-3 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl lg:text-5xl'>
+        <h3 className='mt-3 text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl'>
           {service.title}
         </h3>
         <p

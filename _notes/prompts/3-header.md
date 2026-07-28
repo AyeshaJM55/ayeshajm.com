@@ -308,6 +308,14 @@ Changes:
 
 ---
 
+add a bit of space on top as it is near header.
+
+---
+
+title of each service should also be white. it is left black.
+
+---
+
 Testimonials:
 - take a look at design at `_notes/sequential/14-testimonials`
 - they should auto scroll with 3s. but when hovered over card, it freezes.

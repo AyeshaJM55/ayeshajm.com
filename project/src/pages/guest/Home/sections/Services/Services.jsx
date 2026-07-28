@@ -1,7 +1,7 @@
 import { useCallback, useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { A11y, EffectCoverflow, Keyboard, Navigation, Pagination } from 'swiper/modules'
+import { A11y, EffectCoverflow, Keyboard, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import ServiceCard from './ServiceCard'
@@ -9,7 +9,6 @@ import { SCROLL_PER_TRANSITION_VH, services, SLIDE_SPEED } from './ServicesData'
 
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
-import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import './Services.css'
 
@@ -113,19 +112,16 @@ function Services() {
   return (
     <section
       aria-labelledby='services-title'
-      className='relative flex min-h-[100svh] flex-col overflow-hidden bg-black py-8 text-white sm:py-10 lg:py-12'
+      className='relative flex min-h-[100svh] flex-col overflow-hidden bg-white pb-8 pt-16 text-black sm:pb-10 sm:pt-20 lg:pb-12 lg:pt-24'
       ref={sectionRef}
     >
       <header className='relative z-20 mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-[clamp(2.5rem,4vw,4.75rem)]'>
-        <p className='text-xs font-semibold uppercase tracking-[0.16em] text-white/50'>Capabilities</p>
-        <div className='mt-3 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
-          <h2 className='text-4xl font-semibold tracking-[-0.045em] sm:text-5xl lg:text-6xl' id='services-title'>
-            Services
-          </h2>
-          <p className='max-w-xl text-sm leading-6 text-white/55 sm:text-base'>
-            From precise modeling to campaign-ready CGI, each service is built to present products with clarity and impact.
-          </p>
-        </div>
+        <h2 className='text-4xl font-semibold tracking-[-0.045em] sm:text-5xl lg:text-6xl' id='services-title'>
+          Services
+        </h2>
+        <p className='mt-3 max-w-2xl text-sm leading-6 text-black/55 sm:text-base sm:leading-7'>
+          From precise modeling to campaign-ready CGI, each service is built to present products with clarity and impact.
+        </p>
       </header>
 
       <div className='relative flex min-h-0 flex-1 items-center'>
@@ -137,8 +133,7 @@ function Services() {
           effect='coverflow'
           grabCursor
           keyboard={{ enabled: true }}
-          modules={[EffectCoverflow, Navigation, Pagination, Keyboard, A11y]}
-          navigation
+          modules={[EffectCoverflow, Pagination, Keyboard, A11y]}
           onSlideChange={syncScrollToSlide}
           onSwiper={(swiper) => { swiperRef.current = swiper }}
           pagination={{ clickable: true }}
