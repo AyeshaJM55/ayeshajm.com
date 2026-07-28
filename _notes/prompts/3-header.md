@@ -81,3 +81,52 @@ on right, it should just be simple circle with bg image.
 having cover with round and no overflows etc. proper structure.
 
 ---
+
+Now we need to add `_notes/sequential/10-strip` as next strip (after 100vh hero)
+- get strip only 
+- but also add a 100vh temporary section afterwards so that i can test scroll
+- they should scroll on x-axis (horizontally) when page scrolls y (vertically)
+- but it is not hapenning
+- u should fix that and use gsap properly here
+- so that it works on scroll.
+
+let me know when done.
+and scroll problem fixed.
+
+---
+
+good. but speed is very fast. it is like 5x. make it 1x.
+
+better. but still:
+- font is big
+- it should not have any y padding or spacing (up and down)
+
+let me know when it is compact.
+
+also it is a bit faster than scroll still. cannot we just make it match the scroll speed like exactly ? i guess gsap has that method.
+
+lmk when done.
+
+---
+
+u even removed the padding that was in inner items. like i just wanted to remove external margin etc. now add some padding kindly. lmk when done. font size is very small now. if earlier was 2 and now it is 1, then it should be 1.8.
+
+lmk when done.
+
+---
+
+should we add a "." between all logos.
+
+---
+
+great. i guess we do not need that placeholder section now. as everything is tested and looks great. 
+
+just add next section that has some counts in cards.
+
+you can refer to `_notes/sequential/11-highlight-cards` draft.
+and create section according to our theme.
+
+let me know when done.
+
+---
+

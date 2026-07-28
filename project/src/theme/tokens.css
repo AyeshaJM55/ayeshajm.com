@@ -9,10 +9,8 @@
   --header-solid: #ffffff;
   --hero-surface: #f7f8f9;
   --hero-ink: #0b2131;
-  --hero-surface: #f7f8f9;
-  --hero-ink: #0b2131;
-  --hero-surface: #f7f8f9;
-  --hero-ink: #0b2131;
+  --strip-ink: #1b1f28;
+  --strip-dot: rgba(27, 31, 40, 0.12);
 }
 
 @theme {
@@ -21,9 +19,7 @@
   --color-primary: var(--theme-primary);
   --color-hero-surface: var(--hero-surface);
   --color-hero-ink: var(--hero-ink);
-  --color-hero-surface: var(--hero-surface);
-  --color-hero-ink: var(--hero-ink);
-  --color-hero-surface: var(--hero-surface);
-  --color-hero-ink: var(--hero-ink);
+  --color-strip-ink: var(--strip-ink);
+  --color-strip-dot: var(--strip-dot);
   --radius-theme: var(--theme-radius);
 }

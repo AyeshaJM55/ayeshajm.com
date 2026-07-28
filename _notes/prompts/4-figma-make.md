@@ -25,3 +25,20 @@ and also:
 let me know when done accordingly.
 
 ---
+---
+
+Now work on this section
+- i pasted a sketch
+- it should have square (not round corners)
+- and it should have dividers (all equal sizes)
+- responsive for all devices
+- it should be in a container with spaces on left and right
+- just like a good section in a website
+
+let me know when this section is ready.
+i already have a site with header, hero, a strip etc.
+i just want u to make this section.
+
+lmk when done.
+
+---
