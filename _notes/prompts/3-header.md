@@ -176,3 +176,32 @@ it should look great.
 let me know when it is added.
 
 ---
+
+a view all button at bottom right should take user to projects page (for now just add / link) and also this footer strip should have a lighter bg. instead of white. like a light cream. but on left add some text. and on right (at end) a button.
+
+---
+
+for pics, use contain instead of fill. and in contain, they should be on top (instead of center)
+
+---
+
+footer updates
+- bg should be #0001 instead of that cream
+- it should not be in container. it should take full width (outside of any container limitaions)
+- text and button inside tha tfooter should be in container though
+- on left, single line text only. instead of a heading and text. just simple short sentence.
+
+---
+
+that icon on top right should have a bit of shadow. cz rare but sometimes on white it should not be visible.
+that shadow should not be much. or like  a big shadow. a small light shadow.
+
+---
+
+the section element sitll has padding that appies to footer also. i guess we do not need any x padding.
+
+---
+
+for those work cards, add a bit of y padding. for that grid of work only
+
+---

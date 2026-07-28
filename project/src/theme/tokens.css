@@ -11,6 +11,7 @@
   --hero-ink: #0b2131;
   --strip-ink: #1b1f28;
   --strip-dot: rgba(27, 31, 40, 0.12);
+  --featured-footer: #0001;
 }
 
 @theme {
@@ -21,5 +22,6 @@
   --color-hero-ink: var(--hero-ink);
   --color-strip-ink: var(--strip-ink);
   --color-strip-dot: var(--strip-dot);
+  --color-featured-footer: var(--featured-footer);
   --radius-theme: var(--theme-radius);
 }

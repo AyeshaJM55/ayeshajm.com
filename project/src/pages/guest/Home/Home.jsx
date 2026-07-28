@@ -2,6 +2,7 @@ import SiteLayout from '../../../layouts/SiteLayout/SiteLayout'
 import Hero from './sections/Hero'
 import PartnersStrip from './sections/PartnersStrip/PartnersStrip'
 import HighlightCards from './sections/HighlightCards/HighlightCards'
+import FeaturedWork from './sections/FeaturedWork/FeaturedWork'
 
 function Home() {
   return (
@@ -10,6 +11,7 @@ function Home() {
         <Hero />
         <PartnersStrip />
         <HighlightCards />
+        <FeaturedWork />
       </main>
     </SiteLayout>
   )
