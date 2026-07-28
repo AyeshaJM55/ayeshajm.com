@@ -140,7 +140,7 @@ export default function App() {
             Creative Portfolio
           </p>
           <h1 className="text-[clamp(48px,8vw,120px)] font-semibold leading-[0.95] tracking-tight text-black uppercase mb-8">
-            Ayesha<br />Javid
+            Ayesha<br />JM
           </h1>
           <p className="text-[16px] text-neutral-500 max-w-md leading-relaxed">
             Designer & strategist crafting experiences that move people — and products that move markets.
