@@ -43,11 +43,6 @@ also:
 
 start now.
 
-
----
-
-hay man !! u look at that round borders. they are like too round when it is on mobile (content overflow sand they are too big). yes we had pill like radius . but when hamburger opens, it should be pixel (fixed). instead of that much big. man !! fix that. l mk when done.
-
 ---
 
 For header, it should be respnosive:
@@ -55,6 +50,15 @@ For header, it should be respnosive:
 - check for all devices also
 
 let me know when done.
+
+
+---
+
+hay man !! u look at that round borders. they are like too round when it is on mobile (content overflow sand they are too big). yes we had pill like radius . but when hamburger opens, it should be pixel (fixed). instead of that much big. man !! fix that. l mk when done.
+
+---
+
+good. but still it has a transition in start. disable that on hamburger open. but it should exist for lock (that we have on scroll trigger). lmk when done
 
 ---
 

@@ -1,6 +1,7 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { CalendarCheck2 } from 'lucide-react'
 import { useLayoutEffect, useRef, useState } from 'react'
+import useHeaderScrollAnimation from '../../../../hooks/useHeaderScrollAnimation'
 import headerLinks from './HeaderLinks'
 
 function Header() {
@@ -8,109 +9,20 @@ function Header() {
   const innerRef = useRef(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+  useHeaderScrollAnimation(headerRef, innerRef)
+
   useLayoutEffect(() => {
-    const header = headerRef.current
     const inner = innerRef.current
 
-    if (!header || !inner || import.meta.env.MODE === 'test') return undefined
+    if (!inner || window.innerWidth >= 768) return
 
-    let animationContext
-    let cancelled = false
-
-    async function setupScrollAnimation() {
-      const [gsapModule, scrollTriggerModule] = await Promise.all([
-        import('gsap'),
-        import('gsap/ScrollTrigger'),
-      ])
-
-      if (cancelled) return
-
-      const gsap = gsapModule.gsap ?? gsapModule.default
-      const ScrollTrigger = scrollTriggerModule.ScrollTrigger ?? scrollTriggerModule.default
-      const duration = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 0.45
-
-      gsap.registerPlugin(ScrollTrigger)
-
-      animationContext = gsap.context(() => {
-        function compactHeader() {
-          gsap.to(inner, {
-            width: 'calc(100% - 24px)',
-            maxWidth: '860px',
-            paddingLeft: '28px',
-            paddingRight: '12px',
-            paddingTop: '8px',
-            paddingBottom: '8px',
-            borderRadius: isMenuOpen ? '24px' : '9999px',
-            backgroundColor: 'var(--header-glass)',
-            backdropFilter: 'blur(18px)',
-            borderColor: 'var(--header-glass-border)',
-            boxShadow: 'var(--header-shadow)',
-            duration,
-            ease: 'power2.out',
-            overwrite: 'auto',
-          })
-
-          gsap.to(header, {
-            paddingTop: '12px',
-            duration,
-            ease: 'power2.out',
-            overwrite: 'auto',
-          })
-        }
-
-        function expandHeader() {
-          gsap.to(inner, {
-            width: '100%',
-            maxWidth: '100%',
-            paddingLeft: window.innerWidth >= 1024 ? '40px' : '16px',
-            paddingRight: window.innerWidth >= 1024 ? '24px' : '16px',
-            paddingTop: window.innerWidth >= 1024 ? '18px' : '16px',
-            paddingBottom: window.innerWidth >= 1024 ? '18px' : '16px',
-            borderRadius: '0px',
-            backgroundColor: 'var(--header-solid)',
-            backdropFilter: 'blur(0px)',
-            borderColor: 'transparent',
-            boxShadow: 'none',
-            duration,
-            ease: 'power2.out',
-            overwrite: 'auto',
-          })
-
-          gsap.to(header, {
-            paddingTop: '0px',
-            duration,
-            ease: 'power2.out',
-            overwrite: 'auto',
-          })
-        }
-
-        const updateHeader = () => {
-          if (window.scrollY > 80) {
-            compactHeader()
-          } else {
-            expandHeader()
-          }
-        }
-
-        ScrollTrigger.create({
-          start: '80px top',
-          onEnter: compactHeader,
-          onLeaveBack: expandHeader,
-        })
-
-        window.addEventListener('scroll', updateHeader, { passive: true })
-        updateHeader()
-
-        return () => window.removeEventListener('scroll', updateHeader)
-      }, header)
+    if (isMenuOpen) {
+      inner.style.setProperty('border-radius', '24px', 'important')
+      return
     }
 
-    setupScrollAnimation()
-
-    return () => {
-      cancelled = true
-      animationContext?.revert()
-    }
+    inner.style.removeProperty('border-radius')
+    inner.style.borderRadius = window.scrollY > 80 ? '9999px' : '0px'
   }, [isMenuOpen])
 
   return (
@@ -165,30 +77,22 @@ function Header() {
           </div>
         </div>
 
-        <AnimatePresence>
-          {isMenuOpen ? (
-            <motion.nav
-              animate={{ height: 'auto', opacity: 1 }}
-              aria-label='Mobile navigation'
-              className='overflow-hidden md:hidden'
-              exit={{ height: 0, opacity: 0 }}
-              initial={{ height: 0, opacity: 0 }}
-            >
-              <div className='grid gap-1 pt-4'>
-                {headerLinks.map(({ label, href }) => (
-                  <a
-                    key={href}
-                    className='rounded-full px-4 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-black outline-none hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-black'
-                    href={href}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {label}
-                  </a>
-                ))}
-              </div>
-            </motion.nav>
-          ) : null}
-        </AnimatePresence>
+        {isMenuOpen ? (
+          <nav aria-label='Mobile navigation' className='md:hidden'>
+            <div className='grid gap-1 pt-4'>
+              {headerLinks.map(({ label, href }) => (
+                <a
+                  key={href}
+                  className='rounded-full px-4 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-black outline-none hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-black'
+                  href={href}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+          </nav>
+        ) : null}
       </div>
     </header>
   )
