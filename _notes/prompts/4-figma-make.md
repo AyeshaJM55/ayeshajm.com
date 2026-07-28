@@ -42,3 +42,18 @@ i just want u to make this section.
 lmk when done.
 
 ---
+
+Time for testimonials.
+
+Refer to attached details on how to create a cards stack. but this is just draft that i shared (attached)
+
+What i need is :
+firstly, they are stacked downards, i want them stack upward
+secondly, the stack itslef look high, i want compact (i.e., if 10 items are added, they take 0.5x space as compared to what it takes atm)
+cards should take most space. like 70vw. others should only be carets on sides
+the pagination pills etc. are on top. keep tham at bottom (as stack also grows upwards)
+include testomonials structure (for each item) according to attached figma design.
+
+let me know when it is ready.
+
+---

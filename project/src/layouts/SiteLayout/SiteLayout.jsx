@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import Footer from './partials/Footer/Footer'
 import Header from './partials/Header/Header'
 
 function SiteLayout({ children }) {
@@ -6,6 +7,7 @@ function SiteLayout({ children }) {
     <div className='min-h-screen bg-canvas text-foreground'>
       <Header />
       {children}
+      <Footer />
     </div>
   )
 }

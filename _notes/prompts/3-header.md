@@ -205,3 +205,94 @@ the section element sitll has padding that appies to footer also. i guess we do 
 for those work cards, add a bit of y padding. for that grid of work only
 
 ---
+
+For footer, i want you to show me a short plan in chat that includes:
+- it should be around 40vh (not fixed just giving u the idea)
+- it should be very minimal. but big font. i.e., directly email on right
+- on left, few links. links to social medai also.
+- so that it looks like a nice design
+- for background it should be pure black. but as user hovers over it, it shows the grid (white) near pointer
+- pointer it should like a opaque to transparent gradeint effect. so that grid is only visible where there is pointer. otherwise there is no such place
+- instead of grids, use dots (like antigravity's website). it should have the grid of circles that becomes visisble on hover
+- circles near pointer are big, far are small (we do not need gradient. actually the size will create the effect)
+- it should have "difference" effect with white text in footer, so that text is white on black. but the place wher eit comes on top of that gradient circlcles, css's difference effect make it white at those places with sharp style
+
+create a summary in chat. so that i can approve.
+
+---
+
+looks liek a great plan. completely implement it.
+
+-
+
+output too large. try different command.
+
+---
+
+one at `_notes/sequential/13-footer` looks better. i want that footer here.
+
+on-hover:
+- mail and links on hover should not turn dark
+- instead make their bg pure black (so that it is above htose grid of circles).
+- but with a 0.4s transition and then removed when mouse went away.
+
+social media:
+- add icons instead of text
+- and add them above the email (insetad of left)
+- on right, only email and those links
+
+---
+
+icons are small. make them 2x
+
+---
+
+replace behance with artstation
+
+---
+
+Next-up, we need to create a section to display "Services"
+i.e., which services does Ayesha J. provides
+
+Design:
+- take a look at "Effect coverflow" from SwiperJS
+- we need to use a full-width section with those cards
+- the central card should be big (50vw). and others on sides (with effect)
+- active card should show 50% gradient (like we had for those in work section)
+- that shows heading and paragraph
+
+Services:
+1. 3D Modeling: creating a 3d geometry of product
+2. Photorealistc Renders
+3. Product/CGI Animations
+4. Lifestyle Renders
+5. 360 degree rotation animations
+6. Exploded View
+7. Amazon Studo Renders
+
+each should play a video in repeat when comes. with muted.
+for now, you can download any video from from web (using curl) and add same on all places.
+
+no seek / pause controls. or volume. because it is a muted, looped video simply.
+
+Usage:
+- when user comes to slider, it is a 100vh
+- it gets locked
+- and all of those items scroll
+- then it gets unlocked when ti scrolled to end
+- specifiy a fixed scroll duration for each item
+- and overall scroll size should be added by multiplation
+- so that any element addeed in future works nicely (we do not have to change those params. they should be dynamic)
+
+clicking right + left should work. also show pagination pills that are supported by SwiperJS.
+
+create a short summary in chat.
+
+---
+
+Favicon and title:
+- Add "A." favicon (same font as in header Ayesha J.)
+- title should also be "Ayesha J. | Home" -- updating as user visits other pages also
+- on click on header, show each page. but for now, add them all as blank (we shall add contents later)
+
+---

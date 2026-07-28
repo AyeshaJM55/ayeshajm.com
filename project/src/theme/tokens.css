@@ -12,6 +12,9 @@
   --strip-ink: #1b1f28;
   --strip-dot: rgba(27, 31, 40, 0.12);
   --featured-footer: #0001;
+  --footer-surface: #000000;
+  --footer-ink: #ffffff;
+  --footer-dot: #ffffff;
 }
 
 @theme {
@@ -23,5 +26,7 @@
   --color-strip-ink: var(--strip-ink);
   --color-strip-dot: var(--strip-dot);
   --color-featured-footer: var(--featured-footer);
+  --color-site-footer: var(--footer-surface);
+  --color-site-footer-ink: var(--footer-ink);
   --radius-theme: var(--theme-radius);
 }
