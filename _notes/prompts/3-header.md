@@ -130,3 +130,35 @@ let me know when done.
 
 ---
 
+why u made them blu like color. make pure black (the bg). lmk when done.
+
+---
+
+square corners instead of round.
+
+---
+
+for those logos:
+- their y padding is less
+- make them 1.5x to 2x more than what it is
+- because there is less y padding atm.
+
+---
+
+Pre-req:
+- there are images for services that i provide at `_notes/sequential/12-images`
+- from project `_notes/sequential/7-visune-io-lovable-project`, learn about layout and structure of how section with heading "Go-to Resources" is designed
+- i need next section as "Featured Work"
+- each should have a nice smooth transition on hover etc as well
+- i would like an on-hover little scale-up
+- along with revealed arrow-lik small icon-button at top-right with "Open" or "Preview" icon. so that it opens up that project page (for now just take user to /)
+- before hover, only show the title
+- but after hover, it should show a black to transparent gradeitn transitioned and taking only a 50% of lower part of image (like a smooth) so that it also reveals the description
+- before hover, it may only take 20% with title only
+
+i hope you got the idea.
+
+it should look great.
+let me know when it is added.
+
+---

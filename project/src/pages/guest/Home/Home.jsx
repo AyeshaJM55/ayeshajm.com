@@ -1,7 +1,7 @@
 import SiteLayout from '../../../layouts/SiteLayout/SiteLayout'
 import Hero from './sections/Hero'
 import PartnersStrip from './sections/PartnersStrip/PartnersStrip'
-import TemporaryScrollSection from './sections/TemporaryScrollSection'
+import HighlightCards from './sections/HighlightCards/HighlightCards'
 
 function Home() {
   return (
@@ -9,7 +9,7 @@ function Home() {
       <main aria-label='Homepage' id='main-content'>
         <Hero />
         <PartnersStrip />
-        <TemporaryScrollSection />
+        <HighlightCards />
       </main>
     </SiteLayout>
   )
