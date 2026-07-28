@@ -57,3 +57,7 @@ include testomonials structure (for each item) according to attached figma desig
 let me know when it is ready.
 
 ---
+
+cards are too compact. i guess stack should grow. that 0.5x was a mistake. grow them so that i can use. arrows are at bottom of cards. they should be centered vertically on both sides. update accordingly.
+
+---

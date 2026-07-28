@@ -3,6 +3,7 @@ import Hero from './sections/Hero'
 import PartnersStrip from './sections/PartnersStrip/PartnersStrip'
 import HighlightCards from './sections/HighlightCards/HighlightCards'
 import FeaturedWork from './sections/FeaturedWork/FeaturedWork'
+import Services from './sections/Services/Services'
 
 function Home() {
   return (
@@ -12,6 +13,7 @@ function Home() {
         <PartnersStrip />
         <HighlightCards />
         <FeaturedWork />
+        <Services />
       </main>
     </SiteLayout>
   )

@@ -290,6 +290,54 @@ create a short summary in chat.
 
 ---
 
+no . u did not study properly on web. first do and then share plan in chat. no need for json commands now. just study web for this lib (SwiperJS) check their docs. learn how to make it and then share plan in chat.
+
+---
+
+looks like a great plan. compeltely implmeent it.
+
+---
+
+Changes:
+- use white bg. no black bg for this section
+- On left use heading "Services" and text "From precise modeling to campaign-ready CGI, each service is built to present products with clarity and impact" below it. do not add it on right
+- the pagination is taking too much space, reduce that so that it may lower carousel (to fit text below heading)
+- i hope it is resopnsive already.
+- remove those carets. they do not look good.
+- too many. use 4 services only. not much.
+
+---
+
+Testimonials:
+- take a look at design at `_notes/sequential/14-testimonials`
+- they should auto scroll with 3s. but when hovered over card, it freezes.
+
+let me know when testimonails is added as next section.
+
+---
+
+Book Now Strip
+- add a book now card strip
+- approx 20-50vh (let's call it 30)
+- pure black. square corners. containerd with arrow on right and text on left (with button)
+- it should have a very big arrow on right (diagonal to top right). but from icon. like a preview icon is beset (as maybe it is in a square also)
+- on left, a heading and text. witha button also
+- user may either click button or the big arrow
+- that takes them to book page
+
+---
+
+FAQs:
+- Add FAQ accordions next
+- on big screens, 2 columns
+- on tablet and mobile, single column
+- nice and smooth they should be
+- and matching website's elements
+
+let me know when done.
+
+---
+
 Favicon and title:
 - Add "A." favicon (same font as in header Ayesha J.)
 - title should also be "Ayesha J. | Home" -- updating as user visits other pages also
