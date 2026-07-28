@@ -71,3 +71,13 @@ make sure it is responsive. on mboeil and desktop.
 and add it to project according to our skill `.agents/skills/frontend-dev`
 
 ---
+
+pic problem:
+- it should be circle with pic only in it
+- currently pic is saperate and circle is saperate
+- plus circle's bg is visible
+
+on right, it should just be simple circle with bg image.
+having cover with round and no overflows etc. proper structure.
+
+---

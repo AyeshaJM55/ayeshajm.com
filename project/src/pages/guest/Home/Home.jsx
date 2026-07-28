@@ -1,9 +1,12 @@
 import SiteLayout from '../../../layouts/SiteLayout/SiteLayout'
+import Hero from './sections/Hero'
 
 function Home() {
   return (
     <SiteLayout>
-      <main aria-label='Homepage' className='min-h-[200vh] bg-white pt-24' id='main-content' />
+      <main aria-label='Homepage' id='main-content'>
+        <Hero />
+      </main>
     </SiteLayout>
   )
 }

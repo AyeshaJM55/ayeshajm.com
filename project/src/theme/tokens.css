@@ -7,11 +7,23 @@
   --header-glass-border: rgba(255, 255, 255, 0.55);
   --header-shadow: 0 2px 32px rgba(0, 0, 0, 0.08);
   --header-solid: #ffffff;
+  --hero-surface: #f7f8f9;
+  --hero-ink: #0b2131;
+  --hero-surface: #f7f8f9;
+  --hero-ink: #0b2131;
+  --hero-surface: #f7f8f9;
+  --hero-ink: #0b2131;
 }
 
 @theme {
   --color-canvas: var(--theme-canvas);
   --color-foreground: var(--theme-foreground);
   --color-primary: var(--theme-primary);
+  --color-hero-surface: var(--hero-surface);
+  --color-hero-ink: var(--hero-ink);
+  --color-hero-surface: var(--hero-surface);
+  --color-hero-ink: var(--hero-ink);
+  --color-hero-surface: var(--hero-surface);
+  --color-hero-ink: var(--hero-ink);
   --radius-theme: var(--theme-radius);
 }
