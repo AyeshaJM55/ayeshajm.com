@@ -1,0 +1,17 @@
+.testimonial-card {
+  grid-column: 1;
+  grid-row: 1;
+  transform-origin: bottom center;
+}
+
+.testimonial-card--front {
+  pointer-events: auto;
+}
+
+.testimonial-card--back {
+  pointer-events: none;
+}
+
+.testimonials-stack {
+  padding-top: 54px;
+}

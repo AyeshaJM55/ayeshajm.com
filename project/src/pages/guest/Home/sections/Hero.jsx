@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import heroImage from '../../../../assets/hero-product.png'
+import heroImage from '../../../../assets/featured-work/render-1.png'
 
 const reveal = {
   hidden: { opacity: 0, y: 28 },
@@ -71,7 +71,7 @@ function Hero() {
           >
             <img
               alt='Photorealistic 3D product visualization'
-              className='absolute inset-0 h-full w-full object-cover object-center'
+              className='absolute inset-0 h-full w-full rotate-45 scale-[1.08] object-cover object-center'
               fetchPriority='high'
               src={heroImage}
             />

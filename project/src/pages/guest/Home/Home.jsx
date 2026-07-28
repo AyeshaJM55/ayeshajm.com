@@ -4,6 +4,7 @@ import PartnersStrip from './sections/PartnersStrip/PartnersStrip'
 import HighlightCards from './sections/HighlightCards/HighlightCards'
 import FeaturedWork from './sections/FeaturedWork/FeaturedWork'
 import Services from './sections/Services/Services'
+import Testimonials from './sections/Testimonials/Testimonials'
 
 function Home() {
   return (
@@ -14,6 +15,7 @@ function Home() {
         <HighlightCards />
         <FeaturedWork />
         <Services />
+        <Testimonials />
       </main>
     </SiteLayout>
   )

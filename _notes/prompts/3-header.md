@@ -324,6 +324,31 @@ let me know when testimonails is added as next section.
 
 ---
 
+Update for hero image:
+- from "Featured Work" section, checkout "Product Visualization" card
+- use that image. u can roate it 45deg with css
+
+For services, u used a flower video in all.
+use both from `_notes/sequential/15-videos` in alternate.
+
+---
+
+Testimonials update:
+- instead of big head in center
+- add heaidng on left with text (like services)
+- and arrows (carets) are inside of cards. make sure they are outside with some spacing
+- as they were in given example.
+
+---
+
+Hero image should be "cover" (not contain).
+
+testimonial carets:
+- they are different from one another
+- they should not have different bgs. make identical. always
+
+---
+
 Book Now Strip
 - add a book now card strip
 - approx 20-50vh (let's call it 30)
@@ -332,6 +357,10 @@ Book Now Strip
 - on left, a heading and text. witha button also
 - user may either click button or the big arrow
 - that takes them to book page
+
+this is one of important sections that we need to add.
+after that we just need to add FAQ (later . not now).
+let me know when book now is ready.
 
 ---
 

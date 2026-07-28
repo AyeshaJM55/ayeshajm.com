@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types'
 
-import serviceVideo from '../../../../../assets/services/service-placeholder.mp4'
+import serviceVideoA from '../../../../../assets/services/service-a.mp4'
+import serviceVideoB from '../../../../../assets/services/service-b.mp4'
 
 
 function ServiceCard({ index, isActive, service, videoRef }) {
+  const serviceVideo = index % 2 === 0 ? serviceVideoA : serviceVideoB
+
   return (
     <article
       aria-label={service.title}

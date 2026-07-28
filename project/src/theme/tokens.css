@@ -30,3 +30,19 @@
   --color-site-footer-ink: var(--footer-ink);
   --radius-theme: var(--theme-radius);
 }
+
+:root {
+  --testimonial-ink: #2c3847;
+  --testimonial-copy: #454545;
+  --testimonial-name: #171c2c;
+  --testimonial-muted: #9598a0;
+  --testimonial-dot: #c2c2c2;
+}
+
+@theme {
+  --color-testimonial-ink: var(--testimonial-ink);
+  --color-testimonial-copy: var(--testimonial-copy);
+  --color-testimonial-name: var(--testimonial-name);
+  --color-testimonial-muted: var(--testimonial-muted);
+  --color-testimonial-dot: var(--testimonial-dot);
+}
