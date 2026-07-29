@@ -818,3 +818,13 @@ misc updates:
   - but when i click on a new pge and them come back, there is no such issue.
   - i guess from here you can find and fix the problem as it is properly diagnosed now.
 - for that pen drawing line on scroll transition, the pen is not visible . i tshould also go RTL and fil horizontally also. so that it's corner is bottom right (instead of bottom left) afterwards. and use accordingly.
+
+---
+
+updates:
+- just like the prerender caused the problem of scroll trigger, it also adds an un-necessary horizontal scroll to winow (due to some element). maybe an element is added wrongfully or something. we need to fix that. because pre-render is only for llms. it is not for messing up with our designs. fix scroll problem.
+- arrows in arabic. e.g., in `/blog` page should transit to top left. but it transits top right
+- it is good top right on en (because arrow points top right). but on ar, it should show transition in respective RTL direction.
+- testimonials arrows have opposite direction now. i.e., on right, it ponts on left and on left, it points right (In AR only). fix this also
+
+---

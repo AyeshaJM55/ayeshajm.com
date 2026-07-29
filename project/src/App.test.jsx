@@ -25,7 +25,7 @@ describe('App routing', () => {
     await waitFor(() => expect(document.title).toBe(title))
   })
 
-  it('places prerendered content below a viewport guard during the site loader', () => {
+  it('keeps the prerender guard fixed outside document flow during the site loader', () => {
     const originalReadyState = document.readyState
     Object.defineProperty(document, 'readyState', { configurable: true, value: 'loading' })
 
@@ -42,6 +42,7 @@ describe('App routing', () => {
     const guard = container.querySelector('[data-prerender-guard]')
     expect(guard).toHaveAttribute('style', expect.stringContaining('height: 100vh'))
     expect(guard).toHaveAttribute('style', expect.stringContaining('min-height: 100svh'))
+    expect(guard).toHaveStyle({ inset: '0', position: 'fixed', zIndex: '9998' })
     expect(document.body).toHaveStyle({ overflow: 'hidden' })
 
     Object.defineProperty(document, 'readyState', { configurable: true, value: originalReadyState })

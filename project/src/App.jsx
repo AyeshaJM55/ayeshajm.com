@@ -100,7 +100,7 @@ function App({ includeSeo = true, initialLoaderVisible = false, initialLocation,
 
   return (
     <LocaleProvider locale={locale}>
-      {isPrerenderGuardVisible ? <div aria-hidden='true' data-prerender-guard='' style={{ height: '100vh', minHeight: '100svh' }} /> : null}
+      {isPrerenderGuardVisible ? <div aria-hidden='true' data-prerender-guard='' style={{ backgroundColor: '#fff', height: '100vh', inset: 0, minHeight: '100svh', pointerEvents: 'none', position: 'fixed', zIndex: 9998 }} /> : null}
       {includeSeo ? <SeoTags seo={seo} /> : null}
       <SiteLayout pathname={pathname}>
         {isRouteReady ? <Suspense fallback={<RouteLoader />}><Page key={location} params={params} /></Suspense> : <RouteLoader />}

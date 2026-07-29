@@ -184,3 +184,5 @@ English remains the default and uses existing paths such as `/services`. Arabic 
 `App` passes the matched locale to `LocaleProvider`. The URL is the source of truth, including during SSR and hydration. Locale switching must preserve the current route, query string, and hash through `switchLocalePath`.
 
 Production prerendering generates both locale variants. `entry-server.jsx` returns locale and direction metadata, while `scripts/prerender.mjs` writes `lang`, `dir`, `data-locale`, and `data-direction` directly onto `<html>` before first paint.
+
+The initial prerender guard is a fixed viewport overlay, never an in-flow spacer. Homepage ScrollTrigger instances mount while the loader is visible, so adding guard height to document flow shifts every measured trigger by one viewport until navigation remounts the page. Keep loader overlays fixed and preserve the real page geometry during hydration.
