@@ -38,7 +38,7 @@ export async function renderPage(pathname) {
 
   const seo = resolveRouteSeo(normalizedPathname, route, params)
   const rendered = await prerender(
-    <App includeSeo={false} initialLoaderVisible initialLocation={normalizedPathname} initialRouteReady />,
+    <App includeSeo={false} initialLoaderVisible initialLocation={normalizedPathname} initialPrerendered initialRouteReady />,
   )
   const html = await new Response(rendered.prelude).text()
   const head = renderToStaticMarkup(<SeoTags seo={seo} />)

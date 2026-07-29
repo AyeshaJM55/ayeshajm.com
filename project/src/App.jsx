@@ -22,11 +22,13 @@ function App({
   includeSeo = true,
   initialLoaderVisible = false,
   initialLocation,
+  initialPrerendered = false,
   initialRouteReady = false,
 }) {
   const [location, setLocation] = useState(() => initialLocation ?? getCurrentLocation())
   const [isRouteReady, setIsRouteReady] = useState(initialRouteReady)
   const [isSiteLoaderVisible, setIsSiteLoaderVisible] = useState(initialLoaderVisible)
+  const [isPrerenderGuardVisible, setIsPrerenderGuardVisible] = useState(initialPrerendered && initialLoaderVisible)
   const siteLoaderStartedAtRef = useRef(initialLoaderVisible ? Date.now() : 0)
   const skipInitialRouteLoadRef = useRef(initialRouteReady)
   const pathname = location.split(/[?#]/)[0]
@@ -82,7 +84,10 @@ function App({
     const finishInitialLoad = () => {
       const elapsed = Date.now() - siteLoaderStartedAtRef.current
       const remainingDelay = Math.max(0, MINIMUM_SITE_LOADER_DURATION - elapsed)
-      timeoutId = window.setTimeout(() => setIsSiteLoaderVisible(false), remainingDelay)
+      timeoutId = window.setTimeout(() => {
+        setIsPrerenderGuardVisible(false)
+        setIsSiteLoaderVisible(false)
+      }, remainingDelay)
     }
 
     if (document.readyState === 'complete') finishInitialLoad()
@@ -97,13 +102,14 @@ function App({
   useEffect(() => {
     if (!isSiteLoaderVisible) return undefined
 
-    const previousOverflow = document.body.style.overflow
+    const previousOverflow = initialPrerendered ? '' : document.body.style.overflow
     document.body.style.overflow = 'hidden'
 
     return () => {
       document.body.style.overflow = previousOverflow
+      if (initialPrerendered) document.body.removeAttribute('data-prerendered')
     }
-  }, [isSiteLoaderVisible])
+  }, [initialPrerendered, isSiteLoaderVisible])
 
   useEffect(() => {
     if (skipInitialRouteLoadRef.current) {
@@ -128,6 +134,13 @@ function App({
 
   return (
     <>
+      {isPrerenderGuardVisible ? (
+        <div
+          aria-hidden='true'
+          data-prerender-guard=''
+          style={{ height: '100vh', minHeight: '100svh' }}
+        />
+      ) : null}
       {includeSeo ? <SeoTags seo={seo} /> : null}
       <SiteLayout pathname={pathname}>
         {isRouteReady ? (
@@ -147,6 +160,7 @@ App.propTypes = {
   includeSeo: PropTypes.bool,
   initialLoaderVisible: PropTypes.bool,
   initialLocation: PropTypes.string,
+  initialPrerendered: PropTypes.bool,
   initialRouteReady: PropTypes.bool,
 }
 

@@ -29,7 +29,8 @@ function seoHtmlRendering() {
           const { renderPage } = await server.ssrLoadModule('/src/entry-server.jsx')
           const rendered = await renderPage(pathname)
           const html = transformedTemplate
-            .replace('<!--seo-head-->', rendered.head)
+            .replace('<body>', '<body data-prerendered="true" style="overflow:hidden">')
+              .replace('<!--seo-head-->', rendered.head)
             .replace('<div id="root"><!--app-html--></div>', `<div id="root" data-prerendered="true">${rendered.html}</div>`)
 
           response.statusCode = rendered.status

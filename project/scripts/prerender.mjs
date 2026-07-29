@@ -12,6 +12,7 @@ const serverEntry = await import(pathToFileURL(resolve(serverDirectory, 'entry-s
 
 function injectDocument(source, rendered) {
   return source
+    .replace('<body>', '<body data-prerendered="true" style="overflow:hidden">')
     .replace('<!--seo-head-->', rendered.head)
     .replace('<div id="root"><!--app-html--></div>', `<div id="root" data-prerendered="true">${rendered.html}</div>`)
 }

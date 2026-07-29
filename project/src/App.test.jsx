@@ -24,4 +24,27 @@ describe('App routing', () => {
     render(<App />)
     await waitFor(() => expect(document.title).toBe(title))
   })
+
+  it('places prerendered content below a viewport guard during the site loader', () => {
+    const originalReadyState = document.readyState
+    Object.defineProperty(document, 'readyState', { configurable: true, value: 'loading' })
+
+    const { container } = render(
+      <App
+        includeSeo={false}
+        initialLoaderVisible
+        initialLocation='/'
+        initialPrerendered
+        initialRouteReady
+      />,
+    )
+
+    const guard = container.querySelector('[data-prerender-guard]')
+    expect(guard).toHaveAttribute('style', expect.stringContaining('height: 100vh'))
+    expect(guard).toHaveAttribute('style', expect.stringContaining('min-height: 100svh'))
+    expect(document.body).toHaveStyle({ overflow: 'hidden' })
+
+    Object.defineProperty(document, 'readyState', { configurable: true, value: originalReadyState })
+  })
+
 })
