@@ -765,3 +765,16 @@ let me know when ready.
 and docs are in docs/ not in project/docs/
 
 ---
+
+quick fix before locales implementation required.
+
+problem:
+- that no scroll should only apply to prerender
+- it applied everywhere (did not reset after)
+
+---
+
+looks like a great plan for locales. i moved from `project/_notes/plans/4-locales.md` to `_notes/plans/4-locales.md`
+now compeltely implmeent it. let me know when done.
+
+---
