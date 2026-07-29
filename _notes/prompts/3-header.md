@@ -506,6 +506,10 @@ quick task: services images, use in contain. not in cover.
 
 ---
 
+box with image should have white bg instead of that gray.
+
+---
+
 create a plan at `_notes/plans/3-blog.md`
 according to this plan, i should be able to add blog pages in markdown files in a folder
 with each one's slug and deatils in its header.

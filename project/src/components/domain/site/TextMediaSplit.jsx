@@ -22,7 +22,7 @@ function TextMediaSplit({ children, fit = 'cover', image, imageAlt, reverse = fa
         {children}
       </motion.div>
 
-      <div className={`aspect-[4/3] overflow-hidden bg-neutral-100 ${reverse ? 'lg:order-1' : ''}`}>
+      <div className={`aspect-[4/3] overflow-hidden bg-white ${reverse ? 'lg:order-1' : ''}`}>
         <img
           alt={imageAlt}
           className={primaryImageClassName}
