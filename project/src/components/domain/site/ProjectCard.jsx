@@ -5,7 +5,7 @@ function ProjectCard({ project }) {
   return (
     <article>
       <a className='group block outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4' href={`/work/${project.slug}`}>
-        <div className='aspect-square overflow-hidden bg-neutral-100'>
+        <div className='aspect-square overflow-hidden bg-white'>
           <img
             alt={project.title}
             className='size-full object-contain p-3 transition-transform duration-700 group-hover:scale-[1.035] group-focus-visible:scale-[1.035] sm:p-5'

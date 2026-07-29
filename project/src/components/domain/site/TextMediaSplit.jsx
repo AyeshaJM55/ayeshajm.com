@@ -6,7 +6,7 @@ function TextMediaSplit({ children, fit = 'cover', image, imageAlt, reverse = fa
   return (
     <div className='grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16'>
       <div className={reverse ? 'lg:order-2' : ''}>{children}</div>
-      <div className={`aspect-[4/3] overflow-hidden bg-neutral-100 ${reverse ? 'lg:order-1' : ''}`}>
+      <div className={`aspect-[4/3] overflow-hidden ${fit === 'contain' ? 'bg-white' : 'bg-neutral-100'} ${reverse ? 'lg:order-1' : ''}`}>
         <img alt={imageAlt} className={imageClassName} height='900' loading='lazy' src={image} width='1200' />
       </div>
     </div>
