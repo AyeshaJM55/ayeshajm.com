@@ -55,7 +55,7 @@ function Header() {
           <div className='flex items-center gap-2'>
             <motion.a
               className='flex items-center gap-2 whitespace-nowrap rounded-full bg-black/10 px-4 py-3 text-xs font-semibold uppercase tracking-[0.06em] text-black outline-none transition-colors hover:bg-black/15 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 sm:px-5 sm:text-sm'
-              href='#contact'
+              href='/contact'
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
             >

@@ -425,3 +425,11 @@ Other pages:
 save complete plan as md at `_notes/plans/1-pages-and-sections.md`
 
 ---
+
+looks like a great plan. compeltely implmeent it.
+
+---
+
+Add SEO preload to all pages.
+
+---
