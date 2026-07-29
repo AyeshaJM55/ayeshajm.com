@@ -10,7 +10,6 @@ import SectionHeader from '../../../components/domain/site/SectionHeader'
 import { projectCategories, projects } from '../../../data/projects'
 import { services } from '../../../data/services'
 import useReducedMotion from '../../../hooks/useReducedMotion'
-import SiteLayout from '../../../layouts/SiteLayout/SiteLayout'
 import { motionDuration, motionEase, motionViewport } from '../../../motion/constants'
 import { fadeUp, staggerContainer } from '../../../motion/variants'
 
@@ -20,8 +19,7 @@ function Portfolio() {
   const visibleProjects = activeCategory === 'All' ? projects : projects.filter((project) => project.category === activeCategory)
 
   return (
-    <SiteLayout>
-      <AnimatedPage ariaLabel='Portfolio page'>
+    <AnimatedPage ariaLabel='Portfolio page'>
         <PageHero description={`${projects.length} selected projects across product design, e-commerce, lifestyle, material development, and photorealistic rendering.`} eyebrow='Portfolio' title='Work made to clarify, persuade, and launch.' />
 
         <section className='bg-white py-16 sm:py-20 lg:py-24'>
@@ -69,7 +67,6 @@ function Portfolio() {
 
         <ContactCta description='Share the product, intended platform, and the kind of visual outcome you need.' title='Need visuals like these?' />
       </AnimatedPage>
-    </SiteLayout>
   )
 }
 

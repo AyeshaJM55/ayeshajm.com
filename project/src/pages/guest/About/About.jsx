@@ -13,7 +13,6 @@ import lifestyleImage from '../../../assets/featured-work/lifestyle-render-2.png
 import useReducedMotion from '../../../hooks/useReducedMotion'
 import { motionDuration, motionEase, motionViewport } from '../../../motion/constants'
 import { fadeUp } from '../../../motion/variants'
-import SiteLayout from '../../../layouts/SiteLayout/SiteLayout'
 
 const process = [
   { title: 'Discover', description: 'Understand the product, audience, intended use, timeline, and existing assets.' },
@@ -34,8 +33,7 @@ function About() {
   const reducedMotion = useReducedMotion()
 
   return (
-    <SiteLayout>
-      <AnimatedPage ariaLabel='About page'>
+    <AnimatedPage ariaLabel='About page'>
         <PageHero description='I create precise, commercially useful 3D product visuals for brands that need to communicate clearly before, during, and after launch.' eyebrow='About' image={studioImage} imageAlt='Minimal studio product render' title='Visualizing products before they exist in the world.' />
 
         <section className='bg-white py-20 sm:py-24 lg:py-32'>
@@ -94,7 +92,6 @@ function About() {
 
         <ViewportReveal><ContactCta description='Explore the portfolio or share the product, timeline, and visual challenge you are working through.' title='Have a product in mind?' /></ViewportReveal>
       </AnimatedPage>
-    </SiteLayout>
   )
 }
 

@@ -13,7 +13,6 @@ import MetricStrip from '../../../components/domain/site/MetricStrip'
 import { getProjectBySlug } from '../../../data/projects'
 import { getServiceBySlug } from '../../../data/services'
 import useReducedMotion from '../../../hooks/useReducedMotion'
-import SiteLayout from '../../../layouts/SiteLayout/SiteLayout'
 import { motionDuration, motionEase, motionViewport } from '../../../motion/constants'
 import { fadeUp, mediaReveal, staggerContainer } from '../../../motion/variants'
 import NotFound from '../NotFound/NotFound'
@@ -32,8 +31,7 @@ function WorkDetail({ params }) {
   const relatedServiceNames = relatedServices.reduce((label, service, index) => `${label}${index > 0 ? ', ' : ''}${service.shortTitle}`, '')
 
   return (
-    <SiteLayout>
-      <AnimatedPage ariaLabel={`${project.title} project page`}>
+    <AnimatedPage ariaLabel={`${project.title} project page`}>
         <section className='overflow-hidden bg-hero-surface px-4 pb-16 pt-32 sm:px-6 sm:pb-20 sm:pt-36 lg:px-[clamp(2.5rem,4vw,4.75rem)] lg:pb-24 lg:pt-40'>
           <motion.div animate='visible' className='mx-auto w-full max-w-[1600px]' initial={reducedMotion ? false : 'hidden'} variants={staggerContainer(reducedMotion ? 0 : 0.1, reducedMotion ? 0 : 0.04)}>
             <Breadcrumbs items={[{ href: '/portfolio', label: 'Portfolio' }, { label: project.title }]} />
@@ -89,7 +87,6 @@ function WorkDetail({ params }) {
 
         <ContactCta description='Reference this project category and share the product, timing, and intended deliverables.' title='Build the next product story.' />
       </AnimatedPage>
-    </SiteLayout>
   )
 }
 

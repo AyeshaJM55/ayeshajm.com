@@ -14,7 +14,6 @@ import SectionHeader from '../../../components/domain/site/SectionHeader'
 import { projects } from '../../../data/projects'
 import { getServiceBySlug, services } from '../../../data/services'
 import useReducedMotion from '../../../hooks/useReducedMotion'
-import SiteLayout from '../../../layouts/SiteLayout/SiteLayout'
 import { motionDuration, motionEase, motionViewport } from '../../../motion/constants'
 import { fadeUp, mediaReveal, staggerContainer } from '../../../motion/variants'
 import NotFound from '../NotFound/NotFound'
@@ -31,8 +30,7 @@ function ServiceDetail({ params }) {
   const relatedProjects = projects.filter((project) => service.relatedProjectSlugs.includes(project.slug))
 
   return (
-    <SiteLayout>
-      <AnimatedPage ariaLabel={`${service.title} service page`}>
+    <AnimatedPage ariaLabel={`${service.title} service page`}>
         <section className='overflow-hidden bg-hero-surface px-4 pb-16 pt-32 sm:px-6 sm:pb-20 sm:pt-36 lg:px-[clamp(2.5rem,4vw,4.75rem)] lg:pb-24 lg:pt-40'>
           <div className='mx-auto w-full max-w-[1600px]'>
             <Breadcrumbs items={[{ href: '/services', label: 'Services' }, { label: service.title }]} />
@@ -114,7 +112,6 @@ function ServiceDetail({ params }) {
 
         <ContactCta description='Share the product, available assets, timeline, and intended output.' title={`Start a ${service.shortTitle.toLowerCase()} project.`} />
       </AnimatedPage>
-    </SiteLayout>
   )
 }
 

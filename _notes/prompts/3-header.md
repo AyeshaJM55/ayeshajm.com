@@ -477,6 +477,13 @@ let me know when done.
 
 ---
 
+also the explore service button on services page should be like Send Message in Leave us a message on homepage.
+
+Add custom scrollbar matching theme.
+and on bottom, add 2px pure black progressbar style scroll progress for each page.
+
+---
+
 create a plan at `_notes/plans/3-blog.md`
 according to this plan, i should be able to add blog pages in markdown files in a folder
 with each one's slug and deatils in its header.

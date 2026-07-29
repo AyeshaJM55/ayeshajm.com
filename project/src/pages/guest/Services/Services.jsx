@@ -11,7 +11,6 @@ import TextMediaSplit from '../../../components/domain/site/TextMediaSplit'
 import { projects } from '../../../data/projects'
 import { services } from '../../../data/services'
 import useReducedMotion from '../../../hooks/useReducedMotion'
-import SiteLayout from '../../../layouts/SiteLayout/SiteLayout'
 import { motionDuration, motionEase, motionViewport } from '../../../motion/constants'
 import { fadeUp, staggerContainer } from '../../../motion/variants'
 
@@ -28,14 +27,13 @@ function Services() {
   const reducedMotion = useReducedMotion()
 
   return (
-    <SiteLayout>
-      <AnimatedPage ariaLabel='Services page'>
+    <AnimatedPage ariaLabel='Services page'>
         <PageHero actions={<motion.a className='inline-flex min-h-14 items-center bg-black px-7 text-sm font-semibold text-white outline-none hover:bg-black/80 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4' href='/contact' whileHover={reducedMotion ? undefined : { y: -3 }} whileTap={reducedMotion ? undefined : { scale: 0.98 }}>Discuss a project</motion.a>} description='From product geometry to campaign imagery, services can stand alone or combine into a complete launch-ready visual system.' eyebrow='Services' title='Product visuals built from the inside out.' />
 
         <section className='bg-white py-20 sm:py-24 lg:py-32'>
           <div className='mx-auto w-full max-w-[1600px] space-y-24 px-4 sm:px-6 lg:px-[clamp(2.5rem,4vw,4.75rem)]'>
             {services.map((service, index) => (
-              <TextMediaSplit fit='contain' image={service.heroMedia} imageAlt={`${service.title} example`} key={service.slug} reverse={index % 2 === 1}>
+              <TextMediaSplit fit='cover' image={service.supportingMedia} imageAlt={`${service.title} showcase`} key={service.slug} reverse={index % 2 === 1}>
                 <p className='text-xs font-semibold uppercase tracking-[0.16em] text-black/40'>{service.number}</p><h2 className='mt-5 text-4xl font-semibold tracking-[-0.05em] text-black sm:text-5xl lg:text-6xl'>{service.title}</h2><p className='mt-5 max-w-xl text-base leading-8 text-black/60'>{service.description}</p>
                 <ul className='mt-8 border-t border-black/15'>{service.deliverables.slice(0, 3).map((item) => <li className='border-b border-black/15 py-3 text-sm text-black/65' key={item}>{item}</li>)}</ul>
                 <a className='group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-black outline-none focus-visible:ring-2 focus-visible:ring-black' href={`/services/${service.slug}`}>Explore service <ArrowUpRight aria-hidden='true' className='size-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1' /></a>
@@ -79,7 +77,6 @@ function Services() {
 
         <ContactCta description='Share the product, launch date, and intended deliverables. The right service mix can be shaped from there.' title='Not sure which service fits?' />
       </AnimatedPage>
-    </SiteLayout>
   )
 }
 

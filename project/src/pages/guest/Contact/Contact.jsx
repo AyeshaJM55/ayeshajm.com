@@ -7,7 +7,6 @@ import SectionHeader from '../../../components/domain/site/SectionHeader'
 import { services } from '../../../data/services'
 import { site } from '../../../data/site'
 import useReducedMotion from '../../../hooks/useReducedMotion'
-import SiteLayout from '../../../layouts/SiteLayout/SiteLayout'
 import { motionDuration, motionEase, motionViewport } from '../../../motion/constants'
 import { fadeUp, staggerContainer } from '../../../motion/variants'
 
@@ -29,8 +28,7 @@ function Contact() {
   }
 
   return (
-    <SiteLayout>
-      <AnimatedPage ariaLabel='Contact page'>
+    <AnimatedPage ariaLabel='Contact page'>
         <PageHero actions={<motion.a className='inline-flex min-h-14 items-center bg-black px-7 text-sm font-semibold text-white' href={`mailto:${site.email}`} whileHover={reducedMotion ? undefined : { y: -3 }} whileTap={reducedMotion ? undefined : { scale: 0.98 }}>Email directly</motion.a>} description='Share the product, launch timing, intended use, and the visual deliverables you need. A focused brief makes the first response far more useful.' eyebrow='Contact' title='Let’s make the product clear before it reaches the customer.' titleClassName='max-w-5xl text-[clamp(3rem,6vw,6.4rem)] leading-[0.96]' />
 
         <section className='bg-white py-20 sm:py-24 lg:py-28'>
@@ -100,7 +98,6 @@ function Contact() {
           </div>
         </section>
       </AnimatedPage>
-    </SiteLayout>
   )
 }
 

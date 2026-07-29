@@ -7,7 +7,6 @@ import ProcessSteps from '../../../components/domain/site/ProcessSteps'
 import SectionHeader from '../../../components/domain/site/SectionHeader'
 import { site } from '../../../data/site'
 import useReducedMotion from '../../../hooks/useReducedMotion'
-import SiteLayout from '../../../layouts/SiteLayout/SiteLayout'
 import { motionDuration, motionEase, motionViewport } from '../../../motion/constants'
 
 const preparationSteps = [
@@ -21,8 +20,7 @@ function Book() {
   const reducedMotion = useReducedMotion()
 
   return (
-    <SiteLayout>
-      <AnimatedPage ariaLabel='Book a call page'>
+    <AnimatedPage ariaLabel='Book a call page'>
         <PageHero description='A short project call is useful when the product, timeline, or service mix needs discussion before a formal scope is prepared.' eyebrow='Book a call' title='Start with the product, not a sales performance.' />
 
         <section className='bg-white py-20 sm:py-24 lg:py-28'>
@@ -50,7 +48,6 @@ function Book() {
           </section>
         </ViewportReveal>
       </AnimatedPage>
-    </SiteLayout>
   )
 }
 
