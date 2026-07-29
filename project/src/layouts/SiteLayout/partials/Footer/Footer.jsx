@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 
 import { footerNavigation } from '../../../../data/navigation'
 import { services } from '../../../../data/services'
@@ -14,6 +14,44 @@ const socialLinks = [
 
 function Footer() {
   const footerRef = useRef(null)
+  const emailContainerRef = useRef(null)
+  const emailRef = useRef(null)
+
+  useLayoutEffect(() => {
+    const container = emailContainerRef.current
+    const email = emailRef.current
+
+    if (!container || !email) return undefined
+
+    const fitEmail = () => {
+      const maximumSize = 144
+      const minimumSize = 40
+
+      email.style.fontSize = `${maximumSize}px`
+
+      const availableWidth = container.clientWidth
+      const renderedWidth = email.scrollWidth
+      const fittedSize = renderedWidth > 0
+        ? Math.min(maximumSize, Math.max(minimumSize, maximumSize * availableWidth / renderedWidth))
+        : minimumSize
+
+      email.style.fontSize = `${fittedSize}px`
+    }
+
+    fitEmail()
+
+    const resizeObserver = typeof ResizeObserver === 'undefined'
+      ? null
+      : new ResizeObserver(fitEmail)
+
+    resizeObserver?.observe(container)
+    window.addEventListener('resize', fitEmail)
+
+    return () => {
+      resizeObserver?.disconnect()
+      window.removeEventListener('resize', fitEmail)
+    }
+  }, [])
 
   return (
     <footer
@@ -76,12 +114,12 @@ function Footer() {
               </ul>
             </nav>
 
-            <div className='w-full min-w-0 overflow-hidden [container-type:inline-size]'>
+            <div className='w-full min-w-0 overflow-hidden' ref={emailContainerRef}>
               <a
-                className='block w-full py-2 text-right outline-none transition-opacity duration-300 hover:opacity-65 focus-visible:ring-2 focus-visible:ring-white'
+                className='block w-full py-2 text-left outline-none transition-opacity duration-300 hover:opacity-65 focus-visible:ring-2 focus-visible:ring-white md:text-right'
                 href={`mailto:${site.email}`}
               >
-                <span className='block whitespace-nowrap text-[clamp(1.35rem,4.9cqw,5.5rem)] font-semibold leading-none tracking-[-0.065em] text-white mix-blend-difference'>
+                <span className='block whitespace-nowrap font-semibold leading-none tracking-[-0.065em] text-white mix-blend-difference' ref={emailRef}>
                   {site.email}
                 </span>
               </a>

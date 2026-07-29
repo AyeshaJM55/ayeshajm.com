@@ -479,8 +479,30 @@ let me know when done.
 
 also the explore service button on services page should be like Send Message in Leave us a message on homepage.
 
+plus on sides of those 4 services. there is empty space. i guess you should add images there.
+
 Add custom scrollbar matching theme.
 and on bottom, add 2px pure black progressbar style scroll progress for each page.
+
+---
+
+buttons are updated. but imagsea are still not updated.
+also fixed bottom 2px scroll progressbar is not there
+and on bottom, add 2px pure black progressbar style scroll progress for each page.
+
+---
+
+progress works. but 2px is small. make it 4px.
+those images are still not there ! cannot u just use some from featured work for now.
+
+i asked u to limit max size of email in footer and make it adaptive
+but all i can see is it is very small. that's not good.
+it is a good design to occupy all remaining space to fit that mail.
+while making sure it fits in width.
+
+---
+
+quick task: services images, use in contain. not in cover.
 
 ---
 
@@ -495,7 +517,6 @@ let me know when blog plan is ready.
 also add support for author pages (also mds).
 create plan md now.
 
-
 ---
 
 Add SEO preloads to all pages.
@@ -503,7 +524,7 @@ and footer artstation link is ayesha_jm.artstation.com
 
 ---
 
-Add a nice loader.
+Add a nice loader animation. that takes like ... at least 1 round trip of that spin.
 when page loads it shows that preloader (full viewport).
 and upto when website loads.
 

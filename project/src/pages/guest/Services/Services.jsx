@@ -23,6 +23,13 @@ const engagementProcess = [
 
 const packages = ['Product launch package', 'E-commerce image suite', 'Campaign CGI package', 'Animation and stills package']
 
+const serviceShowcaseImages = [
+  projects[0].coverImage,
+  projects[1].coverImage,
+  projects[5].coverImage,
+  projects[2].coverImage,
+]
+
 function Services() {
   const reducedMotion = useReducedMotion()
 
@@ -33,10 +40,10 @@ function Services() {
         <section className='bg-white py-20 sm:py-24 lg:py-32'>
           <div className='mx-auto w-full max-w-[1600px] space-y-24 px-4 sm:px-6 lg:px-[clamp(2.5rem,4vw,4.75rem)]'>
             {services.map((service, index) => (
-              <TextMediaSplit fit='cover' image={service.supportingMedia} imageAlt={`${service.title} showcase`} key={service.slug} reverse={index % 2 === 1}>
+              <TextMediaSplit fit='cover' image={serviceShowcaseImages[index]} imageAlt={`${service.title} featured work`} key={service.slug} reverse={index % 2 === 1}>
                 <p className='text-xs font-semibold uppercase tracking-[0.16em] text-black/40'>{service.number}</p><h2 className='mt-5 text-4xl font-semibold tracking-[-0.05em] text-black sm:text-5xl lg:text-6xl'>{service.title}</h2><p className='mt-5 max-w-xl text-base leading-8 text-black/60'>{service.description}</p>
                 <ul className='mt-8 border-t border-black/15'>{service.deliverables.slice(0, 3).map((item) => <li className='border-b border-black/15 py-3 text-sm text-black/65' key={item}>{item}</li>)}</ul>
-                <a className='group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-black outline-none focus-visible:ring-2 focus-visible:ring-black' href={`/services/${service.slug}`}>Explore service <ArrowUpRight aria-hidden='true' className='size-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1' /></a>
+                <a className='group mt-8 inline-flex min-h-14 items-center justify-center gap-3 bg-black px-8 text-base font-semibold text-white transition-colors duration-300 hover:bg-black/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4' href={`/services/${service.slug}`}>Explore service <ArrowUpRight aria-hidden='true' className='size-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1' /></a>
               </TextMediaSplit>
             ))}
           </div>

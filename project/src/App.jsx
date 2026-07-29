@@ -1,6 +1,7 @@
 import { Suspense, useEffect, useState } from 'react'
 
 import PageLoader from './components/domain/navigation/PageLoader'
+import PageScrollProgress from './components/domain/navigation/PageScrollProgress'
 import SiteLayout from './layouts/SiteLayout/SiteLayout'
 import siteRoutes from './routes'
 import matchRoute from './routes/matchRoute'
@@ -91,6 +92,7 @@ function App() {
           </Suspense>
         ) : <PageLoader />}
       </SiteLayout>
+      <PageScrollProgress key={location} />
     </>
   )
 }
