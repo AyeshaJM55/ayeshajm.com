@@ -13,3 +13,20 @@ Object.defineProperty(window, 'matchMedia', {
     dispatchEvent: () => false,
   }),
 })
+
+class MockIntersectionObserver {
+  constructor(callback) {
+    this.callback = callback
+  }
+
+  observe(element) {
+    this.callback([{ isIntersecting: true, target: element }], this)
+  }
+
+  unobserve() {}
+
+  disconnect() {}
+}
+
+window.IntersectionObserver = MockIntersectionObserver
+globalThis.IntersectionObserver = MockIntersectionObserver

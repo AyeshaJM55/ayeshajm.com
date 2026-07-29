@@ -1,17 +1,30 @@
 import { ArrowUpRight } from 'lucide-react'
+import { motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 
+import useReducedMotion from '../../../hooks/useReducedMotion'
+import { motionDuration, motionEase, motionViewport } from '../../../motion/constants'
+
 function ProjectCard({ project }) {
+  const reducedMotion = useReducedMotion()
+
   return (
-    <article>
+    <motion.article
+      initial={reducedMotion ? false : { opacity: 0, y: 24 }}
+      transition={{ duration: reducedMotion ? 0 : motionDuration.base, ease: motionEase }}
+      viewport={motionViewport}
+      whileInView={{ opacity: 1, y: 0 }}
+    >
       <a className='group block outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4' href={`/work/${project.slug}`}>
         <div className='aspect-square overflow-hidden bg-white'>
-          <img
+          <motion.img
             alt={project.title}
-            className='size-full object-contain p-3 transition-transform duration-700 group-hover:scale-[1.035] group-focus-visible:scale-[1.035] sm:p-5'
+            className='size-full object-contain p-3 sm:p-5'
             height='900'
             loading='lazy'
             src={project.coverImage}
+            transition={{ duration: reducedMotion ? 0 : 0.55, ease: motionEase }}
+            whileHover={reducedMotion ? undefined : { scale: 1.035 }}
             width='1200'
           />
         </div>
@@ -21,10 +34,10 @@ function ProjectCard({ project }) {
             <h3 className='mt-2 text-2xl font-semibold tracking-[-0.035em] text-black'>{project.title}</h3>
             <p className='mt-2 max-w-xl text-sm leading-6 text-black/55'>{project.summary}</p>
           </div>
-          <ArrowUpRight aria-hidden='true' className='mt-1 size-5 shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1' />
+          <ArrowUpRight aria-hidden='true' className='mt-1 size-5 shrink-0 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-focus-visible:-translate-y-1 group-focus-visible:translate-x-1' />
         </div>
       </a>
-    </article>
+    </motion.article>
   )
 }
 

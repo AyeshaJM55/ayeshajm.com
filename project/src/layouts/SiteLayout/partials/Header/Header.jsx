@@ -2,12 +2,14 @@ import { motion } from 'framer-motion'
 import { CalendarCheck2 } from 'lucide-react'
 import { useLayoutEffect, useRef, useState } from 'react'
 import useHeaderScrollAnimation from '../../../../hooks/useHeaderScrollAnimation'
+import useReducedMotion from '../../../../hooks/useReducedMotion'
 import headerLinks from './HeaderLinks'
 
 function Header() {
   const headerRef = useRef(null)
   const innerRef = useRef(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const reducedMotion = useReducedMotion()
 
   useHeaderScrollAnimation(headerRef, innerRef)
 
@@ -46,7 +48,7 @@ function Header() {
                 key={href}
                 className='text-sm font-semibold uppercase tracking-[0.08em] text-black outline-none transition-opacity hover:opacity-50 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 aria-[current=page]:opacity-45'
                 href={href}
-                whileHover={{ y: -2 }}
+                whileHover={reducedMotion ? undefined : { y: -2 }}
               >
                 {label}
               </motion.a>
@@ -57,8 +59,8 @@ function Header() {
             <motion.a
               className='flex items-center gap-2 whitespace-nowrap rounded-full bg-black/10 px-4 py-3 text-xs font-semibold uppercase tracking-[0.06em] text-black outline-none transition-colors hover:bg-black/15 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 sm:px-5 sm:text-sm'
               href='/book'
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={reducedMotion ? undefined : { y: -2 }}
+              whileTap={reducedMotion ? undefined : { scale: 0.98 }}
             >
               Book a call
               <CalendarCheck2 aria-hidden='true' size={16} strokeWidth={1.8} />
