@@ -237,3 +237,19 @@
   line-height: 1;
   transform: translate(-52%, -50%);
 }
+
+
+@keyframes routeSpinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.route-spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid rgb(0 0 0 / 15%);
+  border-top-color: #000;
+  border-radius: 50%;
+  animation: routeSpinner 650ms linear infinite;
+}

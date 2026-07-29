@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
 import { Suspense, useEffect, useRef, useState } from 'react'
 
-import PageLoader from './components/domain/navigation/PageLoader'
 import PageScrollProgress from './components/domain/navigation/PageScrollProgress'
+import RouteLoader from './components/domain/navigation/RouteLoader'
+import SiteLoader from './components/domain/navigation/SiteLoader'
 import SiteLayout from './layouts/SiteLayout/SiteLayout'
 import siteRoutes from './routes'
 import matchRoute from './routes/matchRoute'
@@ -10,7 +11,7 @@ import SeoTags from './seo/SeoTags'
 import { resolveRouteSeo } from './seo/routeSeo'
 
 
-const MINIMUM_LOADER_DURATION = import.meta.env.MODE === 'test' ? 0 : 3000
+const MINIMUM_SITE_LOADER_DURATION = import.meta.env.MODE === 'test' ? 0 : 1500
 
 const getCurrentLocation = () => typeof window === 'undefined'
   ? '/'
@@ -25,8 +26,8 @@ function App({
 }) {
   const [location, setLocation] = useState(() => initialLocation ?? getCurrentLocation())
   const [isRouteReady, setIsRouteReady] = useState(initialRouteReady)
-  const [isLoaderVisible, setIsLoaderVisible] = useState(initialLoaderVisible)
-  const loaderStartedAtRef = useRef(initialLoaderVisible ? Date.now() : 0)
+  const [isSiteLoaderVisible, setIsSiteLoaderVisible] = useState(initialLoaderVisible)
+  const siteLoaderStartedAtRef = useRef(initialLoaderVisible ? Date.now() : 0)
   const skipInitialRouteLoadRef = useRef(initialRouteReady)
   const pathname = location.split(/[?#]/)[0]
   const { params, route } = matchRoute(pathname, siteRoutes)
@@ -35,8 +36,6 @@ function App({
 
   useEffect(() => {
     const navigate = (nextLocation) => {
-      loaderStartedAtRef.current = Date.now()
-      setIsLoaderVisible(true)
       setIsRouteReady(false)
       setLocation(nextLocation)
       document.documentElement.scrollTop = 0
@@ -81,9 +80,9 @@ function App({
     let timeoutId
 
     const finishInitialLoad = () => {
-      const elapsed = Date.now() - loaderStartedAtRef.current
-      const remainingDelay = Math.max(0, MINIMUM_LOADER_DURATION - elapsed)
-      timeoutId = window.setTimeout(() => setIsLoaderVisible(false), remainingDelay)
+      const elapsed = Date.now() - siteLoaderStartedAtRef.current
+      const remainingDelay = Math.max(0, MINIMUM_SITE_LOADER_DURATION - elapsed)
+      timeoutId = window.setTimeout(() => setIsSiteLoaderVisible(false), remainingDelay)
     }
 
     if (document.readyState === 'complete') finishInitialLoad()
@@ -96,7 +95,7 @@ function App({
   }, [initialLoaderVisible])
 
   useEffect(() => {
-    if (!isLoaderVisible) return undefined
+    if (!isSiteLoaderVisible) return undefined
 
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
@@ -104,7 +103,7 @@ function App({
     return () => {
       document.body.style.overflow = previousOverflow
     }
-  }, [isLoaderVisible])
+  }, [isSiteLoaderVisible])
 
   useEffect(() => {
     if (skipInitialRouteLoadRef.current) {
@@ -113,25 +112,17 @@ function App({
     }
 
     let cancelled = false
-    let timeoutId
-    const startedAt = loaderStartedAtRef.current || Date.now()
 
     setIsRouteReady(false)
 
     route.loadPage()
       .catch(() => undefined)
       .finally(() => {
-        const remainingDelay = Math.max(0, MINIMUM_LOADER_DURATION - (Date.now() - startedAt))
-        timeoutId = window.setTimeout(() => {
-          if (cancelled) return
-          setIsRouteReady(true)
-          setIsLoaderVisible(false)
-        }, remainingDelay)
+        if (!cancelled) setIsRouteReady(true)
       })
 
     return () => {
       cancelled = true
-      window.clearTimeout(timeoutId)
     }
   }, [location, route])
 
@@ -140,12 +131,12 @@ function App({
       {includeSeo ? <SeoTags seo={seo} /> : null}
       <SiteLayout pathname={pathname}>
         {isRouteReady ? (
-          <Suspense fallback={null}>
+          <Suspense fallback={<RouteLoader />}>
             <Page key={location} params={params} />
           </Suspense>
-        ) : null}
+        ) : <RouteLoader />}
       </SiteLayout>
-      {isLoaderVisible ? <PageLoader /> : null}
+      {isSiteLoaderVisible ? <SiteLoader /> : null}
       <PageScrollProgress key={location} />
     </>
   )

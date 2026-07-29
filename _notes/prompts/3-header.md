@@ -710,6 +710,16 @@ we do not need page loader. actually site loader.
 only when it loads for first time.
 then all pages are rendered with spinner when layout stays there.
 
+
+---
+
+on pages, use standard simple spinner.
+this is only for site loader.
+
+also min is set to 1 cycle.
+set min to half cycle.
+beyond that, it depends on how long site takes to get loaded.
+
 ---
 
 In `docs/`, add compelte details of projects.
