@@ -40,7 +40,7 @@ function LeaveMessage() {
           </div>
           <label className='mt-8 block' htmlFor='leave-message-details'><span className='text-sm font-medium text-black'>{fields.message.label}<span aria-hidden='true'> *</span></span><textarea className={`${fieldClassName} min-h-36 resize-y`} dir='auto' id='leave-message-details' name='message' placeholder={fields.message.placeholder} required rows='5' /></label>
           <div className='mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between'>
-            <button className='group inline-flex min-h-14 items-center justify-center gap-3 bg-black px-8 text-base font-semibold text-white transition-colors duration-300 hover:bg-black/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4' type='submit'>{t('actions.sendMessage')}<ArrowUpRight aria-hidden='true' className='size-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1' /></button>
+            <button className='group inline-flex min-h-14 items-center justify-center gap-3 bg-black px-8 text-base font-semibold text-white transition-colors duration-300 hover:bg-black/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4' type='submit'>{t('actions.sendMessage')}<ArrowUpRight aria-hidden='true' className='size-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1' /></button>
             <p aria-live='polite' className='text-sm text-black/55'>{submitted ? forms.messageReady : forms.requiredHint}</p>
           </div>
         </form>

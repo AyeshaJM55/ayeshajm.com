@@ -19,10 +19,10 @@ describe('Testimonials', () => {
     expect(screen.getByText('Small Cliffs')).toBeInTheDocument()
   })
 
-  it('keeps the physical arrow directions correct in RTL', () => {
+  it('points the right RTL control right and the left RTL control left', () => {
     renderTestimonials('ar')
 
-    expect(screen.getByTestId('previous-testimonial-icon')).toHaveClass('lucide-chevron-left')
-    expect(screen.getByTestId('next-testimonial-icon')).toHaveClass('lucide-chevron-right')
+    expect(screen.getByTestId('previous-testimonial-icon')).toHaveClass('lucide-chevron-right')
+    expect(screen.getByTestId('next-testimonial-icon')).toHaveClass('lucide-chevron-left')
   })
 })

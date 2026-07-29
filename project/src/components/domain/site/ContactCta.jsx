@@ -19,7 +19,7 @@ function ContactCta({ description, href = '/contact', label, title }) {
           <p className='mt-5 max-w-2xl text-base leading-7 text-white/60 sm:text-lg'>{description}</p>
         </motion.div>
         <motion.a aria-label={resolvedLabel} className='group flex min-h-52 items-center justify-center border-t border-white/15 outline-none transition-colors duration-300 hover:bg-white hover:text-black focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white md:border-s md:border-t-0' href={localizePath(href)} initial={reducedMotion ? false : { clipPath: 'inset(0 0 0 100%)', opacity: 0 }} transition={{ delay: reducedMotion ? 0 : 0.2, duration: reducedMotion ? 0 : motionDuration.slow, ease: motionEase }} viewport={motionViewport} whileInView={{ clipPath: 'inset(0 0 0 0%)', opacity: 1 }}>
-          <ArrowUpRight aria-hidden='true' className='size-28 stroke-[1.1] transition-transform duration-300 group-hover:-translate-y-2 group-hover:translate-x-2 group-focus-visible:-translate-y-2 group-focus-visible:translate-x-2 rtl:-scale-x-100' />
+          <ArrowUpRight aria-hidden='true' className='size-28 stroke-[1.1] transition-transform duration-300 group-hover:-translate-y-2 group-hover:translate-x-2 group-focus-visible:-translate-y-2 group-focus-visible:translate-x-2 rtl:-scale-x-100 rtl:group-hover:-translate-x-2 rtl:group-focus-visible:-translate-x-2' />
         </motion.a>
       </motion.div>
     </section>

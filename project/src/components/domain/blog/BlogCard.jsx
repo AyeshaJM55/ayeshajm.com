@@ -22,7 +22,7 @@ function BlogCard({ featured = false, imageLoading = 'lazy', post }) {
         </h2>
         <p className='mt-4 text-base leading-7 text-black/55'>{post.description}</p>
         <div className='mt-5'><BlogMeta author={post.author} publishedAt={post.publishedAt} readingTime={post.readingTime} /></div>
-        <a className='group mt-7 inline-flex items-center gap-2 text-sm font-semibold text-black outline-none focus-visible:ring-2 focus-visible:ring-black' href={href}>{t('common.actions.readArticle')} <ArrowUpRight aria-hidden='true' className='size-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 rtl:-scale-x-100' /></a>
+        <a className='group mt-7 inline-flex items-center gap-2 text-sm font-semibold text-black outline-none focus-visible:ring-2 focus-visible:ring-black' href={href}>{t('common.actions.readArticle')} <ArrowUpRight aria-hidden='true' className='size-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1' /></a>
       </div>
     </article>
   )

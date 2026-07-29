@@ -41,7 +41,7 @@ function Services() {
               <h2 className='mt-5 text-4xl font-semibold tracking-[-0.05em] text-black sm:text-5xl lg:text-6xl'>{service.title}</h2>
               <p className='mt-5 max-w-xl text-base leading-8 text-black/60'>{service.description}</p>
               <ul className='mt-8 border-t border-black/15'>{service.deliverables.slice(0, 3).map((item) => <li className='border-b border-black/15 py-3 text-sm text-black/65' key={item}>{item}</li>)}</ul>
-              <a className='group mt-8 inline-flex min-h-14 items-center justify-center gap-3 bg-black px-8 text-base font-semibold text-white transition-colors duration-300 hover:bg-black/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4' href={localizePath(`/services/${service.slug}`)}>{t('actions.exploreService')} <ArrowUpRight aria-hidden='true' className='size-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1' /></a>
+              <a className='group mt-8 inline-flex min-h-14 items-center justify-center gap-3 bg-black px-8 text-base font-semibold text-white transition-colors duration-300 hover:bg-black/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4' href={localizePath(`/services/${service.slug}`)}>{t('actions.exploreService')} <ArrowUpRight aria-hidden='true' className='size-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1' /></a>
             </TextMediaSplit>
           ))}
         </div>

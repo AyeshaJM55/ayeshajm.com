@@ -186,3 +186,5 @@ English remains the default and uses existing paths such as `/services`. Arabic 
 Production prerendering generates both locale variants. `entry-server.jsx` returns locale and direction metadata, while `scripts/prerender.mjs` writes `lang`, `dir`, `data-locale`, and `data-direction` directly onto `<html>` before first paint.
 
 The initial prerender guard is a fixed viewport overlay, never an in-flow spacer. Homepage ScrollTrigger instances mount while the loader is visible, so adding guard height to document flow shifts every measured trigger by one viewport until navigation remounts the page. Keep loader overlays fixed and preserve the real page geometry during hydration.
+
+The document root also clips horizontal overflow with `overflow-x: clip`. Prerendered carousels, transformed decorative elements, and GSAP pin wrappers may temporarily extend beyond the viewport during hydration; they must not create a window-level horizontal scrollbar. Components that genuinely need horizontal scrolling must provide their own local `overflow-x-auto` container.

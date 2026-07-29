@@ -1,11 +1,24 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 
+import { LocaleProvider } from '../../locales/LocaleProvider'
 import AuthorDetail from './AuthorDetail/AuthorDetail'
 import Blog from './Blog/Blog'
 import BlogDetail from './BlogDetail/BlogDetail'
 
 
 describe('blog and author pages', () => {
+  it('gives Arabic article arrows matching top-left hover motion', () => {
+    render(
+      <LocaleProvider locale='ar'>
+        <Blog />
+      </LocaleProvider>,
+    )
+
+    const readLink = screen.getAllByRole('link', { name: /قراءة المقال/ })[0]
+    const arrow = readLink.querySelector('svg')
+    expect(arrow).toHaveClass('rtl:-scale-x-100', 'rtl:group-hover:-translate-x-1')
+  })
+
   it('renders the blog listing, search, filters, and published cards', () => {
     render(<Blog />)
 

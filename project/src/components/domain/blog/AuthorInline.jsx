@@ -14,7 +14,7 @@ function AuthorInline({ author }) {
         <h2 className='mt-2 text-2xl font-semibold tracking-[-0.035em]'>{author.name}</h2>
         <p className='mt-2 max-w-2xl text-sm leading-6 text-black/55'>{author.shortBio}</p>
       </div>
-      <ArrowUpRight aria-hidden='true' className='size-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 rtl:-scale-x-100' />
+      <ArrowUpRight aria-hidden='true' className='size-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-focus-visible:-translate-y-1 group-focus-visible:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1 rtl:group-focus-visible:-translate-x-1' />
     </a>
   )
 }

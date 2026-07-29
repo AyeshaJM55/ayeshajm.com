@@ -18,7 +18,7 @@ function BookNowStrip() {
           </div>
           <div className='flex items-stretch border-t border-white/15 md:border-s md:border-t-0'>
             <a aria-label={copy.ariaLabel} className='group flex min-h-48 w-full items-center justify-center bg-black text-white transition-colors duration-300 hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white' href={href}>
-              <ArrowUpRight aria-hidden='true' className='size-28 stroke-[1.15] transition-transform duration-500 ease-out group-hover:-translate-y-2 group-hover:translate-x-2 sm:size-36 lg:size-44' />
+              <ArrowUpRight aria-hidden='true' className='size-28 stroke-[1.15] transition-transform duration-500 ease-out group-hover:-translate-y-2 group-hover:translate-x-2 rtl:-scale-x-100 rtl:group-hover:-translate-x-2 sm:size-36 lg:size-44' />
             </a>
           </div>
         </div>

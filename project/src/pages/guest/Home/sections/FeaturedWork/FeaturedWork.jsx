@@ -27,7 +27,7 @@ function FeaturedWork() {
                 </div>
                 <span className='absolute end-4 top-4 z-20 inline-flex size-11 translate-y-2 items-center justify-center rounded-full bg-white text-black opacity-0 shadow-sm shadow-black/15 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100'>
                   <span className='sr-only'>{copy.openProject}</span>
-                  <ArrowUpRight aria-hidden='true' size={19} strokeWidth={1.8} />
+                  <ArrowUpRight aria-hidden='true' className='rtl:-scale-x-100' size={19} strokeWidth={1.8} />
                 </span>
               </a>
             </article>
@@ -38,7 +38,7 @@ function FeaturedWork() {
         <div className='mx-auto flex w-full max-w-[1600px] flex-col gap-5 px-4 py-7 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-[clamp(2.5rem,4vw,4.75rem)]'>
           <p className='text-base font-medium text-black/70 sm:text-lg'>{copy.footer}</p>
           <a className='inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-black px-6 text-sm font-semibold text-white outline-none transition-transform duration-300 hover:scale-[1.03] focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4' href={localizePath('/portfolio')}>
-            {copy.cta}<ArrowUpRight aria-hidden='true' size={17} strokeWidth={1.9} />
+            {copy.cta}<ArrowUpRight aria-hidden='true' className='rtl:-scale-x-100' size={17} strokeWidth={1.9} />
           </a>
         </div>
       </footer>
