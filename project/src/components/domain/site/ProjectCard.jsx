@@ -6,7 +6,14 @@ function ProjectCard({ project }) {
     <article>
       <a className='group block outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4' href={`/work/${project.slug}`}>
         <div className='aspect-square overflow-hidden bg-neutral-100'>
-          <img alt={project.title} height='900' className='size-full object-cover transition-transform duration-700 group-hover:scale-[1.04] group-focus-visible:scale-[1.04]' width='1200' loading='lazy' src={project.coverImage} />
+          <img
+            alt={project.title}
+            className='size-full object-contain p-3 transition-transform duration-700 group-hover:scale-[1.035] group-focus-visible:scale-[1.035] sm:p-5'
+            height='900'
+            loading='lazy'
+            src={project.coverImage}
+            width='1200'
+          />
         </div>
         <div className='flex items-start justify-between gap-5 border-t border-black/15 py-5'>
           <div>
@@ -22,7 +29,13 @@ function ProjectCard({ project }) {
 }
 
 ProjectCard.propTypes = {
-  project: PropTypes.shape({ category: PropTypes.string.isRequired, coverImage: PropTypes.string.isRequired, slug: PropTypes.string.isRequired, summary: PropTypes.string.isRequired, title: PropTypes.string.isRequired }).isRequired,
+  project: PropTypes.shape({
+    category: PropTypes.string.isRequired,
+    coverImage: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
+    summary: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired,
 }
 
 export default ProjectCard

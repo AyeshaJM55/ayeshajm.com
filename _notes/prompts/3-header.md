@@ -447,6 +447,35 @@ make updates so that i can review again.
 
 ---
 
+images with contain should have white bg.
+
+---
+
+just like hompage, other pages should also have nice animations and transitions.
+create a plan at `_notes/plans/2-animations-and-transitions.md` to add them or update some sections accordingly.
+
+let me know when plan is ready.
+
+---
+
+looks like a great plan. completely implment it.
+
+---
+
+create a plan at `_notes/plans/3-blog.md`
+according to this plan, i should be able to add blog pages in markdown files in a folder
+with each one's slug and deatils in its header.
+so that i can just change md and re build / re-deploy.
+but catches live in `npm run dev`.
+
+let me know when blog plan is ready.
+
+also add support for author pages (also mds).
+create plan md now.
+
+
+---
+
 Add SEO preloads to all pages.
 
 ---
