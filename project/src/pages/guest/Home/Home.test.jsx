@@ -15,6 +15,8 @@ describe('Home', () => {
     expect(screen.getByRole('region', { name: 'Services' })).toBeInTheDocument()
     expect(screen.getByRole('region', { name: 'Trusted by Clients' })).toBeInTheDocument()
     expect(screen.getByRole('region', { name: /bring your product to life/i })).toBeInTheDocument()
+    expect(screen.getByRole('region', { name: 'Leave a message' })).toBeInTheDocument()
+    expect(screen.getByRole('region', { name: 'Decorative hand-drawn divider' })).toBeInTheDocument()
     expect(screen.getByRole('region', { name: 'FAQs' })).toBeInTheDocument()
   })
 })

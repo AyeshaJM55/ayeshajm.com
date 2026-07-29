@@ -387,9 +387,41 @@ Leave a message full 100vh form before fAQs.
 
 ---
 
+After leave a message, add an on-scroll anim that draws a line from very left to very right using pen icon.
+a better thing instead of a divider. line should be dashed.
+matches the scroll speed. just like partners logos section (after hero)
+
+---
+
+make the pen with svg. like a "pen tool". and it should be drawing line. means it should be at very end of line. currently it only stays on left and just moves a bit.
+
+---
+
+line is also not good:
+- because it is changing width instead of revealing
+- its dashes length also changes. not good
+- make it revealing or getting drawn etc.
+
+---
+
+pen shrinked on small screens. no that's bad. it should be fixed. hanvn't u saved and used as img properly ?
+
+---
+
 Favicon and title:
 - Add "A." favicon (same font as in header Ayesha J.)
 - title should also be "Ayesha J. | Home" -- updating as user visits other pages also
 - on click on header, show each page. but for now, add them all as blank (we shall add contents later)
+
+---
+
+Other pages:
+- create a plan to add all other pages
+- according to theme and styles in current page
+- create all pages. u may use some section but create most
+- each service should also have its own page. similarly work.
+- as well as links in hader and footer.
+
+save complete plan as md at `_notes/plans/1-pages-and-sections.md`
 
 ---

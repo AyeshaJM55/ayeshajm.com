@@ -6,6 +6,8 @@ import FeaturedWork from './sections/FeaturedWork/FeaturedWork'
 import Services from './sections/Services/Services'
 import Testimonials from './sections/Testimonials/Testimonials'
 import BookNowStrip from './sections/BookNowStrip/BookNowStrip'
+import LeaveMessage from './sections/LeaveMessage/LeaveMessage'
+import DrawnDivider from './sections/DrawnDivider/DrawnDivider'
 import Faq from './sections/Faq/Faq'
 
 function Home() {
@@ -19,6 +21,8 @@ function Home() {
         <Services />
         <Testimonials />
         <BookNowStrip />
+        <LeaveMessage />
+        <DrawnDivider />
         <Faq />
       </main>
     </SiteLayout>
