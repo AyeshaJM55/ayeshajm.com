@@ -43,7 +43,7 @@ function LeaveMessage() {
         >
           <div className='grid grid-cols-1 gap-x-8 sm:grid-cols-2'>
             <label className='block' htmlFor='leave-message-name'>
-              <span className='text-sm font-medium text-black'>Name</span>
+              <span className='text-sm font-medium text-black'>Name<span aria-hidden='true'> *</span></span>
               <input
                 className={fieldClassName}
                 id='leave-message-name'
@@ -55,7 +55,7 @@ function LeaveMessage() {
             </label>
 
             <label className='mt-8 block sm:mt-0' htmlFor='leave-message-email'>
-              <span className='text-sm font-medium text-black'>Email</span>
+              <span className='text-sm font-medium text-black'>Email<span aria-hidden='true'> *</span></span>
               <input
                 className={fieldClassName}
                 id='leave-message-email'
@@ -78,7 +78,7 @@ function LeaveMessage() {
             </label>
 
             <label className='mt-8 block' htmlFor='leave-message-project-type'>
-              <span className='text-sm font-medium text-black'>Project type</span>
+              <span className='text-sm font-medium text-black'>Project type<span aria-hidden='true'> *</span></span>
               <select
                 className={`${fieldClassName} appearance-none`}
                 defaultValue=''
@@ -96,7 +96,7 @@ function LeaveMessage() {
           </div>
 
           <label className='mt-8 block' htmlFor='leave-message-details'>
-            <span className='text-sm font-medium text-black'>Project details</span>
+            <span className='text-sm font-medium text-black'>Project details<span aria-hidden='true'> *</span></span>
             <textarea
               className={`${fieldClassName} min-h-36 resize-y`}
               id='leave-message-details'
@@ -123,7 +123,7 @@ function LeaveMessage() {
               aria-live='polite'
               className='text-sm text-black/55'
             >
-              {submitted ? 'Thank you. Your message is ready to be reviewed.' : 'Required fields are marked by the browser.'}
+              {submitted ? 'Thank you. Your message is ready to be reviewed.' : 'Required fields are marked *.'}
             </p>
           </div>
         </form>

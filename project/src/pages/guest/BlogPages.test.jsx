@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 
 import AuthorDetail from './AuthorDetail/AuthorDetail'
 import Blog from './Blog/Blog'
@@ -6,10 +6,23 @@ import BlogDetail from './BlogDetail/BlogDetail'
 
 
 describe('blog and author pages', () => {
-  it('renders the blog listing and published cards', () => {
+  it('renders the blog listing, search, filters, and published cards', () => {
     render(<Blog />)
+
     expect(screen.getByRole('main', { name: 'Blog page' })).toBeInTheDocument()
+    expect(screen.getByRole('searchbox', { name: 'Search' })).toBeInTheDocument()
+    expect(screen.getByText('Tags')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /Product Rendering for E-commerce/ })).toHaveAttribute('href', '/blog/product-rendering-for-ecommerce')
+  })
+
+  it('searches article titles, categories, and tags', () => {
+    render(<Blog />)
+
+    fireEvent.change(screen.getByRole('searchbox', { name: 'Search' }), { target: { value: 'e-commerce' } })
+    expect(screen.getByRole('link', { name: /Product Rendering for E-commerce/ })).toBeInTheDocument()
+
+    fireEvent.change(screen.getByRole('searchbox', { name: 'Search' }), { target: { value: 'nothing-will-match-this' } })
+    expect(screen.getByRole('heading', { name: 'No articles match your search and filters.' })).toBeInTheDocument()
   })
 
   it('renders Markdown article content and author attribution', () => {

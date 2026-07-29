@@ -706,6 +706,12 @@ kindly update accordingly.
 
 ---
 
+we do not need page loader. actually site loader.
+only when it loads for first time.
+then all pages are rendered with spinner when layout stays there.
+
+---
+
 In `docs/`, add compelte details of projects.
 so that content editor can refer these docs to any llm. and ask it to create blog pages, update case study pages, update sections on pages, etc. and it updates them while keeping the integrity and style of those pages.
 

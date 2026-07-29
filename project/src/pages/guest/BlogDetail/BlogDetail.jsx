@@ -22,7 +22,7 @@ function BlogDetail({ params }) {
           <h1 className='mt-6 max-w-6xl text-[clamp(3.5rem,9vw,8.5rem)] font-semibold leading-[0.88] tracking-[-0.07em]'>{post.title}</h1>
           <p className='mt-8 max-w-3xl text-lg leading-8 text-black/55 sm:text-xl sm:leading-9'>{post.description}</p>
           <div className='mt-8'><BlogMeta author={post.author} publishedAt={post.publishedAt} readingTime={post.readingTime} updatedAt={post.updatedAt} /></div>
-          <img alt={post.coverAlt} className='mt-12 aspect-[16/9] w-full bg-neutral-100 object-cover' height='1000' src={post.coverImage} width='1800' />
+          <img alt={post.coverAlt} className='mt-12 aspect-[16/9] w-full bg-white object-contain' decoding='async' fetchPriority='high' height='1000' loading='eager' src={post.coverImage} width='1800' />
         </header>
 
         <div className='mx-auto grid w-full max-w-[1600px] gap-12 px-4 pt-14 sm:px-6 lg:grid-cols-[minmax(0,1fr)_14rem] lg:px-[clamp(2.5rem,4vw,4.75rem)]'>

@@ -47,13 +47,13 @@ function Contact() {
                   ['Timeline', 'timeline', 'text', 'Target launch or delivery'],
                 ].map(([label, name, type, placeholder]) => (
                   <motion.label className='mb-8 block' htmlFor={`contact-${name}`} key={name} transition={{ duration: reducedMotion ? 0 : motionDuration.base, ease: motionEase }} variants={reducedMotion ? undefined : fadeUp}>
-                    <span className='text-sm font-medium text-black'>{label}</span>
+                    <span className='text-sm font-medium text-black'>{label}{name === 'name' || name === 'email' ? <span aria-hidden='true'> *</span> : null}</span>
                     <input className={fieldClassName} id={`contact-${name}`} name={name} placeholder={placeholder} required={name === 'name' || name === 'email'} type={type} />
                   </motion.label>
                 ))}
 
                 <motion.label className='mb-8 block' htmlFor='contact-service' transition={{ duration: reducedMotion ? 0 : motionDuration.base, ease: motionEase }} variants={reducedMotion ? undefined : fadeUp}>
-                  <span className='text-sm font-medium text-black'>Service</span>
+                  <span className='text-sm font-medium text-black'>Service<span aria-hidden='true'> *</span></span>
                   <select className={`${fieldClassName} appearance-none`} defaultValue='' id='contact-service' name='service' required><option disabled value=''>Select a service</option>{services.map((service) => <option key={service.slug} value={service.slug}>{service.title}</option>)}</select>
                 </motion.label>
 
@@ -72,11 +72,11 @@ function Contact() {
               </div>
 
               <motion.label className='block' htmlFor='contact-details' transition={{ duration: reducedMotion ? 0 : motionDuration.base, ease: motionEase }} variants={reducedMotion ? undefined : fadeUp}>
-                <span className='text-sm font-medium text-black'>Project details</span><textarea className={`${fieldClassName} min-h-40 resize-y`} id='contact-details' name='details' placeholder='Describe the product, deliverables, timing, references, and anything that may affect scope.' required rows='6' />
+                <span className='text-sm font-medium text-black'>Project details<span aria-hidden='true'> *</span></span><textarea className={`${fieldClassName} min-h-40 resize-y`} id='contact-details' name='details' placeholder='Describe the product, deliverables, timing, references, and anything that may affect scope.' required rows='6' />
               </motion.label>
 
               <motion.div transition={{ duration: reducedMotion ? 0 : motionDuration.base, ease: motionEase }} variants={reducedMotion ? undefined : fadeUp}>
-                <p className='mt-4 text-sm leading-6 text-black/45'>Files cannot be uploaded here yet. Mention what CAD, drawings, photography, or references are available.</p>
+                <p className='mt-4 text-sm leading-6 text-black/45'>Required fields are marked *. Files cannot be uploaded here yet. Mention what CAD, drawings, photography, or references are available.</p>
                 <motion.button className='mt-8 min-h-14 bg-black px-8 text-sm font-semibold text-white outline-none hover:bg-black/80 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4' type='submit' whileHover={reducedMotion ? undefined : { y: -3 }} whileTap={reducedMotion ? undefined : { scale: 0.98 }}>Prepare inquiry</motion.button>
                 <p aria-live='polite' className='mt-5 min-h-5 text-sm text-black/55'>{status}</p>
               </motion.div>

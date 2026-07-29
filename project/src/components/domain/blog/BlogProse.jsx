@@ -16,7 +16,7 @@ function BlogProse({ content }) {
           h2: ({ children }) => <h2 className='mb-5 mt-14 text-3xl font-semibold tracking-[-0.045em] sm:text-4xl'>{children}</h2>,
           h3: ({ children }) => <h3 className='mb-4 mt-10 text-2xl font-semibold tracking-[-0.035em]'>{children}</h3>,
           hr: () => <hr className='my-12 border-black/15' />,
-          img: ({ alt, src }) => <img alt={alt ?? ''} className='my-10 h-auto w-full bg-neutral-100 object-contain' decoding='async' height='900' loading='lazy' src={src} width='1600' />,
+          img: ({ alt, src }) => <img alt={alt ?? ''} className='my-10 h-auto w-full bg-neutral-100 object-contain' decoding='async' height='900' loading='eager' src={src} width='1600' />,
           li: ({ children }) => <li className='pl-2'>{children}</li>,
           ol: ({ children }) => <ol className='my-6 list-decimal space-y-3 pl-6 text-base leading-8 text-black/65 sm:text-lg'>{children}</ol>,
           p: ({ children }) => <p className='my-6 text-base leading-8 text-black/65 sm:text-lg sm:leading-9'>{children}</p>,
