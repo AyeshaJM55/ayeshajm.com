@@ -118,6 +118,8 @@ Structured data uses `en-US` or `ar-SA` for `inLanguage`. Arabic article, author
 
 ## Adding another locale
 
+Before adding a registry entry, inventory every content surface: shared labels, navigation, accessibility text, page copy, forms, SEO, blog posts, authors, services, and projects. A locale directory must be complete before the locale appears in the switcher.
+
 1. Add a registry entry with only `symbol` and `mode`.
 2. Create a fully mirrored content directory.
 3. Extend prefix and SEO locale mappings.

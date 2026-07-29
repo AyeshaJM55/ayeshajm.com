@@ -10,12 +10,10 @@ import './Testimonials.css'
 function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
-  const { content, direction, formatNumber, t } = useLocale()
+  const { content, formatNumber, t } = useLocale()
   const copy = content.pages.home.testimonials
   const testimonials = copy.items
   const total = testimonials.length
-  const PreviousIcon = direction === 'rtl' ? ChevronRight : ChevronLeft
-  const NextIcon = direction === 'rtl' ? ChevronLeft : ChevronRight
 
   const showNext = useCallback(() => { setCurrentIndex((index) => (index + 1) % total) }, [total])
   const showPrevious = () => { setCurrentIndex((index) => (index - 1 + total) % total) }
@@ -34,7 +32,7 @@ function Testimonials() {
           <p className='mt-3 text-sm leading-6 text-black/55 sm:text-base sm:leading-7'>{copy.description}</p>
         </header>
         <div className='mx-auto mt-12 grid w-full max-w-6xl grid-cols-[2.75rem_minmax(0,1fr)_2.75rem] items-center gap-3 sm:mt-14 sm:grid-cols-[3rem_minmax(0,1fr)_3rem] sm:gap-6 lg:gap-10'>
-          <button aria-label={t('accessibility.previousTestimonial')} className='z-20 flex size-11 items-center justify-center rounded-full border border-testimonial-ink/25 bg-white text-testimonial-ink transition-colors duration-200 hover:bg-testimonial-ink hover:text-white' onClick={showPrevious} type='button'><PreviousIcon aria-hidden='true' className='size-5' /></button>
+          <button aria-label={t('accessibility.previousTestimonial')} className='z-20 flex size-11 items-center justify-center rounded-full border border-testimonial-ink/25 bg-white text-testimonial-ink transition-colors duration-200 hover:bg-testimonial-ink hover:text-white' onClick={showPrevious} type='button'><ChevronLeft aria-hidden='true' className='size-5' data-testid='previous-testimonial-icon' /></button>
           <div
             className='testimonials-stack w-full min-w-0'
             onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setIsPaused(false) }}
@@ -44,7 +42,7 @@ function Testimonials() {
           >
             <div className='grid'>{testimonials.map((testimonial, index) => <TestimonialCard key={`${testimonial.name}-${testimonial.role}`} relativeIndex={(index - currentIndex + total) % total} testimonial={testimonial} />)}</div>
           </div>
-          <button aria-label={t('accessibility.nextTestimonial')} className='z-20 flex size-11 items-center justify-center rounded-full border border-testimonial-ink/25 bg-white text-testimonial-ink transition-colors duration-200 hover:bg-testimonial-ink hover:text-white' onClick={showNext} type='button'><NextIcon aria-hidden='true' className='size-5' /></button>
+          <button aria-label={t('accessibility.nextTestimonial')} className='z-20 flex size-11 items-center justify-center rounded-full border border-testimonial-ink/25 bg-white text-testimonial-ink transition-colors duration-200 hover:bg-testimonial-ink hover:text-white' onClick={showNext} type='button'><ChevronRight aria-hidden='true' className='size-5' data-testid='next-testimonial-icon' /></button>
         </div>
         <div aria-label={t('accessibility.chooseTestimonial')} className='mt-7 flex items-center justify-center gap-2' role='group'>
           {testimonials.map((testimonial, index) => (

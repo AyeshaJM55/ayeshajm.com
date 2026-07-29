@@ -47,7 +47,7 @@ function Header({ pathname = typeof window === 'undefined' ? '/' : window.locati
     <header ref={headerRef} className='fixed inset-x-0 top-0 z-50 flex justify-center' role='banner'>
       <div
         ref={innerRef}
-        className='w-full max-w-full overflow-hidden border border-transparent bg-white px-4 py-4 sm:px-6 lg:px-10 lg:py-[18px]'
+        className='relative w-full max-w-full overflow-visible border border-transparent bg-white px-4 py-4 sm:px-6 lg:px-10 lg:py-[18px]'
       >
         <div className='flex items-center justify-between gap-3 lg:gap-5'>
           <a
@@ -81,8 +81,8 @@ function Header({ pathname = typeof window === 'undefined' ? '/' : window.locati
               {t('navigation.book')}
               <CalendarCheck2 aria-hidden='true' size={16} strokeWidth={1.8} />
             </motion.a>
-                <LocaleSwitcher className='hidden md:block' pathname={pathname} />
-                <LocaleSwitcher className='md:hidden' onNavigate={() => setIsMenuOpen(false)} pathname={pathname} />
+                <LocaleSwitcher className='z-[70] hidden md:block' pathname={pathname} />
+                <LocaleSwitcher className='z-[70] md:hidden' onNavigate={() => setIsMenuOpen(false)} pathname={pathname} />
 
             <button
               aria-expanded={isMenuOpen}

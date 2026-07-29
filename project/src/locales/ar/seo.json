@@ -1,8 +1,8 @@
 {
-  "siteName": "عائشة ج.",
-  "titlePattern": "عائشة ج. | {title}",
-  "articleTitlePattern": "{title} | عائشة ج.",
-  "authorTitlePattern": "{name} | الكاتبة | عائشة ج.",
+  "siteName": "عائشة",
+  "titlePattern": "عائشة | {title}",
+  "articleTitlePattern": "{title} | عائشة",
+  "authorTitlePattern": "{name} | الكاتبة | عائشة",
   "notFoundFallback": "الصفحة غير موجودة",
   "missingArticle": "تعذر العثور على المقال المطلوب.",
   "missingAuthor": "تعذر العثور على صفحة الكاتبة المطلوبة.",
@@ -16,7 +16,7 @@
     },
     "about": {
       "title": "نبذة",
-      "description": "تعرّف على عائشة ج. ومنهجها في إنتاج صور منتجات ثلاثية الأبعاد واضحة وفعالة تجارياً."
+      "description": "تعرّف على عائشة ومنهجها في إنتاج صور منتجات ثلاثية الأبعاد واضحة وفعالة تجارياً."
     },
     "services": {
       "title": "الخدمات",
@@ -36,7 +36,7 @@
     },
     "book": {
       "title": "احجز مكالمة",
-      "description": "اطلب استشارة لمشروعك مع عائشة ج."
+      "description": "اطلب استشارة لمشروعك مع عائشة"
     },
     "notFound": {
       "title": "الصفحة غير موجودة",

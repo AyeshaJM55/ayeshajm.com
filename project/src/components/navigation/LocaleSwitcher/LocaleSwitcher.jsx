@@ -29,12 +29,12 @@ function LocaleSwitcher({ className = '', onNavigate, pathname = typeof window =
   }, [open])
 
   return (
-    <div className={`relative ${className}`} ref={rootRef}>
+    <div className={`relative isolate ${className}`} ref={rootRef}>
       <button aria-expanded={open} aria-haspopup='menu' aria-label={t('header.localeTrigger', { symbol })} className='inline-flex min-h-11 items-center gap-1.5 rounded-full border border-black/15 bg-white px-3 text-xs font-bold tracking-[0.08em] text-black outline-none transition-colors hover:bg-black hover:text-white focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2' onClick={() => setOpen((value) => !value)} type='button'>
         <span>{symbol}</span><ChevronDown aria-hidden='true' className='size-3.5' />
       </button>
       {open ? (
-        <ul className='absolute end-0 top-full z-50 mt-2 min-w-28 overflow-hidden rounded-2xl border border-black/10 bg-white p-1 shadow-xl' role='menu'>
+        <ul className='absolute end-0 top-full z-[100] mt-2 min-w-28 overflow-hidden rounded-2xl border border-black/10 bg-white p-1 shadow-xl' role='menu'>
           {Object.entries(registry).map(([code, metadata]) => {
             const active = code === locale
             return (

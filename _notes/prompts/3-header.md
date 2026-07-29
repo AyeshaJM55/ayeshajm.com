@@ -806,4 +806,15 @@ also:
 - in each part where it is mentioend to add contents
 - so that if someone using these docs makes changes to site pages / sections or blog, they get them updated rightfully with locales.
 
+-
+
+services locales are already there and logos also work the problem is something else. i'll tell u later. just solve other things. continue.
+
 ---
+
+misc updates:
+- the locking and unlocking on homepage is sometimes delayed by 100vh. and it is fixed. other times it works fine but some times it is late. and it is same for all when problem is there (logos, counts animation, services slider, etc.). can u make sure they scroll on time. and work on devices with less processing power also (i.e., i do not want u to change to something heavy. just wok a bit with existing setup only.).
+  - actually here's pattern: when it loads page for first time. all scroll triggers are delayed because of that 100vh white div that we have in prerenders
+  - but when i click on a new pge and them come back, there is no such issue.
+  - i guess from here you can find and fix the problem as it is properly diagnosed now.
+- for that pen drawing line on scroll transition, the pen is not visible . i tshould also go RTL and fil horizontally also. so that it's corner is bottom right (instead of bottom left) afterwards. and use accordingly.

@@ -126,6 +126,8 @@ import newProjectLifestyle from '../assets/featured-work/new-project-lifestyle.w
 8. Add the slug to relevant services' `relatedProjectSlugs` when appropriate.
 9. Run data tests and build.
 10. Inspect `/portfolio` and `/work/<slug>`.
+11. Add the same project slug to every `src/locales/<locale>/projects.json` file with fully localized visible fields.
+12. Inspect `/ar/portfolio` and `/ar/work/<slug>` as well as English. Confirm localized related services, alt text, SEO, and next-project labels.
 
 ## Project ordering
 
@@ -273,6 +275,8 @@ Required work:
 8. Confirm the service route and structured data.
 9. Confirm prerender count and sitemap.
 10. Add or update tests.
+11. Add the same service slug to every `src/locales/<locale>/services.json` file. Translate titles, descriptions, deliverables, ideal-use lists, process steps, FAQ content, and media alt text.
+12. Verify the localized service listing, detail route, homepage card, footer link, SEO output, and sitemap entry.
 
 ## Updating service or project slugs
 

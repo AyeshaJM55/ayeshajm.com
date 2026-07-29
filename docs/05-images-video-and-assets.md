@@ -95,6 +95,8 @@ coverAlt: A precise description of the visible image
 
 5. Run the build. A wrong public URL may not be caught by a JavaScript import, so inspect the generated page or development route.
 
+6. Keep the media path stable, but add localized cover alt text, captions, and surrounding editorial copy to every locale record. A shared image does not justify an English-only description.
+
 ## Adding an author portrait
 
 Place the image at:
@@ -112,12 +114,16 @@ avatarAlt: Portrait of Full Name
 
 Use a square source image when possible. The UI presents author imagery in square or circular crops.
 
+Keep the portrait path in the stable author manifest. Add the localized author name, role, biography, and `avatarAlt` to the matching author record in every `src/locales/<locale>/authors.json` file.
+
 ## Adding project or service images
 
 1. Add the file to `src/assets/featured-work/` or another clearly named asset folder.
 2. Import it in `src/data/projects.js` or `src/data/services.js`.
 3. Assign it to `coverImage`, `gallery`, `heroMedia`, or `supportingMedia`.
 4. Use descriptive import names instead of `image1` or `newFinalImage`.
+
+5. Add localized alt text and visible captions to the matching project or service record in every locale. Asset imports and slugs remain stable; visitor-facing descriptions are translated.
 
 Example:
 

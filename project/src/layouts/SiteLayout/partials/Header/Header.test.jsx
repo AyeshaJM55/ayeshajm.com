@@ -21,6 +21,9 @@ describe('Header', () => {
     expect(book).toHaveAttribute('href', '/book')
     expect(navigation).toHaveClass('md:flex')
     expect(book.compareDocumentPosition(locale) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    expect(banner.firstElementChild).toHaveClass('overflow-visible')
+    fireEvent.click(locale)
+    expect(screen.getByRole('menu')).toHaveClass('z-[100]')
     expect(within(banner).getByRole('link', { name: 'About' })).toHaveAttribute('href', '/about')
   })
 
@@ -41,7 +44,7 @@ describe('Header', () => {
 
   it('renders localized Arabic links and RTL-ready route paths', () => {
     renderHeader('ar', '/ar/services')
-    expect(screen.getByRole('link', { name: 'عائشة ج.' })).toHaveAttribute('href', '/ar')
+    expect(screen.getByRole('link', { name: 'عائشة' })).toHaveAttribute('href', '/ar')
     expect(screen.getByRole('link', { name: 'الخدمات' })).toHaveAttribute('href', '/ar/services')
     expect(screen.getByRole('link', { name: 'احجز مكالمة' })).toHaveAttribute('href', '/ar/book')
   })

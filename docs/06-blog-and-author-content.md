@@ -63,6 +63,8 @@ Defaults:
 
 ## Complete post template
 
+> **Locale requirement:** stable post infrastructure belongs in the manifest. Every visitor-facing field, including title, description, category, tags, alt text, and `bodyMarkdown`, belongs in the matching slug record in every `src/locales/<locale>/blog.json` file. Add or edit all locale records together.
+
 ```md
 ---
 slug: example-article
@@ -290,6 +292,8 @@ The Markdown body becomes the long biography shown on the author page.
 
 ## Complete author template
 
+> **Locale requirement:** keep the author slug, media path, and relationships stable. Add the name, role, biographies, location label, avatar alt text, and body Markdown to the same author record in every locale file.
+
 ```md
 ---
 slug: author-slug
@@ -328,6 +332,9 @@ Author Name works across **product visualization and commercial CGI**.
 - [ ] Claims are supported.
 - [ ] Draft remains true until review is complete.
 - [ ] `npm test` passes.
+- [ ] The post or author slug has complete mirrored records in every locale.
+- [ ] Localized titles, descriptions, categories, tags, alt text, and Markdown render on each locale route.
+- [ ] `npm run audit:locales` and locale parity tests pass.
 - [ ] `npm run build` prerenders the article and author page.
 
 ## Bilingual JSON content

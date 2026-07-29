@@ -270,6 +270,8 @@ Sitemap: https://ayeshajm.com/sitemap.xml
 - [ ] Structured data type is appropriate.
 - [ ] Not Found still returns 404 and noindex.
 - [ ] Sitemap includes the route.
+- [ ] Every supported locale has a localized title, description, social metadata, canonical URL, and structured-data text.
+- [ ] Reciprocal `hreflang` links and localized prerender paths exist for the new route.
 
 ## Inspecting generated output
 

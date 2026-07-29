@@ -155,6 +155,9 @@ A complete static page addition usually requires:
 6. Add a page integration test.
 7. Build and inspect the generated HTML.
 
+8. Add the page's complete copy and SEO records to every locale under `src/locales/<locale>/pages/` and `src/locales/<locale>/seo.json`. Keep identical key paths and value types. A route is not complete when only its English component exists.
+9. Verify both the unprefixed English route and each localized prefixed route, including prerendered HTML, canonical links, and locale switching.
+
 ## Adding a dynamic content type
 
 Do not invent another dynamic content system casually. Blog authors/posts, services, and work projects already cover the site's current domains.

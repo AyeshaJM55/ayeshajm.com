@@ -309,6 +309,8 @@ Before coding:
 5. Confirm mobile stacking.
 6. Confirm motion and reduced-motion behavior.
 7. Confirm media alt text and dimensions.
+8. Define the section copy with the same key path and value type in every locale page file before wiring it into JSX.
+9. Review both LTR and RTL composition, including control direction, ordering, overflow, and long translated strings.
 
 ## Heading hierarchy
 
@@ -339,6 +341,8 @@ When adding a required field:
 - Ensure the `<label htmlFor>` matches the input `id`.
 - Add an appropriate input `type`.
 - Do not rely on placeholder text as the label.
+- Add labels, placeholders, help text, validation feedback, success states, and accessibility names to every locale file with matching key shapes.
+- Keep submitted field names and machine values language neutral even when visible labels are translated.
 
 ## Responsive behavior
 

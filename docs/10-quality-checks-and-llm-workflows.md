@@ -147,6 +147,7 @@ Use category: <category>.
 Use these verified facts only: <facts>.
 
 Create the Markdown file and media directory reference.
+Create or update the matching post record in every locale file, including localized title, description, category, tags, alt text, and body Markdown.
 Keep draft: true.
 Do not invent statistics, clients, or outcomes.
 Preserve the site's editorial voice and Markdown conventions.
@@ -162,6 +163,7 @@ Update <article slug> to accomplish: <goal>.
 Preserve its slug unless explicitly instructed otherwise.
 Update updatedAt to <YYYY-MM-DD>.
 Keep front matter valid.
+Edit the matching slug in every locale file and preserve mirrored field shapes.
 Preserve factual claims and do not add unsupported numbers.
 Check headings, links, alt text, category, and tags.
 Run content tests and build.
@@ -183,6 +185,7 @@ Use these asset files:
 
 Do not invent a client, result, metric, or challenge.
 Add valid service relationships and next-project navigation.
+Add the project slug and complete visitor-facing record to every locale's `projects.json`.
 Update related service project slugs where appropriate.
 Preserve project array ordering intentionally.
 Run data tests, page tests, and build.
@@ -200,6 +203,8 @@ and the target page implementation.
 
 Update the <section name> on <route> with this approved content:
 <content>
+
+Add equivalent approved copy to every locale page file, keeping identical keys and value types.
 
 Reuse existing components and container conventions.
 Preserve one H1, heading hierarchy, responsive behavior, focus styles,
