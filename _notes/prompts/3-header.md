@@ -779,14 +779,6 @@ now compeltely implmeent it. let me know when done.
 
 ---
 
-build this project for deployment at ayeshajm.com
-you can copy to `local/ayeshasite.github.io` and then in `local/ayeshasite.github.io` run git add , commit and push commands.
-it will replace the website for ayeshajm.com
-
-let me know when done.
-
----
-
 for ar, use modern fonts like Cairo, Tajawal, and Amiri
 and why did you not complete ? there are many parts where they are not completed.
 
@@ -826,5 +818,13 @@ updates:
 - arrows in arabic. e.g., in `/blog` page should transit to top left. but it transits top right
 - it is good top right on en (because arrow points top right). but on ar, it should show transition in respective RTL direction.
 - testimonials arrows have opposite direction now. i.e., on right, it ponts on left and on left, it points right (In AR only). fix this also
+
+---
+
+build this project for deployment at ayeshajm.com
+you can copy to `local/ayeshasite.github.io` and then in `local/ayeshasite.github.io` run git add , commit and push commands.
+it will replace the website for ayeshajm.com
+
+let me know when done.
 
 ---
