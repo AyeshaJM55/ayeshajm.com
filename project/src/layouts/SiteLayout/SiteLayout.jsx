@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types'
+
+import ScrollToTop from '../../components/domain/navigation/ScrollToTop'
 import Footer from './partials/Footer/Footer'
 import Header from './partials/Header/Header'
+
 
 function SiteLayout({ children }) {
   return (
@@ -8,12 +11,15 @@ function SiteLayout({ children }) {
       <Header />
       {children}
       <Footer />
+      <ScrollToTop />
     </div>
   )
 }
 
+
 SiteLayout.propTypes = {
   children: PropTypes.node.isRequired,
 }
+
 
 export default SiteLayout

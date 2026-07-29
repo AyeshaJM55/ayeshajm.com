@@ -537,6 +537,9 @@ footer mail on hover becomes darker, instead:
 
 and footer artstation link is ayesha_jm.artstation.com
 
+---
+
+oh. not on bottom left. on bottom right. quick fix.
 
 ---
 
