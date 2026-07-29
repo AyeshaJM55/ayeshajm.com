@@ -2,7 +2,7 @@
 
 ## Purpose
 
-`ayeshajm.com` is a public portfolio and marketing website for Ayesha J., a 3D product visualization artist. The site presents:
+`ayeshajm.com` is a public portfolio and marketing website for Ayesha JM, a 3D product visualization artist. The site presents:
 
 - 3D modeling services.
 - Photorealistic product rendering.

@@ -42,12 +42,12 @@ describe('blog and author pages', () => {
     render(<BlogDetail params={{ slug: 'product-rendering-for-ecommerce' }} />)
     expect(screen.getByRole('main', { name: 'Product Rendering for E-commerce article page' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Start with a clear image hierarchy' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Ayesha J.' })).toHaveAttribute('href', '/authors/ayesha-jm')
+    expect(screen.getByRole('link', { name: 'Ayesha JM' })).toHaveAttribute('href', '/authors/ayesha-jm')
   })
 
   it('renders an author biography and authored posts', () => {
     render(<AuthorDetail params={{ slug: 'ayesha-jm' }} />)
-    expect(screen.getByRole('main', { name: 'Ayesha J. author page' })).toBeInTheDocument()
+    expect(screen.getByRole('main', { name: 'Ayesha JM author page' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Areas of focus' })).toBeInTheDocument()
     expect(screen.getAllByRole('link', { name: /Product Rendering for E-commerce/ }).length).toBeGreaterThan(0)
   })

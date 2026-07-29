@@ -17,7 +17,7 @@ describe('Header', () => {
     const book = screen.getByRole('link', { name: 'Book a call' })
     const locale = screen.getAllByRole('button', { name: /Current language: EN/ })[0]
 
-    expect(screen.getByRole('link', { name: 'Ayesha J.' })).toHaveAttribute('href', '/')
+    expect(screen.getByRole('link', { name: 'Ayesha JM' })).toHaveAttribute('href', '/')
     expect(book).toHaveAttribute('href', '/book')
     expect(navigation).toHaveClass('md:flex')
     expect(book.compareDocumentPosition(locale) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()

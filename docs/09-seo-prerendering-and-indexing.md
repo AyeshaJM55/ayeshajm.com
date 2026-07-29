@@ -41,7 +41,7 @@ Static route records include values such as:
   path: '/about',
   image: aboutSocialImage,
   title: 'About',
-  description: 'About Ayesha J. and the process behind clear, commercially useful 3D product visuals.',
+  description: 'About Ayesha JM and the process behind clear, commercially useful 3D product visuals.',
   ...aboutPage,
 }
 ```
@@ -59,7 +59,7 @@ getImage: ({ slug }) => getProjectBySlug(slug)?.coverImage
 Default static title format:
 
 ```text
-Ayesha J. | Page Title
+Ayesha JM | Page Title
 ```
 
 Blog and author pages define more natural custom formats.
@@ -205,7 +205,7 @@ Verify after editing:
 
 ```bash
 npm run build
-grep -n "Ayesha J. | About" dist/about/index.html
+grep -n "Ayesha JM | About" dist/about/index.html
 grep -n "Visualizing products" dist/about/index.html
 grep -n "Realism with a job" dist/about/index.html
 ```

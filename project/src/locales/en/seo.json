@@ -1,8 +1,8 @@
 {
   "siteName": "Ayesha JM",
-  "titlePattern": "Ayesha J. | {title}",
-  "articleTitlePattern": "{title} | Ayesha J.",
-  "authorTitlePattern": "{name} | Author | Ayesha J.",
+  "titlePattern": "Ayesha JM | {title}",
+  "articleTitlePattern": "{title} | Ayesha JM",
+  "authorTitlePattern": "{name} | Author | Ayesha JM",
   "notFoundFallback": "Page Not Found",
   "missingArticle": "The requested article could not be found.",
   "missingAuthor": "The requested author could not be found.",
@@ -16,7 +16,7 @@
     },
     "about": {
       "title": "About",
-      "description": "About Ayesha J. and the process behind clear, commercially useful 3D product visuals."
+      "description": "About Ayesha JM and the process behind clear, commercially useful 3D product visuals."
     },
     "services": {
       "title": "Services",
@@ -36,7 +36,7 @@
     },
     "book": {
       "title": "Book a Call",
-      "description": "Request a project consultation with Ayesha J."
+      "description": "Request a project consultation with Ayesha JM"
     },
     "notFound": {
       "title": "Page Not Found",
