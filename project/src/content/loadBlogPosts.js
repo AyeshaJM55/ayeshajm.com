@@ -1,6 +1,6 @@
 import { getActiveLocale, loadLocaleContent } from '../locales'
 import { getAuthorBySlug } from './loadAuthors'
-import { calculateReadingTime } from './parseMarkdown'
+import { calculateReadingTime, parseMarkdown } from './parseMarkdown'
 
 export const blogManifest = [
   { slug: 'building-a-launch-visual-system', publishedAt: '2026-07-05', updatedAt: '', authorSlug: 'ayesha-jm', categoryId: 'art-direction', tagIds: ['product-launch', 'cgi-animation', 'lifestyle-rendering'], coverImage: '/content/media/blog/building-a-launch-visual-system/cover.png', featured: false, draft: false },
@@ -30,4 +30,40 @@ export function getRelatedPosts(post, locale = getActiveLocale(), limit = 3) {
     .slice(0, limit).map(({ candidate }) => candidate)
 }
 export const blogPosts = getBlogPosts('en')
-export const buildBlogPosts = () => blogPosts
+const requiredPostFields = ['slug', 'title', 'description', 'publishedAt', 'author', 'coverImage', 'coverAlt']
+
+export function buildBlogPosts(modules, authorRecords = [], { showDrafts = import.meta.env.DEV } = {}) {
+  if (!modules) return blogPosts
+
+  const authorsBySlug = new Map(authorRecords.map((author) => [author.slug, author]))
+  const seen = new Set()
+
+  return Object.entries(modules).map(([sourcePath, source]) => {
+    const { content, data } = parseMarkdown(source, sourcePath)
+    for (const field of requiredPostFields) {
+      if (typeof data[field] !== 'string' || !data[field].trim()) throw new Error(`[content] ${sourcePath}: missing required blog field "${field}".`)
+    }
+    if (seen.has(data.slug)) throw new Error(`[content] ${sourcePath}: duplicate blog slug "${data.slug}".`)
+    seen.add(data.slug)
+
+    const author = authorsBySlug.get(data.author)
+    if (!author) throw new Error(`[content] ${sourcePath}: unknown author slug "${data.author}".`)
+
+    return {
+      ...data,
+      author,
+      authorSlug: data.author,
+      category: data.category ?? '',
+      categoryId: data.categoryId ?? '',
+      content,
+      bodyMarkdown: content,
+      draft: Boolean(data.draft),
+      featured: Boolean(data.featured),
+      readingTime: calculateReadingTime(content),
+      tags: Array.isArray(data.tags) ? data.tags : [],
+      tagIds: Array.isArray(data.tagIds) ? data.tagIds : [],
+      updatedAt: data.updatedAt ?? '',
+    }
+  }).filter((post) => showDrafts || !post.draft)
+    .sort((left, right) => Date.parse(right.publishedAt) - Date.parse(left.publishedAt))
+}

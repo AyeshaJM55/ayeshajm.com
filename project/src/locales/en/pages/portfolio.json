@@ -6,7 +6,11 @@
     "description": "{count} selected projects across product design, e-commerce, lifestyle, material development, and photorealistic rendering."
   },
   "results": {
+    "zero": "No projects shown",
     "one": "{count} project shown",
+    "two": "{count} projects shown",
+    "few": "{count} projects shown",
+    "many": "{count} projects shown",
     "other": "{count} projects shown"
   },
   "capabilities": {

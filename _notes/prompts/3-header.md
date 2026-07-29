@@ -798,6 +798,8 @@ points to verify:
 - in RTL, the carets in home page's testimonials carousels point in opposite (wrong) directions
 - services locales are missing from footer for ar.
 - the logos strip after hero should repeat in both directions. it gets empty space in RTL.
+- In arabic, it can just be "Ayesha" (without jeem) instead of "Ayesha J." (with jeem).
+- fix this problem: the dropdown of header is cropped due to some other things in header. make sure positions, z-index. etc. are in a way that it is on top and not hidden. because i cannot change from EN to AR or vice versa atm.
 
 also:
 - make sure that ./docs/ (`../docs/` if you are doing that from project) has info related to how to add locales

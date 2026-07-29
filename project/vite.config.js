@@ -28,9 +28,13 @@ function seoHtmlRendering() {
           const transformedTemplate = await server.transformIndexHtml(pathname, template)
           const { renderPage } = await server.ssrLoadModule('/src/entry-server.jsx')
           const rendered = await renderPage(pathname)
+          const fontPreload = rendered.locale === 'ar'
+            ? '<link rel="preload" href="/fonts/ibm-plex-sans-arabic/ibm-plex-sans-arabic-600.woff2" as="font" type="font/woff2" crossorigin>'
+            : ''
           const html = transformedTemplate
+            .replace(/<html[^>]*>/, `<html lang="${rendered.locale}" dir="${rendered.direction}" data-locale="${rendered.locale}" data-direction="${rendered.direction}">`)
             .replace('<body>', '<body data-prerendered="true" style="overflow:hidden">')
-              .replace('<!--seo-head-->', rendered.head)
+            .replace('<!--seo-head-->', `${fontPreload}${rendered.head}`)
             .replace('<div id="root"><!--app-html--></div>', `<div id="root" data-prerendered="true">${rendered.html}</div>`)
 
           response.statusCode = rendered.status

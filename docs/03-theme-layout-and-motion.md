@@ -254,3 +254,13 @@ Use GSAP/ScrollTrigger for:
 - Counter or marquee behavior requiring direct coordination.
 
 Do not import GSAP eagerly for a small hover animation. The browser already survived several decades before being asked to download a timeline engine for a three-pixel movement.
+
+## Arabic typography and direction
+
+Arabic pages use self-hosted IBM Plex Sans Arabic weights 400, 500, 600, and 700 from `public/fonts/ibm-plex-sans-arabic/`. The important 600 weight is preloaded only on Arabic prerendered pages.
+
+Use logical CSS utilities and properties for semantic direction: `start`, `end`, `ps`, `pe`, `ms`, `me`, `border-s`, and `border-e`. Fixed left/right positioning is acceptable only for direction-neutral coordinate systems such as a pointer-following cursor.
+
+Arabic text must not depend on uppercase transformations or Latin letter spacing. Email addresses, URLs, code, and file formats remain LTR with bidi isolation. Free-text fields should use `dir="auto"`; email fields use `dir="ltr"`.
+
+Directional controls must mirror meaningfully. Previous points toward inline start and next points toward inline end. Reveal motion and carousels should derive their direction from the active locale rather than from English assumptions carved into the component like a tiny archaeological mistake.

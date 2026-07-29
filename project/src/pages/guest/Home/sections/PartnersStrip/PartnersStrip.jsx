@@ -1,13 +1,15 @@
-import { useLayoutEffect, useRef } from 'react'
+import { useLayoutEffect, useMemo, useRef } from 'react'
 
-const partnerNames = ['Small Cliffs', 'Golden Pets', 'Savva']
-const repeatedPartners = Array.from({ length: 10 }, () => partnerNames).flat()
+import { useLocale } from '../../../../../locales/useLocale'
 
 function PartnersStrip() {
   const sectionRef = useRef(null)
   const viewportRef = useRef(null)
   const trackRef = useRef(null)
   const itemRefs = useRef([])
+  const { content, direction } = useLocale()
+  const copy = content.pages.home.partners
+  const repeatedPartners = useMemo(() => Array.from({ length: 10 }, () => copy.names).flat(), [copy.names])
 
   useLayoutEffect(() => {
     const section = sectionRef.current
@@ -41,13 +43,10 @@ function PartnersStrip() {
 
           itemRefs.current.forEach((item) => {
             if (!item) return
-
             const itemBounds = item.getBoundingClientRect()
             const itemCenter = itemBounds.left + itemBounds.width / 2
             const distance = Math.min(Math.abs(itemCenter - center) / fadeDistance, 1)
-            const opacity = 0.14 + 0.86 * Math.pow(1 - distance, 1.8)
-
-            gsap.set(item, { opacity })
+            gsap.set(item, { opacity: 0.14 + 0.86 * Math.pow(1 - distance, 1.8) })
           })
         }
 
@@ -57,55 +56,36 @@ function PartnersStrip() {
           return
         }
 
-        const getStartX = () => viewport.clientWidth * 0.18
-
+        const getStartX = () => viewport.clientWidth * (direction === 'rtl' ? -0.18 : 0.18)
+        const getX = (self) => getStartX() + (self.scroll() - self.start) * (direction === 'rtl' ? 1 : -1)
         const scrollTrigger = ScrollTrigger.create({
           trigger: section,
           start: 'top bottom',
           end: 'bottom top',
           invalidateOnRefresh: true,
-          onRefresh: (self) => {
-            gsap.set(track, { x: getStartX() - (self.scroll() - self.start) })
-            updateOpacity()
-          },
-          onUpdate: (self) => {
-            gsap.set(track, { x: getStartX() - (self.scroll() - self.start) })
-            updateOpacity()
-          },
+          onRefresh: (self) => { gsap.set(track, { x: getX(self) }); updateOpacity() },
+          onUpdate: (self) => { gsap.set(track, { x: getX(self) }); updateOpacity() },
         })
 
         updateOpacity()
         requestAnimationFrame(() => ScrollTrigger.refresh())
-
         return () => scrollTrigger.kill()
       }, section)
     }
 
     setupAnimation()
-
-    return () => {
-      cancelled = true
-      context?.revert()
-    }
-  }, [])
+    return () => { cancelled = true; context?.revert() }
+  }, [direction])
 
   return (
-    <section ref={sectionRef} aria-label='Selected clients' className='bg-white'>
-      <div
-        ref={viewportRef}
-        className='w-full overflow-hidden border-y border-black/5'
-      >
-        <div
-          ref={trackRef}
-          className='flex w-max items-center will-change-transform'
-        >
+    <section aria-label={copy.ariaLabel} className='bg-white' ref={sectionRef}>
+      <div className='w-full overflow-hidden border-y border-black/5' ref={viewportRef}>
+        <div className='flex w-max items-center will-change-transform' ref={trackRef}>
           {repeatedPartners.map((name, index) => (
-            <div key={`${name}-${index}`} className='flex shrink-0 items-center'>
+            <div className='flex shrink-0 items-center' key={`${name}-${index}`}>
               <span
-                ref={(element) => {
-                  itemRefs.current[index] = element
-                }}
                 className='select-none whitespace-nowrap px-8 py-5 text-xl font-semibold italic leading-none text-strip-ink opacity-15 sm:px-10 sm:py-6 sm:text-2xl lg:px-12 lg:text-[1.8rem]'
+                ref={(element) => { itemRefs.current[index] = element }}
               >
                 {name}
               </span>

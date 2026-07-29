@@ -54,3 +54,17 @@ python3 ../.agents/skills/frontend-dev/scripts/check-correctness.py src
 ```
 
 A successful build currently prerenders 24 routes. That number changes automatically when Markdown authors/posts, services, or projects are added, and manually when a new static route is introduced.
+
+## Localization and RTL
+
+The site supports unprefixed English routes and Arabic routes under `/ar`. Start with [`11-localization-and-rtl.md`](./11-localization-and-rtl.md) before editing public copy, routing, metadata, forms, services, projects, blog posts, or author biographies.
+
+Primary entry points:
+
+- `project/src/locales/locales.json`: locale registry containing only `symbol` and `mode`.
+- `project/src/locales/en/` and `project/src/locales/ar/`: mirrored public content.
+- `project/src/locales/LocaleProvider.jsx` and `useLocale.js`: runtime locale access.
+- `project/src/components/navigation/LocaleSwitcher/`: route-preserving language control.
+- `project/scripts/audit-localized-copy.mjs`: hard-coded public-copy audit.
+
+Run `npm run audit:locales` with lint, tests, and build validation. Humans have historically demonstrated that untranslated error messages are somehow invisible until production, so the audit is not decorative.

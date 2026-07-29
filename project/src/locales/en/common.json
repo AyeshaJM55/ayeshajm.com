@@ -50,7 +50,11 @@
     "next": "Next",
     "updated": "Updated {date}",
     "readingTime": {
+      "zero": "{count} min read",
       "one": "{count} min read",
+      "two": "{count} min read",
+      "few": "{count} min read",
+      "many": "{count} min read",
       "other": "{count} min read"
     },
     "copyright": "© {year} Ayesha JM. All rights reserved."

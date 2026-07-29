@@ -17,7 +17,7 @@ function ScrollProgress({ children, className = '' }) {
 
   return (
     <div className={`relative ${className}`} ref={targetRef}>
-      {reducedMotion ? null : <motion.div aria-hidden='true' className='absolute left-0 top-0 z-10 h-px w-full origin-left scale-x-0 bg-current' ref={progressRef} />}
+      {reducedMotion ? null : <motion.div aria-hidden='true' className='absolute start-0 top-0 z-10 h-px w-full origin-left rtl:origin-right scale-x-0 bg-current' ref={progressRef} />}
       {children}
     </div>
   )

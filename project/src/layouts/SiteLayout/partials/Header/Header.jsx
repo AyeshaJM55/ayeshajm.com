@@ -5,6 +5,7 @@ import { useLayoutEffect, useRef, useState } from 'react'
 
 import useHeaderScrollAnimation from '../../../../hooks/useHeaderScrollAnimation'
 import useReducedMotion from '../../../../hooks/useReducedMotion'
+import LocaleSwitcher from '../../../../components/navigation/LocaleSwitcher'
 import { useLocale } from '../../../../locales/useLocale'
 import headerLinks from './HeaderLinks'
 
@@ -18,9 +19,7 @@ function Header({ pathname = typeof window === 'undefined' ? '/' : window.locati
   const innerRef = useRef(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const reducedMotion = useReducedMotion()
-  const { locale, localizePath, metadata, switchLocalePath, t } = useLocale()
-  const nextLocale = locale === 'ar' ? 'en' : 'ar'
-  const localeHref = switchLocalePath(pathname, nextLocale)
+  const { localizePath, t } = useLocale()
   const localizedLinks = headerLinks.map((link) => ({
     ...link,
     activePrefixes: link.activePrefixes.map((prefix) => localizePath(prefix)),
@@ -43,17 +42,6 @@ function Header({ pathname = typeof window === 'undefined' ? '/' : window.locati
     inner.style.removeProperty('border-radius')
     inner.style.borderRadius = window.scrollY > 80 ? '9999px' : '0px'
   }, [isMenuOpen])
-
-  const localeSwitcher = (className = '') => (
-    <a
-      aria-label={t('header.switchTo', { symbol: nextLocale === 'ar' ? 'AR' : 'EN' })}
-      className={`inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-black/15 bg-white text-xs font-bold tracking-[0.08em] text-black outline-none transition-colors hover:bg-black hover:text-white focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 ${className}`}
-      href={localeHref}
-      lang={nextLocale}
-    >
-      {metadata.symbol === 'AR' ? 'EN' : 'AR'}
-    </a>
-  )
 
   return (
     <header ref={headerRef} className='fixed inset-x-0 top-0 z-50 flex justify-center' role='banner'>
@@ -93,9 +81,8 @@ function Header({ pathname = typeof window === 'undefined' ? '/' : window.locati
               {t('navigation.book')}
               <CalendarCheck2 aria-hidden='true' size={16} strokeWidth={1.8} />
             </motion.a>
-
-            {localeSwitcher('hidden md:inline-flex')}
-            {localeSwitcher('md:hidden')}
+                <LocaleSwitcher className='hidden md:block' pathname={pathname} />
+                <LocaleSwitcher className='md:hidden' onNavigate={() => setIsMenuOpen(false)} pathname={pathname} />
 
             <button
               aria-expanded={isMenuOpen}

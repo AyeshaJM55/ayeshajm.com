@@ -350,3 +350,15 @@ Review at minimum:
 - Wide desktop around 1600 px.
 
 New copy can break layouts without changing a single class. Long words, titles, client names, and translations remain stubbornly physical objects once rendered.
+
+## Editing localized page copy
+
+Public page copy belongs in `src/locales/en/pages/*.json` and the mirrored Arabic file. Shared actions, labels, form fields, accessibility strings, and navigation belong in their focused locale files rather than in JSX.
+
+When adding or renaming a key:
+
+1. Apply the identical key path and value type in both locales.
+2. Keep entity IDs, slugs, form values, route segments, and query values language neutral.
+3. Use named placeholders such as `{title}` and plural objects rather than concatenating fragments.
+4. Verify Arabic copy fits the existing composition without inheriting Latin uppercase or tracking treatments.
+5. Run `npm run audit:locales`, lint, tests, and the production build.

@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
+
 import heroImage from '../../../../assets/featured-work/render-1.png'
+import { useLocale } from '../../../../locales/useLocale'
 
 const reveal = {
   hidden: { opacity: 0, y: 28 },
@@ -7,6 +9,9 @@ const reveal = {
 }
 
 function Hero() {
+  const { content, localizePath } = useLocale()
+  const copy = content.pages.home.hero
+
   return (
     <section
       aria-labelledby='hero-title'
@@ -20,12 +25,12 @@ function Hero() {
           transition={{ staggerChildren: 0.12, delayChildren: 0.08 }}
         >
           <motion.h1
-            id='hero-title'
             className='max-w-[760px] text-[clamp(2.75rem,7vw,4.75rem)] font-semibold leading-[1.04] tracking-[-0.04em] text-black'
+            id='hero-title'
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             variants={reveal}
           >
-            3D Product Experiences for Brands &amp; E-Commerce
+            {copy.title}
           </motion.h1>
 
           <motion.p
@@ -33,27 +38,19 @@ function Hero() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             variants={reveal}
           >
-            Realistic visuals and interactive 3D experiences that enhance your brand&apos;s online presence and drive customer trust.
+            {copy.description}
           </motion.p>
 
-          <motion.div
-            className='mt-10 h-px w-32 bg-hero-ink sm:w-36'
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            variants={reveal}
-          />
+          <motion.div className='mt-10 h-px w-32 bg-hero-ink sm:w-36' transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} variants={reveal} />
 
-          <motion.div
-            className='mt-7'
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            variants={reveal}
-          >
+          <motion.div className='mt-7' transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} variants={reveal}>
             <motion.a
               className='inline-flex min-h-14 items-center justify-center rounded-full bg-black px-8 text-base font-medium text-white outline-none transition-colors hover:bg-neutral-800 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 sm:min-h-16 sm:min-w-64 sm:text-xl'
-              href='/portfolio'
+              href={localizePath('/portfolio')}
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.98 }}
             >
-              View Portfolio
+              {copy.cta}
             </motion.a>
           </motion.div>
         </motion.div>
@@ -64,17 +61,8 @@ function Hero() {
           initial={{ opacity: 0, scale: 0.94 }}
           transition={{ duration: 0.9, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
         >
-          <motion.div
-            className='relative aspect-square w-full max-w-[680px] overflow-hidden rounded-full lg:w-[min(42vw,680px)]'
-            whileHover={{ scale: 0.985 }}
-            transition={{ duration: 0.45, ease: 'easeOut' }}
-          >
-            <img
-              alt='Photorealistic 3D product visualization'
-              className='absolute inset-0 h-full w-full rotate-45 scale-[1.08] object-cover object-center'
-              fetchPriority='high'
-              src={heroImage}
-            />
+          <motion.div className='relative aspect-square w-full max-w-[680px] overflow-hidden rounded-full lg:w-[min(42vw,680px)]' transition={{ duration: 0.45, ease: 'easeOut' }} whileHover={{ scale: 0.985 }}>
+            <img alt={copy.imageAlt} className='absolute inset-0 h-full w-full rotate-45 scale-[1.08] object-cover object-center' fetchPriority='high' src={heroImage} />
           </motion.div>
         </motion.div>
       </div>

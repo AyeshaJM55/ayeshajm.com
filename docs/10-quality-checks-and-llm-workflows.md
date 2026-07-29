@@ -260,3 +260,20 @@ Before declaring a task complete, answer internally:
 8. Is metadata still correct?
 9. Did I run the relevant tests and build?
 10. Did I verify the generated output rather than merely admire the JSX?
+
+## Locale verification
+
+Required locale checks:
+
+```sh
+npm run audit:locales
+npm run lint
+npm test
+npm run build
+```
+
+The test suite validates registry shape, mirrored JSON keys and types, manifest coverage, locale routing, route-preserving switching, document direction, localized SEO, dynamic entity metadata, and unsupported locale prefixes.
+
+The copy audit scans production JavaScript and JSX for suspicious public literals outside the locale system. Proper nouns and deliberate symbols require a narrow allowlist entry, not a broad exemption that turns the audit into ceremonial theatre.
+
+Automated checks do not replace responsive review at 320px, 375px, tablet, desktop, and wide desktop widths in both directions. They also do not replace final review by a fluent Arabic editor familiar with Saudi commercial language.

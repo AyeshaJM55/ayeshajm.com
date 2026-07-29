@@ -18,5 +18,5 @@
   "goToTestimonial": "الانتقال إلى التوصية {index}",
   "previousService": "الخدمة السابقة",
   "nextService": "الخدمة التالية",
-  "goToService": "الانتقال إلى الخدمة {{index}}"
+  "goToService": "الانتقال إلى الخدمة {index}"
 }

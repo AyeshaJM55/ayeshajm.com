@@ -285,3 +285,11 @@ cat dist/robots.txt
 ```
 
 Never judge prerender integrity solely from the live hydrated DOM. Inspect the generated source, because search systems do not owe anyone the courtesy of executing every animation library first.
+
+## Localized SEO and prerender output
+
+Every route has an English canonical URL and an Arabic canonical URL under `/ar`. SEO output includes reciprocal `hreflang="en"`, `hreflang="ar-SA"`, and `x-default` links, plus `og:locale` and `og:locale:alternate` values.
+
+Structured data uses localized entity text and clean language identifiers: `en-US` or `ar-SA`. Dynamic blog, author, service, and work routes resolve entities with the current locale. Missing dynamic entities are `noindex, nofollow`.
+
+The sitemap contains both locale variants and reciprocal alternates. Arabic HTML must contain Arabic visible content and metadata during prerendering, not only after hydration. Inspect `dist/index.html`, `dist/ar/index.html`, representative detail pages, and `dist/sitemap.xml` after production builds.

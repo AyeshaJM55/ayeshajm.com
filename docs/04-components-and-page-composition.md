@@ -274,3 +274,18 @@ grep -Rni "SectionHeader\|TextMediaSplit\|ProcessSteps\|MediaGrid\|MetricStrip\|
 ```
 
 If two pages contain the same structural JSX with only copy differences, extract a reusable component or feed data into the existing one.
+
+## Locale components and content access
+
+`LocaleProvider` exposes the locale, direction, registry metadata, localized content, translation helper, formatters, and path helpers through `useLocale()`.
+
+Prefer structured access for page composition:
+
+```jsx
+const { content, locale, localizePath } = useLocale()
+const copy = content.pages.about
+```
+
+Use `t()` for shared labels and interpolated messages. Use localized entity adapters such as `getServices(locale)`, `getProjects(locale)`, `getBlogPosts(locale)`, and `getAuthorBySlug(slug, locale)` rather than importing a default-language array.
+
+`LocaleSwitcher` is keyboard accessible, closes on Escape or outside pointer interaction, marks the current locale without relying on color, and preserves the full route context. Header and footer links must always pass through `localizePath`.

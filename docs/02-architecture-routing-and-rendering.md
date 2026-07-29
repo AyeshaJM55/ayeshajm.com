@@ -171,3 +171,13 @@ A new dynamic type requires:
 - Tests.
 
 Humans enjoy adding a route and forgetting the other seven pieces. The build will not always save them from themselves.
+
+## Locale-aware routing
+
+English remains the default and uses existing paths such as `/services`. Arabic uses the same stable route segments and entity slugs beneath `/ar`, such as `/ar/services/3d-modeling`.
+
+`src/routes/matchRoute.js` accepts the raw pathname and returns `locale`, `pathnameWithoutLocale`, `params`, and `route`. Supported locale prefixes are removed before route matching. Unsupported locale-like prefixes, such as `/fr/about`, resolve to the normal not-found route rather than silently mixing languages.
+
+`App` passes the matched locale to `LocaleProvider`. The URL is the source of truth, including during SSR and hydration. Locale switching must preserve the current route, query string, and hash through `switchLocalePath`.
+
+Production prerendering generates both locale variants. `entry-server.jsx` returns locale and direction metadata, while `scripts/prerender.mjs` writes `lang`, `dir`, `data-locale`, and `data-direction` directly onto `<html>` before first paint.

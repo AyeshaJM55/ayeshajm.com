@@ -2,31 +2,25 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { prerender } from 'react-dom/static'
 
 import App from './App'
-import { authors } from './content/loadAuthors'
-import { blogPosts } from './content/loadBlogPosts'
-import { projects } from './data/projects'
-import { services } from './data/services'
-import {
-  getLocaleDirection,
-  resolveLocaleFromPath,
-  setActiveLocale,
-  stripLocalePath,
-} from './locales'
+import { authorManifest } from './content/loadAuthors'
+import { blogManifest } from './content/loadBlogPosts'
+import { projectManifest } from './data/projects'
+import { serviceManifest } from './data/services'
+import { getLocaleDirection } from './locales'
 import siteRoutes from './routes'
 import matchRoute from './routes/matchRoute'
 import SeoTags from './seo/SeoTags'
 import { resolveRouteSeo } from './seo/routeSeo'
 
-
 const staticPaths = ['/', '/about', '/services', '/portfolio', '/blog', '/contact', '/book']
-const contentPaths = []
-
-for (const post of blogPosts) contentPaths.push(`/blog/${post.slug}`)
-for (const author of authors) contentPaths.push(`/authors/${author.slug}`)
-for (const service of services) contentPaths.push(`/services/${service.slug}`)
-for (const project of projects) contentPaths.push(`/work/${project.slug}`)
-
+const contentPaths = [
+  ...blogManifest.map((post) => `/blog/${post.slug}`),
+  ...authorManifest.map((author) => `/authors/${author.slug}`),
+  ...serviceManifest.map((service) => `/services/${service.slug}`),
+  ...projectManifest.map((project) => `/work/${project.slug}`),
+]
 const basePaths = [...staticPaths, ...contentPaths]
+
 export const prerenderPaths = [
   ...basePaths,
   ...basePaths.map((pathname) => pathname === '/' ? '/ar' : `/ar${pathname}`),
@@ -34,23 +28,16 @@ export const prerenderPaths = [
   '/ar/404',
 ]
 
-
 const normalizePathname = (pathname) => {
   const cleanPath = pathname.split(/[?#]/)[0] || '/'
-  const locale = resolveLocaleFromPath(cleanPath)
-  const routePath = stripLocalePath(cleanPath)
-  if (routePath === '/404') return locale === 'ar' ? '/ar/missing-page' : '/missing-page'
+  if (cleanPath === '/404') return '/missing-page'
+  if (cleanPath === '/ar/404') return '/ar/missing-page'
   return cleanPath.length > 1 ? cleanPath.replace(/\/$/, '') : cleanPath
 }
 
-
 export async function renderPage(pathname) {
   const normalizedPathname = normalizePathname(pathname)
-  const locale = resolveLocaleFromPath(normalizedPathname)
-  const routePathname = stripLocalePath(normalizedPathname)
-  setActiveLocale(locale)
-
-  const { params, route } = matchRoute(routePathname, siteRoutes)
+  const { locale, params, route } = matchRoute(normalizedPathname, siteRoutes)
   await route.loadPage()
 
   const seo = resolveRouteSeo(normalizedPathname, route, params, locale)

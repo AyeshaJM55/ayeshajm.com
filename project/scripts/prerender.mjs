@@ -2,22 +2,23 @@ import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 
-
 const root = process.cwd()
 const distDirectory = resolve(root, 'dist')
 const serverDirectory = resolve(root, 'dist-ssr')
 const template = await readFile(resolve(distDirectory, 'index.html'), 'utf8')
 const serverEntry = await import(pathToFileURL(resolve(serverDirectory, 'entry-server.js')).href)
 
-
 function injectDocument(source, rendered) {
+  const fontPreload = rendered.locale === 'ar'
+    ? '<link rel="preload" href="/fonts/ibm-plex-sans-arabic/ibm-plex-sans-arabic-600.woff2" as="font" type="font/woff2" crossorigin>'
+    : ''
+
   return source
-    .replace(/<html[^>]*>/, `<html lang="${rendered.locale}" dir="${rendered.direction}">`)
+    .replace(/<html[^>]*>/, `<html lang="${rendered.locale}" dir="${rendered.direction}" data-locale="${rendered.locale}" data-direction="${rendered.direction}">`)
+    .replace('<!--seo-head-->', `${fontPreload}${rendered.head}`)
     .replace('<body>', '<body data-prerendered="true" style="overflow:hidden">')
-    .replace('<!--seo-head-->', rendered.head)
     .replace('<div id="root"><!--app-html--></div>', `<div id="root" data-prerendered="true">${rendered.html}</div>`)
 }
-
 
 function outputPathFor(pathname) {
   if (pathname === '/') return resolve(distDirectory, 'index.html')
@@ -33,7 +34,6 @@ const escapeXml = (value) => value
   .replaceAll('"', '&quot;')
   .replaceAll("'", '&apos;')
 
-
 const sitemapEntries = []
 
 for (const pathname of serverEntry.prerenderPaths) {
@@ -43,18 +43,13 @@ for (const pathname of serverEntry.prerenderPaths) {
   await writeFile(outputPath, injectDocument(template, rendered))
 
   if (!pathname.endsWith('/404') && pathname !== '/404' && rendered.status === 200) {
-    sitemapEntries.push({
-      alternates: rendered.alternates,
-      canonical: rendered.canonical,
-      modifiedAt: rendered.modifiedAt,
-    })
+    sitemapEntries.push({ alternates: rendered.alternates, canonical: rendered.canonical, modifiedAt: rendered.modifiedAt })
   }
 }
 
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${sitemapEntries.map(({ alternates, canonical, modifiedAt }) => `  <url>\n    <loc>${escapeXml(canonical)}</loc>\n    <xhtml:link rel="alternate" hreflang="en" href="${escapeXml(alternates.en)}" />\n    <xhtml:link rel="alternate" hreflang="ar" href="${escapeXml(alternates.ar)}" />\n    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(alternates['x-default'])}" />${modifiedAt ? `\n    <lastmod>${modifiedAt}</lastmod>` : ''}\n  </url>`).join('\n')}\n</urlset>\n`
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${sitemapEntries.map(({ alternates, canonical, modifiedAt }) => `  <url>\n    <loc>${escapeXml(canonical)}</loc>\n    <xhtml:link rel="alternate" hreflang="en" href="${escapeXml(alternates.en)}" />\n    <xhtml:link rel="alternate" hreflang="ar-SA" href="${escapeXml(alternates['ar-SA'])}" />\n    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(alternates['x-default'])}" />${modifiedAt ? `\n    <lastmod>${modifiedAt}</lastmod>` : ''}\n  </url>`).join('\n')}\n</urlset>\n`
 
 await writeFile(resolve(distDirectory, 'sitemap.xml'), sitemap)
 await writeFile(resolve(distDirectory, 'robots.txt'), 'User-agent: *\nAllow: /\n\nSitemap: https://ayeshajm.com/sitemap.xml\n')
 await rm(serverDirectory, { recursive: true, force: true })
-
 console.log(`Prerendered ${serverEntry.prerenderPaths.length} routes with bilingual route-specific HTML and metadata.`)

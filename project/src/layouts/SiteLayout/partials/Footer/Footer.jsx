@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef } from 'react'
 
 import { footerNavigation } from '../../../../data/navigation'
-import { services } from '../../../../data/services'
+import { getServices } from '../../../../data/services'
 import { site } from '../../../../data/site'
 import { useLocale } from '../../../../locales/useLocale'
 import FooterDotField from './FooterDotField'
@@ -20,7 +20,8 @@ function Footer() {
   const emailContainerRef = useRef(null)
   const emailRef = useRef(null)
   const mailCursorRef = useRef(null)
-  const { direction, localizePath, t } = useLocale()
+  const { formatNumber, locale, localizePath, t } = useLocale()
+  const services = getServices(locale)
 
   useLayoutEffect(() => {
     const container = emailContainerRef.current
@@ -115,7 +116,7 @@ function Footer() {
               </ul>
             </nav>
 
-            <div className='flex min-w-0 flex-col items-start md:items-end md:pl-2 lg:pl-5'>
+            <div className='flex min-w-0 flex-col items-start md:items-end md:ps-2 lg:ps-5'>
               <nav aria-label={t('footer.socialMedia')} className='mb-7'>
                 <ul className='flex items-center gap-2'>
                   {socialLinks.map((link) => (
@@ -123,7 +124,7 @@ function Footer() {
                       <a
                         aria-label={link.label}
                         className='inline-flex size-16 items-center justify-center rounded-full outline-none transition-colors duration-[400ms] hover:bg-black focus-visible:bg-black focus-visible:ring-2 focus-visible:ring-white'
-                        href={link.href}
+                        href={link.href.startsWith('http') ? link.href : localizePath(link.href)}
                         rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
                         target={link.href.startsWith('http') ? '_blank' : undefined}
                       >
@@ -138,7 +139,7 @@ function Footer() {
 
               <div className='w-full min-w-0 overflow-hidden' ref={emailContainerRef}>
                 <a
-                  className={`group block w-full cursor-pointer py-2 outline-none focus-visible:ring-2 focus-visible:ring-white md:cursor-none ${direction === 'rtl' ? 'text-right md:text-left' : 'text-left md:text-right'}`}
+                  className='group block w-full cursor-pointer py-2 text-start outline-none focus-visible:ring-2 focus-visible:ring-white md:cursor-none md:text-end'
                   href={`mailto:${site.email}`}
                   onPointerEnter={showMailCursor}
                   onPointerLeave={hideMailCursor}
@@ -148,7 +149,7 @@ function Footer() {
                     <span className='block whitespace-nowrap font-semibold leading-none tracking-[-0.065em] text-white mix-blend-difference' ref={emailRef}>
                       {site.email}
                     </span>
-                    <span aria-hidden='true' className='absolute inset-x-0 -bottom-1 h-[2px] origin-left scale-x-0 bg-white transition-transform duration-500 ease-out group-hover:scale-x-100 group-focus-visible:scale-x-100' />
+                    <span aria-hidden='true' className='absolute inset-x-0 -bottom-1 h-[2px] origin-left rtl:origin-right scale-x-0 bg-white transition-transform duration-500 ease-out group-hover:scale-x-100 group-focus-visible:scale-x-100' />
                   </span>
                 </a>
               </div>
@@ -157,7 +158,7 @@ function Footer() {
 
           <div className='mt-14 flex flex-col gap-2 border-t border-white/20 pt-6 text-xs uppercase tracking-[0.14em] sm:flex-row sm:items-center sm:justify-between'>
             <p className='text-white/45 mix-blend-difference'>
-              © {new Date().getFullYear()} Ayesha JM. {t('footer.rights')}
+              {t('common.labels.copyright', { year: formatNumber(new Date().getFullYear(), { useGrouping: false }) })}
             </p>
             <p className='text-white/45 mix-blend-difference'>{t('footer.crafted')}</p>
           </div>
@@ -166,7 +167,7 @@ function Footer() {
 
       <span
         aria-hidden='true'
-        className='pointer-events-none fixed left-0 top-0 z-[10000] hidden rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-black opacity-0 shadow-sm transition-opacity duration-150 md:block'
+        className='pointer-events-none fixed start-0 top-0 z-[10000] hidden rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-black opacity-0 shadow-sm transition-opacity duration-150 md:block'
         ref={mailCursorRef}
       >
         {t('footer.clickToMail')}

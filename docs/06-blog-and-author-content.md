@@ -329,3 +329,11 @@ Author Name works across **product visualization and commercial CGI**.
 - [ ] Draft remains true until review is complete.
 - [ ] `npm test` passes.
 - [ ] `npm run build` prerenders the article and author page.
+
+## Bilingual JSON content
+
+Blog and author content is locale-backed. Stable infrastructure such as slugs, dates, author relationships, draft state, and media paths lives in manifests; visible metadata and Markdown strings live in `src/locales/<locale>/blog.json` and `authors.json`.
+
+Every post and author slug in the manifest must exist in every locale. Keep the JSON shapes mirrored and preserve named fields such as `bodyMarkdown` and biography Markdown. Search and filters operate on localized titles, descriptions, categories, tags, and bodies.
+
+Arabic content should be a genuine editorial translation in professional Modern Standard Arabic suited to Saudi commercial audiences. Keep recognized technical terms such as CGI, CAD, STEP, OBJ, FBX, and STL where clarity benefits. Run locale parity tests after every content edit.

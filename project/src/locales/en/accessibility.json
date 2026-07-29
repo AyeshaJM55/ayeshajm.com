@@ -18,5 +18,5 @@
   "goToTestimonial": "Go to testimonial {index}",
   "previousService": "Previous service",
   "nextService": "Next service",
-  "goToService": "Go to service {{index}}"
+  "goToService": "Go to service {index}"
 }

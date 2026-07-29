@@ -288,3 +288,9 @@ Before changing one:
 - Rebuild sitemap and prerendered pages.
 
 Do not change a published slug merely to make it “nicer” without handling the old URL.
+
+## Localized service and project records
+
+Service and project manifests retain stable slugs, ordering, asset relationships, related IDs, and next-project links. All visible fields are stored in mirrored `services.json` and `projects.json` files per locale.
+
+Components must filter by stable category IDs and service slugs, never by translated labels. Resolve records with an explicit locale. A service or project added to a manifest is incomplete until matching English and Arabic records pass locale validation.

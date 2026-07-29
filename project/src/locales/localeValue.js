@@ -21,7 +21,6 @@ const resolveTranslation = (content, key) => {
     const value = getNestedValue(content, candidate)
     if (value !== undefined && value !== null) return value
   }
-
   return undefined
 }
 
@@ -30,17 +29,17 @@ export function buildLocaleValue(locale) {
   const metadata = localeRegistry[resolved]
   const direction = metadata.mode === 'RTL' ? 'rtl' : 'ltr'
   const content = loadLocaleContent(resolved)
-  const defaultContent = loadLocaleContent(DEFAULT_LOCALE)
   const formatters = createFormatters(resolved)
 
-  const t = (key, values = {}, fallback = '') => {
+  const t = (key, values = {}, fallback) => {
     const message = resolveTranslation(content, key)
-      ?? resolveTranslation(defaultContent, key)
-      ?? fallback
-      ?? key
-
+    if (message === undefined) {
+      if (fallback !== undefined) return fallback
+      if (import.meta.env.DEV || import.meta.env.MODE === 'test') throw new Error(`[locales] Missing ${resolved} translation: ${key}`)
+      return key
+    }
     return typeof message === 'string' || (message && typeof message === 'object')
-      ? formatMessage(message, values, formatters.pluralRules)
+      ? formatMessage(message, values, formatters.pluralRules, formatters.formatNumber)
       : message
   }
 
@@ -56,7 +55,7 @@ export function buildLocaleValue(locale) {
     ...formatters,
     localizePath: (path) => localizePath(path, resolved),
     switchLocalePath: (path, nextLocale) => switchLocalePath(path, nextLocale),
-    formatMessage: (message, values = {}) => formatMessage(message, values, formatters.pluralRules),
+    formatMessage: (message, values = {}) => formatMessage(message, values, formatters.pluralRules, formatters.formatNumber),
     setLocale: (nextLocale, location = '/') => {
       if (!isSupportedLocale(nextLocale) || typeof window === 'undefined') return
       window.location.assign(switchLocalePath(location, nextLocale))

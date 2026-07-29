@@ -1,15 +1,11 @@
 import { lazy } from 'react'
-
 import defaultSocialImage from '../assets/featured-work/render-1.png'
 import aboutSocialImage from '../assets/featured-work/studio-renders.png'
-import { blogPosts, getBlogPostBySlug } from '../content/loadBlogPosts'
-import { getAuthorBySlug } from '../content/loadAuthors'
-import { getProjectBySlug, projects } from '../data/projects'
-import { getServiceBySlug, services } from '../data/services'
-
+import { getBlogPosts } from '../content/loadBlogPosts'
+import { getProjects } from '../data/projects'
+import { getServices } from '../data/services'
 
 const createLazyPage = (loadPage) => ({ loadPage, Page: lazy(loadPage) })
-
 const homePage = createLazyPage(() => import('../pages/guest/Home/Home'))
 const aboutPage = createLazyPage(() => import('../pages/guest/About/About'))
 const servicesPage = createLazyPage(() => import('../pages/guest/Services/Services'))
@@ -23,56 +19,23 @@ const serviceDetailPage = createLazyPage(() => import('../pages/guest/ServiceDet
 const workDetailPage = createLazyPage(() => import('../pages/guest/WorkDetail/WorkDetail'))
 const notFoundPage = createLazyPage(() => import('../pages/guest/NotFound/NotFound'))
 
+const services = getServices('en')
+const projects = getProjects('en')
+const posts = getBlogPosts('en')
 
 const guestRoutes = [
-  { id: 'home', path: '/', image: defaultSocialImage, title: 'Home', description: '3D product visualization, CGI animation, and campaign-ready imagery for brands and e-commerce.', ...homePage },
-  { id: 'about', path: '/about', image: aboutSocialImage, title: 'About', description: 'About Ayesha J. and the process behind clear, commercially useful 3D product visuals.', ...aboutPage },
-  { id: 'services', path: '/services', image: services[0].heroMedia, title: 'Services', description: '3D modeling, photorealistic rendering, CGI animation, and lifestyle rendering services.', ...servicesPage },
-  { id: 'portfolio', path: '/portfolio', image: projects[0].coverImage, title: 'Portfolio', description: 'Selected 3D product visualization, e-commerce, lifestyle, and material-development work.', ...portfolioPage },
-  { id: 'blog', path: '/blog', image: blogPosts.find((post) => post.featured)?.coverImage ?? blogPosts[0]?.coverImage ?? defaultSocialImage, title: 'Blog', description: 'Notes on product visualization, CGI production, art direction, and commercially useful image systems.', pageType: 'website', ...blogPage },
-  { id: 'contact', path: '/contact', image: defaultSocialImage, title: 'Contact', description: 'Start a 3D product visualization, rendering, animation, or lifestyle-image project.', ...contactPage },
-  { id: 'book', path: '/book', image: defaultSocialImage, title: 'Book a Call', description: 'Request a project consultation with Ayesha J.', ...bookPage },
-  {
-    path: '/blog/:slug',
-    pattern: /^\/blog\/(?<slug>[a-z0-9-]+)\/?$/,
-    getTitle: ({ slug }) => getBlogPostBySlug(slug)?.title ?? 'Page Not Found',
-    getDocumentTitle: ({ slug }) => getBlogPostBySlug(slug) ? `${getBlogPostBySlug(slug).title} | Ayesha J.` : 'Page Not Found | Ayesha J.',
-    getDescription: ({ slug }) => getBlogPostBySlug(slug)?.description ?? 'The requested article could not be found.',
-    getImage: ({ slug }) => getBlogPostBySlug(slug)?.socialImage || getBlogPostBySlug(slug)?.coverImage,
-    getCanonical: ({ slug }) => getBlogPostBySlug(slug)?.canonicalUrl || `https://ayeshajm.com/blog/${slug}`,
-    getPublishedAt: ({ slug }) => getBlogPostBySlug(slug)?.publishedAt,
-    getModifiedAt: ({ slug }) => getBlogPostBySlug(slug)?.updatedAt,
-    getAuthorName: ({ slug }) => getBlogPostBySlug(slug)?.author.name,
-    pageType: 'article',
-    ...blogDetailPage,
-  },
-  {
-    path: '/authors/:slug',
-    pattern: /^\/authors\/(?<slug>[a-z0-9-]+)\/?$/,
-    getTitle: ({ slug }) => getAuthorBySlug(slug) ? `${getAuthorBySlug(slug).name} | Author` : 'Page Not Found',
-    getDocumentTitle: ({ slug }) => getAuthorBySlug(slug) ? `${getAuthorBySlug(slug).name} | Author | Ayesha J.` : 'Page Not Found | Ayesha J.',
-    getDescription: ({ slug }) => getAuthorBySlug(slug)?.shortBio ?? 'The requested author could not be found.',
-    getImage: ({ slug }) => getAuthorBySlug(slug)?.avatar,
-    getAuthorName: ({ slug }) => getAuthorBySlug(slug)?.name,
-    pageType: 'profile',
-    ...authorDetailPage,
-  },
-  {
-    path: '/services/:slug',
-    pattern: /^\/services\/(?<slug>[a-z0-9-]+)\/?$/,
-    getTitle: ({ slug }) => getServiceBySlug(slug)?.title ?? 'Page Not Found',
-    getDescription: ({ slug }) => getServiceBySlug(slug)?.description ?? 'The requested service page could not be found.',
-    ...serviceDetailPage,
-  },
-  {
-    path: '/work/:slug',
-    pattern: /^\/work\/(?<slug>[a-z0-9-]+)\/?$/,
-    getTitle: ({ slug }) => getProjectBySlug(slug)?.title ?? 'Page Not Found',
-    getDescription: ({ slug }) => getProjectBySlug(slug)?.summary ?? 'The requested project page could not be found.',
-    getImage: ({ slug }) => getProjectBySlug(slug)?.coverImage,
-    ...workDetailPage,
-  },
-  { id: 'notFound', path: '*', image: defaultSocialImage, title: 'Page Not Found', description: 'The requested page could not be found.', ...notFoundPage },
+  { id: 'home', path: '/', image: defaultSocialImage, ...homePage },
+  { id: 'about', path: '/about', image: aboutSocialImage, ...aboutPage },
+  { id: 'services', path: '/services', image: services[0].heroMedia, ...servicesPage },
+  { id: 'portfolio', path: '/portfolio', image: projects[0].coverImage, ...portfolioPage },
+  { id: 'blog', path: '/blog', image: posts.find((post) => post.featured)?.coverImage ?? posts[0]?.coverImage ?? defaultSocialImage, pageType: 'website', ...blogPage },
+  { id: 'contact', path: '/contact', image: defaultSocialImage, ...contactPage },
+  { id: 'book', path: '/book', image: defaultSocialImage, ...bookPage },
+  { id: 'blogDetail', path: '/blog/:slug', pattern: /^\/blog\/(?<slug>[a-z0-9-]+)\/?$/, pageType: 'article', ...blogDetailPage },
+  { id: 'authorDetail', path: '/authors/:slug', pattern: /^\/authors\/(?<slug>[a-z0-9-]+)\/?$/, pageType: 'profile', ...authorDetailPage },
+  { id: 'serviceDetail', path: '/services/:slug', pattern: /^\/services\/(?<slug>[a-z0-9-]+)\/?$/, ...serviceDetailPage },
+  { id: 'workDetail', path: '/work/:slug', pattern: /^\/work\/(?<slug>[a-z0-9-]+)\/?$/, ...workDetailPage },
+  { id: 'notFound', path: '*', image: defaultSocialImage, ...notFoundPage },
 ]
 
 export default guestRoutes
