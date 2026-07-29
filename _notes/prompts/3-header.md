@@ -674,6 +674,15 @@ audit and update for such updates
 
 ---
 
+regarding imagse:
+- i asked multiple times to add images with contain and white bg
+- still at some places it is not so.
+- e.g., at blog/
+
+kindly update accordingly.
+
+---
+
 In `docs/`, add compelte details of projects.
 so that content editor can refer these docs to any llm. and ask it to create blog pages, update case study pages, update sections on pages, etc. and it updates them while keeping the integrity and style of those pages.
 
@@ -682,10 +691,17 @@ before writing docs, u need to re-study project's struecture again as well as re
 let me know when compelte docs are ready. u can create multi files in dirs.
 start now.
 
+checklist:
+- docs includes theme details and how to use components
+- has info on how to add iamges
+- blog writing and editing guidelines
+- includes about page contents prerenders for seo
+- includes structure details
+
 ---
 
 Current Task:
-- we need to add support for locals
+- we need to add support for locales
 - all text that is in website should be centralized in json files
 - with mapping for both english and arabic
 - when changed, site converts from LTR to RTR from EN to AR
@@ -702,6 +718,8 @@ Find a nice arabic font to use with fallbacks.
 Remember to make sure that you work according to KSA market and determine nice words to use in translation accordingly.
 
 check out all things and create a complte plan at `_notes/plans/4-locales.md`.
+
+in last of plan, include adding to docs.
 
 let me know when ready.
 

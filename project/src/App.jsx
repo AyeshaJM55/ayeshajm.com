@@ -1,31 +1,28 @@
-import { Suspense, useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
+import { Suspense, useEffect, useRef, useState } from 'react'
 
 import PageLoader from './components/domain/navigation/PageLoader'
 import PageScrollProgress from './components/domain/navigation/PageScrollProgress'
-import { site } from './data/site'
 import SiteLayout from './layouts/SiteLayout/SiteLayout'
 import siteRoutes from './routes'
 import matchRoute from './routes/matchRoute'
+import SeoTags from './seo/SeoTags'
+import { resolveRouteSeo } from './seo/routeSeo'
 
 
-const getCurrentLocation = () => `${window.location.pathname}${window.location.search}${window.location.hash}`
+const getCurrentLocation = () => typeof window === 'undefined'
+  ? '/'
+  : `${window.location.pathname}${window.location.search}${window.location.hash}`
 
 
-function App() {
-  const [location, setLocation] = useState(getCurrentLocation)
-  const [isRouteReady, setIsRouteReady] = useState(false)
+function App({ includeSeo = true, initialLocation, initialRouteReady = false }) {
+  const [location, setLocation] = useState(() => initialLocation ?? getCurrentLocation())
+  const [isRouteReady, setIsRouteReady] = useState(initialRouteReady)
+  const skipInitialLoadRef = useRef(initialRouteReady)
   const pathname = location.split(/[?#]/)[0]
   const { params, route } = matchRoute(pathname, siteRoutes)
   const Page = route.Page
-  const title = route.getTitle ? route.getTitle(params) : route.title
-  const documentTitle = route.getDocumentTitle ? route.getDocumentTitle(params) : `Ayesha J. | ${title}`
-  const description = route.getDescription ? route.getDescription(params) : route.description
-  const canonical = route.getCanonical ? route.getCanonical(params) : `${site.url}${pathname === '/' ? '' : pathname}`
-  const socialImage = route.getImage ? route.getImage(params) : ''
-  const pageType = route.pageType ?? 'website'
-  const publishedAt = route.getPublishedAt ? route.getPublishedAt(params) : ''
-  const modifiedAt = route.getModifiedAt ? route.getModifiedAt(params) : ''
-  const authorName = route.getAuthorName ? route.getAuthorName(params) : ''
+  const seo = resolveRouteSeo(pathname, route, params)
 
   useEffect(() => {
     const navigate = (nextLocation) => {
@@ -68,6 +65,11 @@ function App() {
   }, [])
 
   useEffect(() => {
+    if (skipInitialLoadRef.current) {
+      skipInitialLoadRef.current = false
+      return undefined
+    }
+
     let cancelled = false
     let timeoutId
     const startedAt = Date.now()
@@ -91,23 +93,8 @@ function App() {
 
   return (
     <>
-      <title>{documentTitle}</title>
-      <meta content={description} name='description' />
-      <link href={canonical} rel='canonical' />
-      <meta content={documentTitle} property='og:title' />
-      <meta content={description} property='og:description' />
-      <meta content={pageType} property='og:type' />
-      <meta content={canonical} property='og:url' />
-      <meta content={site.name} property='og:site_name' />
-      <meta content='summary_large_image' name='twitter:card' />
-      <meta content={documentTitle} name='twitter:title' />
-      <meta content={description} name='twitter:description' />
-      {socialImage ? <meta content={socialImage} property='og:image' /> : null}
-      {socialImage ? <meta content={socialImage} name='twitter:image' /> : null}
-      {publishedAt ? <meta content={publishedAt} property='article:published_time' /> : null}
-      {modifiedAt ? <meta content={modifiedAt} property='article:modified_time' /> : null}
-      {authorName ? <meta content={authorName} name='author' /> : null}
-      <SiteLayout>
+      {includeSeo ? <SeoTags seo={seo} /> : null}
+      <SiteLayout pathname={pathname}>
         {isRouteReady ? (
           <Suspense fallback={<PageLoader />}>
             <Page key={location} params={params} />
@@ -117,6 +104,13 @@ function App() {
       <PageScrollProgress key={location} />
     </>
   )
+}
+
+
+App.propTypes = {
+  includeSeo: PropTypes.bool,
+  initialLocation: PropTypes.string,
+  initialRouteReady: PropTypes.bool,
 }
 
 

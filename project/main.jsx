@@ -1,12 +1,20 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
+
 import './src/index.css'
 import App from './src/App'
 
-const rootElement = document.getElementById('root')
 
-createRoot(rootElement).render(
+const rootElement = document.getElementById('root')
+const isPrerendered = rootElement.hasChildNodes()
+const app = (
   <StrictMode>
-    <App />
-  </StrictMode>,
+    <App
+      initialLocation={`${window.location.pathname}${window.location.search}${window.location.hash}`}
+      initialRouteReady={isPrerendered}
+    />
+  </StrictMode>
 )
+
+if (isPrerendered) hydrateRoot(rootElement, app)
+else createRoot(rootElement).render(app)

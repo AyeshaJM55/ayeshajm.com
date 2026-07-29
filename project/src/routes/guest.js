@@ -1,9 +1,11 @@
 import { lazy } from 'react'
 
-import { getBlogPostBySlug } from '../content/loadBlogPosts'
+import defaultSocialImage from '../assets/featured-work/render-1.png'
+import aboutSocialImage from '../assets/featured-work/studio-renders.png'
+import { blogPosts, getBlogPostBySlug } from '../content/loadBlogPosts'
 import { getAuthorBySlug } from '../content/loadAuthors'
-import { getProjectBySlug } from '../data/projects'
-import { getServiceBySlug } from '../data/services'
+import { getProjectBySlug, projects } from '../data/projects'
+import { getServiceBySlug, services } from '../data/services'
 
 
 const createLazyPage = (loadPage) => ({ loadPage, Page: lazy(loadPage) })
@@ -23,13 +25,13 @@ const notFoundPage = createLazyPage(() => import('../pages/guest/NotFound/NotFou
 
 
 const guestRoutes = [
-  { path: '/', title: 'Home', description: '3D product visualization, CGI animation, and campaign-ready imagery for brands and e-commerce.', ...homePage },
-  { path: '/about', title: 'About', description: 'About Ayesha J. and the process behind clear, commercially useful 3D product visuals.', ...aboutPage },
-  { path: '/services', title: 'Services', description: '3D modeling, photorealistic rendering, CGI animation, and lifestyle rendering services.', ...servicesPage },
-  { path: '/portfolio', title: 'Portfolio', description: 'Selected 3D product visualization, e-commerce, lifestyle, and material-development work.', ...portfolioPage },
-  { path: '/blog', title: 'Blog', description: 'Notes on product visualization, CGI production, art direction, and commercially useful image systems.', pageType: 'website', ...blogPage },
-  { path: '/contact', title: 'Contact', description: 'Start a 3D product visualization, rendering, animation, or lifestyle-image project.', ...contactPage },
-  { path: '/book', title: 'Book a Call', description: 'Request a project consultation with Ayesha J.', ...bookPage },
+  { path: '/', image: defaultSocialImage, title: 'Home', description: '3D product visualization, CGI animation, and campaign-ready imagery for brands and e-commerce.', ...homePage },
+  { path: '/about', image: aboutSocialImage, title: 'About', description: 'About Ayesha J. and the process behind clear, commercially useful 3D product visuals.', ...aboutPage },
+  { path: '/services', image: services[0].heroMedia, title: 'Services', description: '3D modeling, photorealistic rendering, CGI animation, and lifestyle rendering services.', ...servicesPage },
+  { path: '/portfolio', image: projects[0].coverImage, title: 'Portfolio', description: 'Selected 3D product visualization, e-commerce, lifestyle, and material-development work.', ...portfolioPage },
+  { path: '/blog', image: blogPosts.find((post) => post.featured)?.coverImage ?? blogPosts[0]?.coverImage ?? defaultSocialImage, title: 'Blog', description: 'Notes on product visualization, CGI production, art direction, and commercially useful image systems.', pageType: 'website', ...blogPage },
+  { path: '/contact', image: defaultSocialImage, title: 'Contact', description: 'Start a 3D product visualization, rendering, animation, or lifestyle-image project.', ...contactPage },
+  { path: '/book', image: defaultSocialImage, title: 'Book a Call', description: 'Request a project consultation with Ayesha J.', ...bookPage },
   {
     path: '/blog/:slug',
     pattern: /^\/blog\/(?<slug>[a-z0-9-]+)\/?$/,
@@ -70,7 +72,7 @@ const guestRoutes = [
     getImage: ({ slug }) => getProjectBySlug(slug)?.coverImage,
     ...workDetailPage,
   },
-  { path: '*', title: 'Page Not Found', description: 'The requested page could not be found.', ...notFoundPage },
+  { path: '*', image: defaultSocialImage, title: 'Page Not Found', description: 'The requested page could not be found.', ...notFoundPage },
 ]
 
 export default guestRoutes

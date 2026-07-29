@@ -122,7 +122,7 @@ function FooterDotField({ footerRef }) {
 }
 
 FooterDotField.propTypes = {
-  footerRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
+  footerRef: PropTypes.shape({ current: PropTypes.object }).isRequired,
 }
 
 export default FooterDotField

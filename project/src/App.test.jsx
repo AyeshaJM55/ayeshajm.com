@@ -1,11 +1,14 @@
-import { render, waitFor } from '@testing-library/react'
+import { cleanup, render, waitFor } from '@testing-library/react'
 
 import App from './App'
 
 describe('App routing', () => {
   const originalPath = window.location.pathname
 
-  afterEach(() => { window.history.replaceState({}, '', originalPath) })
+  afterEach(() => {
+    cleanup()
+    window.history.replaceState({}, '', originalPath)
+  })
 
   it.each([
     ['/', 'Ayesha J. | Home'],

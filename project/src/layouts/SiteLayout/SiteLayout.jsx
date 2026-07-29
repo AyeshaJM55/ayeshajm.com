@@ -5,10 +5,10 @@ import Footer from './partials/Footer/Footer'
 import Header from './partials/Header/Header'
 
 
-function SiteLayout({ children }) {
+function SiteLayout({ children, pathname }) {
   return (
     <div className='min-h-screen bg-canvas text-foreground'>
-      <Header />
+      <Header pathname={pathname} />
       {children}
       <Footer />
       <ScrollToTop />
@@ -19,6 +19,7 @@ function SiteLayout({ children }) {
 
 SiteLayout.propTypes = {
   children: PropTypes.node.isRequired,
+  pathname: PropTypes.string,
 }
 
 

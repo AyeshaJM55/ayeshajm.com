@@ -1,16 +1,17 @@
 import { motion } from 'framer-motion'
 import { CalendarCheck2 } from 'lucide-react'
+import PropTypes from 'prop-types'
 import { useLayoutEffect, useRef, useState } from 'react'
 import useHeaderScrollAnimation from '../../../../hooks/useHeaderScrollAnimation'
 import useReducedMotion from '../../../../hooks/useReducedMotion'
 import headerLinks from './HeaderLinks'
 
-const isLinkActive = ({ activePrefix, activePrefixes, href }) => {
+const isLinkActive = ({ activePrefix, activePrefixes, href }, pathname) => {
   const prefixes = activePrefixes ?? (activePrefix ? [activePrefix] : [])
-  return window.location.pathname === href || prefixes.some((prefix) => window.location.pathname.startsWith(prefix))
+  return pathname === href || prefixes.some((prefix) => pathname.startsWith(prefix))
 }
 
-function Header() {
+function Header({ pathname = typeof window === 'undefined' ? '/' : window.location.pathname }) {
   const headerRef = useRef(null)
   const innerRef = useRef(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -49,7 +50,7 @@ function Header() {
           <nav aria-label='Primary navigation' className='hidden items-center gap-8 md:flex'>
             {headerLinks.map(({ activePrefix, activePrefixes, label, href }) => (
               <motion.a
-                aria-current={isLinkActive({ activePrefix, activePrefixes, href }) ? 'page' : undefined}
+                aria-current={isLinkActive({ activePrefix, activePrefixes, href }, pathname) ? 'page' : undefined}
                 key={href}
                 className='text-sm font-semibold uppercase tracking-[0.08em] text-black outline-none transition-opacity hover:opacity-50 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 aria-[current=page]:opacity-45'
                 href={href}
@@ -90,7 +91,7 @@ function Header() {
             <div className='grid gap-1 pt-4'>
               {headerLinks.map(({ activePrefix, activePrefixes, label, href }) => (
                 <a
-                  aria-current={isLinkActive({ activePrefix, activePrefixes, href }) ? 'page' : undefined}
+                  aria-current={isLinkActive({ activePrefix, activePrefixes, href }, pathname) ? 'page' : undefined}
                   key={href}
                   className='rounded-full px-4 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-black outline-none hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-black aria-[current=page]:bg-neutral-100'
                   href={href}
@@ -106,5 +107,10 @@ function Header() {
     </header>
   )
 }
+
+Header.propTypes = {
+  pathname: PropTypes.string,
+}
+
 
 export default Header
