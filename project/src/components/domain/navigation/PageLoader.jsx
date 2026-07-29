@@ -1,16 +1,16 @@
+import LoadingSpinner from './SnowBallLoadingSpinner'
+
+
 function PageLoader() {
   return (
-    <main
+    <div
       aria-busy='true'
-      aria-label='Loading page'
-      className='grid min-h-[72svh] place-items-center bg-white px-4 pt-24'
-      id='main-content'
+      aria-label='Loading website'
+      className='site-preloader fixed inset-0 z-[9999] grid min-h-[100svh] place-items-center overflow-hidden bg-white'
+      role='status'
     >
-      <div className='grid place-items-center' role='status'>
-        <span aria-hidden='true' className='size-11 animate-spin rounded-full border-2 border-black/15 border-t-black' />
-        <span className='sr-only'>Loading page</span>
-      </div>
-    </main>
+      <LoadingSpinner />
+    </div>
   )
 }
 

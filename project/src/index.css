@@ -43,3 +43,197 @@
     background: rgb(0 0 0 / 75%);
   }
 }
+
+@keyframes ball {
+  from {
+    transform: rotate(0) translateY(-6.5em);
+  }
+  50% {
+    transform: rotate(180deg) translateY(-6em);
+  }
+  to {
+    transform: rotate(360deg) translateY(-6.5em);
+  }
+}
+
+@keyframes ballInnerShadow {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes ballOuterShadow {
+  from {
+    transform: rotate(20deg);
+  }
+  to {
+    transform: rotate(-340deg);
+  }
+}
+
+@keyframes ballTexture {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(50%);
+  }
+}
+
+@keyframes trackCover {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.pl,
+.pl__ball,
+.pl__ball-inner-shadow,
+.pl__ball-side-shadows,
+.pl__ball-texture,
+.pl__inner-ring,
+.pl__outer-ring,
+.pl__track-cover {
+  border-radius: 50%;
+}
+
+.pl {
+  position: relative;
+  width: min(72vw, 16em);
+  height: min(72vw, 16em);
+  font-size: clamp(0.72rem, 2.4vw, 1rem);
+}
+
+.pl__ball,
+.pl__ball-inner-shadow,
+.pl__ball-outer-shadow,
+.pl__ball-side-shadows,
+.pl__ball-texture,
+.pl__ball-texture::before,
+.pl__inner-ring,
+.pl__outer-ring,
+.pl__track-cover,
+.pl__monogram {
+  position: absolute;
+}
+
+.pl__ball,
+.pl__ball-inner-shadow,
+.pl__ball-outer-shadow,
+.pl__ball-texture::before,
+.pl__track-cover {
+  animation: ball 3s linear infinite;
+}
+
+.pl__ball {
+  top: calc(50% - 1.25em);
+  left: calc(50% - 1.25em);
+  width: 2.5em;
+  height: 2.5em;
+  transform: rotate(0) translateY(-6.5em);
+}
+
+.pl__ball-inner-shadow {
+  width: 100%;
+  height: 100%;
+  animation-name: ballInnerShadow;
+  box-shadow:
+    0 0.1em 0.2em rgb(0 0 0 / 30%),
+    0 0 0.2em rgb(0 0 0 / 10%) inset,
+    0 -1em 0.5em rgb(0 0 0 / 15%) inset;
+}
+
+.pl__ball-outer-shadow {
+  top: 50%;
+  left: 0;
+  z-index: -2;
+  width: 100%;
+  height: 250%;
+  transform: rotate(20deg);
+  transform-origin: 50% 0;
+  animation-name: ballOuterShadow;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  background-image: linear-gradient(rgb(0 0 0 / 15%), transparent);
+  filter: blur(2px);
+}
+
+.pl__ball-side-shadows {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  transform: scale(0.75, 1.1);
+  background-color: rgb(0 0 0 / 10%);
+  filter: blur(2px);
+}
+
+.pl__ball-texture {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.pl__ball-texture::before {
+  top: 0;
+  right: 0;
+  display: block;
+  width: 200%;
+  height: 100%;
+  content: '';
+  animation-name: ballTexture;
+  animation-duration: 0.25s;
+  background: url('/snowball-texture.jpg') 0 0 / 50% 100%;
+  filter: brightness(1.05);
+}
+
+.pl__inner-ring {
+  top: 2.375em;
+  left: 2.375em;
+  width: calc(100% - 4.75em);
+  height: calc(100% - 4.75em);
+  box-shadow:
+    0 -0.25em 0.5em rgb(255 255 255 / 40%),
+    0 0.5em 0.75em rgb(255 255 255 / 40%) inset,
+    0 0.5em 0.375em rgb(0 0 0 / 15%),
+    0 -0.5em 0.75em rgb(0 0 0 / 15%) inset;
+}
+
+.pl__outer-ring {
+  top: 0.75em;
+  left: 0.75em;
+  width: calc(100% - 1.5em);
+  height: calc(100% - 1.5em);
+  box-shadow:
+    0 -0.45em 0.375em rgb(0 0 0 / 15%),
+    0 0.5em 0.75em rgb(0 0 0 / 15%) inset,
+    0 0.25em 0.5em rgb(255 255 255 / 40%),
+    0 -0.5em 0.75em rgb(255 255 255 / 40%) inset;
+}
+
+.pl__track-cover {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation-name: trackCover;
+  background-image: conic-gradient(#fff 210deg, rgb(255 255 255 / 0%) 270deg);
+}
+
+.pl__monogram {
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.08em;
+  line-height: 1;
+  transform: translate(-52%, -50%);
+}

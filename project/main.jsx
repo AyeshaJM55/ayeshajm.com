@@ -10,6 +10,7 @@ const isPrerendered = rootElement.hasChildNodes()
 const app = (
   <StrictMode>
     <App
+      initialLoaderVisible
       initialLocation={`${window.location.pathname}${window.location.search}${window.location.hash}`}
       initialRouteReady={isPrerendered}
     />

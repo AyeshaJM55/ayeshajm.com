@@ -34,7 +34,7 @@ function SeoTags({ seo }) {
       {seo.section ? <meta content={seo.section} property='article:section' /> : null}
       {seo.tags.map((tag) => <meta content={tag} key={tag} property='article:tag' />)}
 
-      <script dangerouslySetInnerHTML={{ __html: structuredData }} type='application/ld+json' />
+      <script type='application/ld+json'>{structuredData}</script>
     </>
   )
 }

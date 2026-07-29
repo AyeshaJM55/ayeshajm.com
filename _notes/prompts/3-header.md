@@ -667,10 +667,33 @@ Steps to integrate
 
 ---
 
+but this preloader's ball and tail does snot look like referred `_notes/sequential/16-preloader-details/DETAILS.md`.
+
+please update it. and we do not need any extras. or any text or any divs or circles or borders.
+
+just that loader with "A." in center.' that's all.
+
+and i know it is slow, but according that that given speed wait for 1 cycle min before displaying site (if loaded).
+
+---
+
+when that pre-render loads, it shows a glitch of text
+can we have a 100vh div before everything in preloader only ?
+with scroll disabled (also in prerender only)
+
+---
+
+for blog:
+- tags should be below category
+- add serach and pagination
+- images load when that page's contents are loaded
+
 text like "required fields are marked by browser" in Leave a message
 or similar in other places of website should be removed. insetad add "*" and say "Required fields are marked *".
 
-audit and update for such updates
+audit and update for such text content updates.
+
+let me know when both changes are done.
 
 ---
 

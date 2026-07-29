@@ -14,14 +14,14 @@ import { resolveRouteSeo } from './seo/routeSeo'
 
 const staticPaths = ['/', '/about', '/services', '/portfolio', '/blog', '/contact', '/book']
 
-export const prerenderPaths = [
-  ...staticPaths,
-  ...blogPosts.map((post) => `/blog/${post.slug}`),
-  ...authors.map((author) => `/authors/${author.slug}`),
-  ...services.map((service) => `/services/${service.slug}`),
-  ...projects.map((project) => `/work/${project.slug}`),
-  '/404',
-]
+const contentPaths = []
+
+for (const post of blogPosts) contentPaths.push(`/blog/${post.slug}`)
+for (const author of authors) contentPaths.push(`/authors/${author.slug}`)
+for (const service of services) contentPaths.push(`/services/${service.slug}`)
+for (const project of projects) contentPaths.push(`/work/${project.slug}`)
+
+export const prerenderPaths = [...staticPaths, ...contentPaths, '/404']
 
 
 const normalizePathname = (pathname) => {
@@ -38,7 +38,7 @@ export async function renderPage(pathname) {
 
   const seo = resolveRouteSeo(normalizedPathname, route, params)
   const rendered = await prerender(
-    <App includeSeo={false} initialLocation={normalizedPathname} initialRouteReady />,
+    <App includeSeo={false} initialLoaderVisible initialLocation={normalizedPathname} initialRouteReady />,
   )
   const html = await new Response(rendered.prelude).text()
   const head = renderToStaticMarkup(<SeoTags seo={seo} />)

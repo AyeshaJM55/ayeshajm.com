@@ -10,15 +10,24 @@ import SeoTags from './seo/SeoTags'
 import { resolveRouteSeo } from './seo/routeSeo'
 
 
+const MINIMUM_LOADER_DURATION = import.meta.env.MODE === 'test' ? 0 : 3000
+
 const getCurrentLocation = () => typeof window === 'undefined'
   ? '/'
   : `${window.location.pathname}${window.location.search}${window.location.hash}`
 
 
-function App({ includeSeo = true, initialLocation, initialRouteReady = false }) {
+function App({
+  includeSeo = true,
+  initialLoaderVisible = false,
+  initialLocation,
+  initialRouteReady = false,
+}) {
   const [location, setLocation] = useState(() => initialLocation ?? getCurrentLocation())
   const [isRouteReady, setIsRouteReady] = useState(initialRouteReady)
-  const skipInitialLoadRef = useRef(initialRouteReady)
+  const [isLoaderVisible, setIsLoaderVisible] = useState(initialLoaderVisible)
+  const loaderStartedAtRef = useRef(initialLoaderVisible ? Date.now() : 0)
+  const skipInitialRouteLoadRef = useRef(initialRouteReady)
   const pathname = location.split(/[?#]/)[0]
   const { params, route } = matchRoute(pathname, siteRoutes)
   const Page = route.Page
@@ -26,6 +35,8 @@ function App({ includeSeo = true, initialLocation, initialRouteReady = false }) 
 
   useEffect(() => {
     const navigate = (nextLocation) => {
+      loaderStartedAtRef.current = Date.now()
+      setIsLoaderVisible(true)
       setIsRouteReady(false)
       setLocation(nextLocation)
       document.documentElement.scrollTop = 0
@@ -65,23 +76,56 @@ function App({ includeSeo = true, initialLocation, initialRouteReady = false }) 
   }, [])
 
   useEffect(() => {
-    if (skipInitialLoadRef.current) {
-      skipInitialLoadRef.current = false
+    if (!initialLoaderVisible) return undefined
+
+    let timeoutId
+
+    const finishInitialLoad = () => {
+      const elapsed = Date.now() - loaderStartedAtRef.current
+      const remainingDelay = Math.max(0, MINIMUM_LOADER_DURATION - elapsed)
+      timeoutId = window.setTimeout(() => setIsLoaderVisible(false), remainingDelay)
+    }
+
+    if (document.readyState === 'complete') finishInitialLoad()
+    else window.addEventListener('load', finishInitialLoad, { once: true })
+
+    return () => {
+      window.removeEventListener('load', finishInitialLoad)
+      window.clearTimeout(timeoutId)
+    }
+  }, [initialLoaderVisible])
+
+  useEffect(() => {
+    if (!isLoaderVisible) return undefined
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
+  }, [isLoaderVisible])
+
+  useEffect(() => {
+    if (skipInitialRouteLoadRef.current) {
+      skipInitialRouteLoadRef.current = false
       return undefined
     }
 
     let cancelled = false
     let timeoutId
-    const startedAt = Date.now()
+    const startedAt = loaderStartedAtRef.current || Date.now()
 
     setIsRouteReady(false)
 
     route.loadPage()
       .catch(() => undefined)
       .finally(() => {
-        const remainingDelay = Math.max(0, 160 - (Date.now() - startedAt))
+        const remainingDelay = Math.max(0, MINIMUM_LOADER_DURATION - (Date.now() - startedAt))
         timeoutId = window.setTimeout(() => {
-          if (!cancelled) setIsRouteReady(true)
+          if (cancelled) return
+          setIsRouteReady(true)
+          setIsLoaderVisible(false)
         }, remainingDelay)
       })
 
@@ -96,11 +140,12 @@ function App({ includeSeo = true, initialLocation, initialRouteReady = false }) 
       {includeSeo ? <SeoTags seo={seo} /> : null}
       <SiteLayout pathname={pathname}>
         {isRouteReady ? (
-          <Suspense fallback={<PageLoader />}>
+          <Suspense fallback={null}>
             <Page key={location} params={params} />
           </Suspense>
-        ) : <PageLoader />}
+        ) : null}
       </SiteLayout>
+      {isLoaderVisible ? <PageLoader /> : null}
       <PageScrollProgress key={location} />
     </>
   )
@@ -109,6 +154,7 @@ function App({ includeSeo = true, initialLocation, initialRouteReady = false }) 
 
 App.propTypes = {
   includeSeo: PropTypes.bool,
+  initialLoaderVisible: PropTypes.bool,
   initialLocation: PropTypes.string,
   initialRouteReady: PropTypes.bool,
 }
