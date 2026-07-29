@@ -426,6 +426,8 @@ save complete plan as md at `_notes/plans/1-pages-and-sections.md`
 
 ---
 
+i moved it to `_notes/plans/1-pages-and-sections.md`. cz u made at `project/_notes/plans/1-pages-and-sections.md` (wrong place).
+now it is time to work in project.
 looks like a great plan. compeltely implmeent it.
 
 ---
@@ -433,3 +435,4 @@ looks like a great plan. compeltely implmeent it.
 Add SEO preload to all pages.
 
 ---
+
