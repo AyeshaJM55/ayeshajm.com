@@ -1,0 +1,62 @@
+{
+  "site": {
+    "name": "عائشة ج.",
+    "shortName": "عائشة ج.",
+    "email": "hello@ayeshajm.com"
+  },
+  "actions": {
+    "bookCall": "احجز مكالمة",
+    "startProject": "ابدأ مشروعك",
+    "discussProject": "ناقش مشروعك",
+    "viewPortfolio": "عرض الأعمال",
+    "viewAllProjects": "عرض جميع الأعمال",
+    "exploreService": "استكشف الخدمة",
+    "readArticle": "قراءة المقال",
+    "emailDirectly": "تواصل عبر البريد",
+    "requestCall": "اطلب مكالمة عبر البريد",
+    "sendMessage": "إرسال الرسالة",
+    "prepareInquiry": "إعداد الاستفسار",
+    "home": "الرئيسية",
+    "portfolio": "الأعمال",
+    "contact": "تواصل"
+  },
+  "labels": {
+    "all": "الكل",
+    "author": "الكاتبة",
+    "writtenBy": "بقلم",
+    "draft": "مسودة",
+    "draftPreview": "معاينة مسودة",
+    "topics": "الموضوعات",
+    "articlesBy": "مقالات {name}",
+    "publishedThinking": "مقالات منشورة",
+    "noPublishedArticles": "لا توجد مقالات منشورة بعد.",
+    "selectedProjects": "أعمال مختارة",
+    "relatedWork": "أعمال ذات صلة",
+    "relatedArticles": "مقالات ذات صلة",
+    "continueReading": "تابع القراءة",
+    "client": "العميل",
+    "year": "السنة",
+    "services": "الخدمات",
+    "deliverables": "المخرجات",
+    "challenge": "التحدي",
+    "approach": "المنهج",
+    "outcome": "النتيجة",
+    "relatedServices": "خدمات ذات صلة",
+    "nextProject": "المشروع التالي",
+    "previousService": "الخدمة السابقة",
+    "nextService": "الخدمة التالية",
+    "page": "الصفحة {page}",
+    "previous": "السابق",
+    "next": "التالي",
+    "updated": "آخر تحديث {date}",
+    "readingTime": {
+      "zero": "أقل من دقيقة قراءة",
+      "one": "دقيقة واحدة للقراءة",
+      "two": "دقيقتان للقراءة",
+      "few": "{count} دقائق للقراءة",
+      "many": "{count} دقيقة للقراءة",
+      "other": "{count} دقيقة للقراءة"
+    },
+    "copyright": "© {year} عائشة ج. جميع الحقوق محفوظة."
+  }
+}

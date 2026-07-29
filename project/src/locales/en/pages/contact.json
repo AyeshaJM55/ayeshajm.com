@@ -1,0 +1,32 @@
+{
+  "ariaLabel": "Contact page",
+  "hero": {
+    "eyebrow": "Contact",
+    "title": "Let’s make the product clear before it reaches the customer.",
+    "description": "Share the product, launch timing, intended use, and the visual deliverables you need. A focused brief makes the first response far more useful."
+  },
+  "inquiry": {
+    "eyebrow": "Project inquiry",
+    "title": "Tell me what you are building.",
+    "description": "The form is ready for project details, though actual delivery still needs a backend provider."
+  },
+  "next": {
+    "eyebrow": "What happens next",
+    "title": "From inquiry to production.",
+    "description": "A simple handoff from the first message into an agreed production plan.",
+    "items": [
+      {
+        "title": "Brief review",
+        "description": "The product, intended usage, available files, timeline, and open questions are reviewed together."
+      },
+      {
+        "title": "Scope and estimate",
+        "description": "Deliverables, review points, schedule, production approach, and cost are defined clearly."
+      },
+      {
+        "title": "Production start",
+        "description": "Work begins once the scope, source assets, and first milestone have been confirmed."
+      }
+    ]
+  }
+}

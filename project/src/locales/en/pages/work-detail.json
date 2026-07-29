@@ -1,0 +1,13 @@
+{
+  "ariaLabel": "{title} project page",
+  "breadcrumb": "Portfolio",
+  "coverAlt": "{title} cover",
+  "challengeTitle": "What needed to be solved.",
+  "approachTitle": "How the visual system was built.",
+  "outcomeTitle": "Ready for real use.",
+  "galleryLabel": "{title} gallery",
+  "cta": {
+    "title": "Build the next product story.",
+    "description": "Reference this project category and share the product, timing, and intended deliverables."
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "loadingPage": "Loading page",
+  "loadingWebsite": "Loading website",
+  "scrollToTop": "Scroll to top",
+  "breadcrumb": "Breadcrumb",
+  "articleTags": "Article tags",
+  "filterProjects": "Filter projects",
+  "blogPagination": "Blog pagination",
+  "servicePagination": "Service pagination",
+  "gallery": "{title} gallery",
+  "galleryView": "{title} view {index}",
+  "openProject": "Open {title}",
+  "decorativeDivider": "Decorative hand-drawn divider",
+  "selectedClients": "Selected clients",
+  "previousTestimonial": "Previous testimonial",
+  "nextTestimonial": "Next testimonial",
+  "chooseTestimonial": "Choose testimonial",
+  "goToTestimonial": "Go to testimonial {index}",
+  "previousService": "Previous service",
+  "nextService": "Next service",
+  "goToService": "Go to service {{index}}"
+}

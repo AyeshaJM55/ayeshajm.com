@@ -1,0 +1,10 @@
+{
+  "en": {
+    "symbol": "EN",
+    "mode": "LTR"
+  },
+  "ar": {
+    "symbol": "AR",
+    "mode": "RTL"
+  }
+}

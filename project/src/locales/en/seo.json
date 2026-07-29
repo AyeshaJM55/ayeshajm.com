@@ -1,0 +1,46 @@
+{
+  "siteName": "Ayesha JM",
+  "titlePattern": "Ayesha J. | {title}",
+  "articleTitlePattern": "{title} | Ayesha J.",
+  "authorTitlePattern": "{name} | Author | Ayesha J.",
+  "notFoundFallback": "Page Not Found",
+  "missingArticle": "The requested article could not be found.",
+  "missingAuthor": "The requested author could not be found.",
+  "missingService": "The requested service page could not be found.",
+  "missingProject": "The requested project page could not be found.",
+  "ogLocale": "en_US",
+  "routes": {
+    "home": {
+      "title": "Home",
+      "description": "3D product visualization, CGI animation, and campaign-ready imagery for brands and e-commerce."
+    },
+    "about": {
+      "title": "About",
+      "description": "About Ayesha J. and the process behind clear, commercially useful 3D product visuals."
+    },
+    "services": {
+      "title": "Services",
+      "description": "3D modeling, photorealistic rendering, CGI animation, and lifestyle rendering services."
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "description": "Selected 3D product visualization, e-commerce, lifestyle, and material-development work."
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Notes on product visualization, CGI production, art direction, and commercially useful image systems."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Start a 3D product visualization, rendering, animation, or lifestyle-image project."
+    },
+    "book": {
+      "title": "Book a Call",
+      "description": "Request a project consultation with Ayesha J."
+    },
+    "notFound": {
+      "title": "Page Not Found",
+      "description": "The requested page could not be found."
+    }
+  }
+}

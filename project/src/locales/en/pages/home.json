@@ -1,0 +1,116 @@
+{
+  "ariaLabel": "Homepage",
+  "hero": {
+    "title": "3D Product Experiences for Brands & E-Commerce",
+    "description": "Realistic visuals and interactive 3D experiences that enhance your brand's online presence and drive customer trust.",
+    "cta": "View Portfolio",
+    "imageAlt": "Photorealistic 3D product visualization"
+  },
+  "partners": {
+    "ariaLabel": "Selected clients",
+    "names": [
+      "Small Cliffs",
+      "Golden Pets",
+      "Savva"
+    ]
+  },
+  "highlights": {
+    "ariaLabel": "Experience and project highlights",
+    "items": [
+      {
+        "value": "4+",
+        "label": "Years Experience",
+        "description": "Delivering polished, high-quality 3D work across products, brands, and industries."
+      },
+      {
+        "value": "400+",
+        "label": "Projects Completed",
+        "description": "Helping brands and sellers present their products with clarity, detail, and impact."
+      },
+      {
+        "value": "Global",
+        "label": "Remote Collaboration",
+        "description": "Working reliably with clients across countries through clear communication and timely delivery."
+      }
+    ]
+  },
+  "featuredWork": {
+    "title": "Featured Work",
+    "description": "A selection of product visualization, rendering, and art-direction work created for digital-first brands.",
+    "footer": "Explore more product visuals and brand-focused 3D work.",
+    "cta": "View all projects",
+    "openProject": "Open project"
+  },
+  "services": {
+    "title": "Services",
+    "description": "From precise modeling to campaign-ready CGI, each service is built to present products with clarity and impact."
+  },
+  "testimonials": {
+    "title": "Trusted by Clients",
+    "description": "Thoughtful partnerships, clear communication, and polished 3D work that helps brands present their products with confidence.",
+    "items": [
+      {
+        "quote": "I hired Ayesha for 3D assets with animation for my personal design agency, and she delivered an outstanding job. Her work was creative, detailed, and aligned perfectly with the vision I had in mind.",
+        "name": "Small Cliffs",
+        "role": "Design Agency"
+      },
+      {
+        "quote": "Working with Ayesha was seamless from start to finish. The product renders exceeded what we had imagined, and the final campaign received incredible feedback from our customers.",
+        "name": "Marcus Reid",
+        "role": "E-commerce Brand"
+      },
+      {
+        "quote": "Exceptional quality and a quick turnaround. The visualizations brought our product launch to life and gave the whole campaign a level of polish we could not have achieved otherwise.",
+        "name": "Priya Sharma",
+        "role": "Product Startup"
+      },
+      {
+        "quote": "Professional, creative, and incredibly detail-oriented. Every asset exceeded our expectations, and the entire process felt clear, collaborative, and thoughtfully managed.",
+        "name": "Tom Nakamura",
+        "role": "Creative Director"
+      },
+      {
+        "quote": "The 3D work transformed our product pages and gave the brand a much stronger visual identity. Ayesha understands both beautiful execution and the commercial purpose behind it.",
+        "name": "Sofia Bianchi",
+        "role": "Marketing Studio"
+      }
+    ]
+  },
+  "bookNow": {
+    "title": "Bring your product to life.",
+    "description": "Book a project consultation to discuss your product, visual direction, timeline, and the right 3D approach for your brand.",
+    "cta": "Book Now",
+    "ariaLabel": "Book a project consultation"
+  },
+  "leaveMessage": {
+    "eyebrow": "Start a project",
+    "title": "Leave a message",
+    "description": "Share a few details about your product, goals, timeline, and the visuals you need. Every useful project begins with someone filling out a form, because apparently telepathy still has terrible browser support."
+  },
+  "dividerLabel": "Decorative hand-drawn divider",
+  "faq": {
+    "title": "FAQs",
+    "items": [
+      {
+        "question": "What do you need from me to get started?",
+        "answer": "A brief overview of your product, reference images or CAD files if available, the intended use of the visuals, and any brand or creative direction you already have. From there, the scope and production plan can be shaped clearly."
+      },
+      {
+        "question": "Which file formats can I provide?",
+        "answer": "Common CAD, 3D, vector, and image formats can be used. STEP, IGES, OBJ, FBX, STL, AI, PDF, PNG, and high-resolution product photography are all useful starting points depending on the project."
+      },
+      {
+        "question": "How long does a project usually take?",
+        "answer": "Timelines depend on the number of products, complexity, revisions, and final deliverables. A focused rendering project may take several days, while larger animation or campaign packages may require multiple weeks."
+      },
+      {
+        "question": "Can you create visuals before the product is manufactured?",
+        "answer": "Yes. Product visuals can be created from CAD files, sketches, measurements, prototypes, or detailed references, making 3D rendering especially useful for launches, investor presentations, and pre-production marketing."
+      },
+      {
+        "question": "How many revisions are included?",
+        "answer": "The revision allowance is agreed before work begins and depends on the project scope. Each stage is reviewed at sensible checkpoints so feedback stays organized and major changes do not arrive after final production."
+      }
+    ]
+  }
+}

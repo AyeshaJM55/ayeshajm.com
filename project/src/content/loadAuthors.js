@@ -1,25 +1,13 @@
-import { parseMarkdown } from './parseMarkdown'
-import { validateAuthor } from './validateAuthor'
+import { getActiveLocale, loadLocaleContent } from '../locales'
 
+export const authorManifest = [
+  { slug: 'ayesha-jm', avatar: '/content/media/authors/ayesha-jm.jpg', email: 'hello@ayeshajm.com', website: 'https://ayeshajm.com', featured: true, socials: { instagram: 'https://instagram.com/', linkedin: 'https://linkedin.com/', artstation: 'https://artstation.com/' } },
+]
 
-const authorModules = import.meta.glob('/content/authors/*.md', {
-  eager: true,
-  import: 'default',
-  query: '?raw',
-})
-
-export function buildAuthors(modules = authorModules) {
-  const seenSlugs = new Set()
-
-  return Object.entries(modules).map(([sourcePath, source]) => {
-    const parsed = parseMarkdown(source, sourcePath)
-    const author = { ...validateAuthor(parsed.data, sourcePath), biography: parsed.content, sourcePath }
-
-    if (seenSlugs.has(author.slug)) throw new Error(`[content] ${sourcePath}: duplicate author slug "${author.slug}".`)
-    seenSlugs.add(author.slug)
-    return author
-  }).sort((left, right) => left.name.localeCompare(right.name))
+export function getAuthors(locale = getActiveLocale()) {
+  const copy = loadLocaleContent(locale).authors
+  return authorManifest.map((item) => ({ ...item, ...copy[item.slug], biography: copy[item.slug].bodyMarkdown }))
 }
-
-export const authors = buildAuthors()
-export const getAuthorBySlug = (slug) => authors.find((author) => author.slug === slug)
+export const getAuthorBySlug = (slug, locale = getActiveLocale()) => getAuthors(locale).find((author) => author.slug === slug)
+export const authors = getAuthors('en')
+export const buildAuthors = () => authors

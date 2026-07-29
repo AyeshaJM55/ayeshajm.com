@@ -1,0 +1,31 @@
+{
+  "primary": {
+    "home": "الرئيسية",
+    "about": "نبذة",
+    "services": "الخدمات",
+    "portfolio": "الأعمال",
+    "blog": "المدونة",
+    "contact": "تواصل",
+    "book": "احجز مكالمة"
+  },
+  "header": {
+    "primaryNavigation": "التنقل الرئيسي",
+    "mobileNavigation": "قائمة التنقل للجوال",
+    "openMenu": "فتح قائمة التنقل",
+    "closeMenu": "إغلاق قائمة التنقل",
+    "localeMenu": "اختر اللغة",
+    "localeTrigger": "اللغة الحالية: {symbol}. اختر لغة أخرى.",
+    "switchTo": "التبديل إلى {symbol}",
+    "currentLocale": "{symbol}، اللغة الحالية",
+    "toggleMenu": "تبديل قائمة التنقل"
+  },
+  "footer": {
+    "label": "تذييل الموقع",
+    "pages": "الصفحات",
+    "services": "الخدمات",
+    "socialMedia": "وسائل التواصل الاجتماعي",
+    "crafted": "صُمم بعناية",
+    "clickToMail": "اضغط لإرسال بريد",
+    "navigation": "تنقل تذييل الموقع"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "categories": {
+    "art-direction": "Art Direction",
+    "production-process": "Production Process",
+    "product-visualization": "Product Visualization"
+  },
+  "tags": {
+    "product-launch": "Product Launch",
+    "cgi-animation": "CGI Animation",
+    "lifestyle-rendering": "Lifestyle Rendering",
+    "3d-modeling": "3D Modeling",
+    "workflow": "Workflow",
+    "product-design": "Product Design",
+    "cgi": "CGI",
+    "ecommerce": "E-commerce",
+    "product-rendering": "Product Rendering"
+  },
+  "posts": {
+    "building-a-launch-visual-system": {
+      "title": "Building a Product Launch Visual System",
+      "description": "How stills, lifestyle images, animation, and reusable 3D assets can work as one connected launch package.",
+      "coverAlt": "A lifestyle product render arranged for a campaign launch",
+      "bodyMarkdown": "A product launch rarely needs one image. It needs a coordinated set of assets that can move between product pages, social posts, presentations, advertising, and marketplace listings.\n\n## Design one visual language\n\nThe same product model, material system, lighting direction, and art-direction choices can support several deliverable types:\n\n- studio heroes\n- feature close-ups\n- lifestyle scenes\n- short CGI animation\n- vertical and square social crops\n- transparent product exports\n\nTreating these as one system improves consistency and reduces duplicated setup work.\n\n## Separate reusable assets from campaign decisions\n\nThe product model and approved materials should remain reusable. Campaign-specific environments, props, and motion can then change without rebuilding the product itself.\n\n## Plan crops at the storyboard stage\n\nA widescreen composition does not automatically become a good vertical composition. Important product details, text-safe areas, and camera movement should be checked for every required format before final rendering begins.\n\nThe result is a launch package that feels deliberate across platforms instead of a widescreen asset being repeatedly persuaded to fit into smaller rectangles."
+    },
+    "preparing-product-assets-for-cgi": {
+      "title": "Preparing Product Assets for CGI",
+      "description": "A practical checklist for organizing CAD, references, measurements, and material information before 3D production begins.",
+      "coverAlt": "A detailed 3D product design render on a clean background",
+      "bodyMarkdown": "Good reference material reduces guessing, revisions, and the peculiar human ritual of approving details that were never documented.\n\n## Useful source material\n\nThe ideal starting package may include:\n\n- CAD or STEP files\n- dimensioned drawings\n- orthographic photographs\n- close-up detail references\n- material samples or finish codes\n- packaging artwork\n- brand guidelines\n\nNot every project needs every item. The important part is identifying which details affect the product silhouette, construction, materials, and final usage.\n\n## Check CAD before production\n\nCAD files should be reviewed for missing parts, unnecessary internal geometry, inconsistent naming, and surfaces that will not render cleanly.\n\nA production-ready visualization model often needs cleanup even when an engineering model already exists.\n\n## Document materials clearly\n\nMaterial references should describe more than color. Surface roughness, reflectivity, transparency, texture scale, and edge behavior all influence whether a digital material feels believable.\n\n## Confirm variants early\n\nColorways, accessories, packaging versions, and regional differences should be identified before the scene is finalized. A small naming decision at the beginning can prevent a large folder of files called `final-final-2-revised` later."
+    },
+    "product-rendering-for-ecommerce": {
+      "title": "Product Rendering for E-commerce",
+      "description": "How CGI product imagery can make listings clearer, more consistent, and easier to expand across marketplaces.",
+      "coverAlt": "A polished CGI product render prepared for an e-commerce listing",
+      "bodyMarkdown": "E-commerce imagery has a deceptively difficult job. It must explain the product quickly, establish trust, remain consistent across a listing, and still feel aligned with the brand.\n\nCGI product rendering helps when photography is unavailable, difficult to repeat, or too rigid for the number of variations a launch requires.\n\n## Start with a clear image hierarchy\n\nA useful listing usually needs more than one attractive hero image. The full image set should answer questions in a deliberate order:\n\n1. What is the product?\n2. What makes it different?\n3. How large is it?\n4. How is it used?\n5. Which details should the buyer trust?\n\nThe first image creates recognition. Supporting images explain features, materials, scale, and context.\n\n## Consistency matters more than novelty\n\nLighting, camera position, spacing, and material response should feel connected across every image. This consistency reduces visual noise and makes variants easier to compare.\n\n![A product visualization used as an e-commerce hero image](/content/media/blog/product-rendering-for-ecommerce/cover.png)\n\n## Build assets for future variations\n\nA well-organized 3D scene can support:\n\n- alternate colors and finishes\n- marketplace-specific crops\n- transparent-background exports\n- feature close-ups\n- seasonal campaigns\n- short animation loops\n\nThe initial scene therefore becomes more than a single image. It becomes a reusable production asset.\n\n> The strongest e-commerce image systems make the product easier to understand before they try to make it look impressive.\n\n## Plan deliverables before rendering\n\nFinal dimensions, aspect ratios, backgrounds, and variant requirements should be agreed before production. Rendering first and deciding later is how perfectly reasonable projects develop expensive little surprises."
+    }
+  }
+}

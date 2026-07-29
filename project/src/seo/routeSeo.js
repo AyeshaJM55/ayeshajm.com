@@ -3,6 +3,12 @@ import { getBlogPostBySlug } from '../content/loadBlogPosts'
 import { getProjectBySlug } from '../data/projects'
 import { getServiceBySlug, services } from '../data/services'
 import { site } from '../data/site'
+import {
+  getIntlLocale,
+  localizePath,
+  stripLocalePath,
+  translate,
+} from '../locales'
 
 
 const INDEX_ROBOTS = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
@@ -18,13 +24,17 @@ export const toAbsoluteUrl = (value) => {
   }
 }
 
+const absoluteLocalizedUrl = (basePath, locale) => `${site.url}${localizePath(basePath, locale) === '/' ? '' : localizePath(basePath, locale)}`
 
-function createStructuredData(pathname, route, params, seo) {
+
+function createStructuredData(pathname, route, params, seo, locale) {
+  const language = getIntlLocale(locale)
   const website = {
     '@type': 'WebSite',
     '@id': `${site.url}/#website`,
-    name: site.name,
+    name: seo.siteName,
     url: site.url,
+    inLanguage: language,
   }
 
   const basePage = {
@@ -33,6 +43,7 @@ function createStructuredData(pathname, route, params, seo) {
     name: seo.documentTitle,
     description: seo.description,
     url: seo.canonical,
+    inLanguage: language,
     isPartOf: { '@id': `${site.url}/#website` },
     primaryImageOfPage: seo.socialImage ? { '@type': 'ImageObject', url: seo.socialImage } : undefined,
   }
@@ -43,7 +54,7 @@ function createStructuredData(pathname, route, params, seo) {
     page = {
       ...basePage,
       '@type': ['WebPage', 'ProfessionalService'],
-      name: site.name,
+      name: seo.siteName,
       email: site.email,
       serviceType: services.map((service) => service.title),
     }
@@ -62,14 +73,15 @@ function createStructuredData(pathname, route, params, seo) {
         dateModified: post.updatedAt || post.publishedAt,
         articleSection: post.category,
         keywords: post.tags,
+        inLanguage: language,
         author: {
           '@type': 'Person',
           name: post.author.name,
-          url: `${site.url}/authors/${post.author.slug}`,
+          url: absoluteLocalizedUrl(`/authors/${post.author.slug}`, locale),
         },
         publisher: {
           '@type': 'Person',
-          name: site.name,
+          name: seo.siteName,
           url: site.url,
         },
         mainEntityOfPage: { '@id': `${seo.canonical}#webpage` },
@@ -86,6 +98,7 @@ function createStructuredData(pathname, route, params, seo) {
         name: seo.documentTitle,
         description: author.shortBio,
         url: seo.canonical,
+        inLanguage: language,
         mainEntity: {
           '@type': 'Person',
           name: author.name,
@@ -110,9 +123,10 @@ function createStructuredData(pathname, route, params, seo) {
         description: service.description,
         url: seo.canonical,
         image: seo.socialImage || undefined,
+        inLanguage: language,
         provider: {
           '@type': 'Person',
-          name: site.name,
+          name: seo.siteName,
           url: site.url,
         },
       }
@@ -129,9 +143,10 @@ function createStructuredData(pathname, route, params, seo) {
         description: project.summary,
         url: seo.canonical,
         image: seo.socialImage || undefined,
+        inLanguage: language,
         creator: {
           '@type': 'Person',
-          name: site.name,
+          name: seo.siteName,
           url: site.url,
         },
         dateCreated: project.year,
@@ -147,13 +162,17 @@ function createStructuredData(pathname, route, params, seo) {
 }
 
 
-export function resolveRouteSeo(pathname, route, params) {
-  const title = route.getTitle ? route.getTitle(params) : route.title
-  const documentTitle = route.getDocumentTitle ? route.getDocumentTitle(params) : `Ayesha J. | ${title}`
-  const description = route.getDescription ? route.getDescription(params) : route.description
-  const canonical = route.getCanonical
-    ? route.getCanonical(params)
-    : `${site.url}${pathname === '/' ? '' : pathname}`
+export function resolveRouteSeo(pathname, route, params, locale = 'en') {
+  const basePathname = stripLocalePath(pathname)
+  const routeKey = route.id ?? (route.path === '*' ? 'notFound' : '')
+  const localizedStaticTitle = routeKey ? translate(`seo.routes.${routeKey}.title`, locale, '') : ''
+  const localizedStaticDescription = routeKey ? translate(`seo.routes.${routeKey}.description`, locale, '') : ''
+  const title = route.getTitle ? route.getTitle(params) : localizedStaticTitle || route.title
+  const documentTitle = route.getDocumentTitle
+    ? route.getDocumentTitle(params)
+    : locale === 'ar' ? `${title} | عائشة ج.` : `Ayesha J. | ${title}`
+  const description = route.getDescription ? route.getDescription(params) : localizedStaticDescription || route.description
+  const canonical = absoluteLocalizedUrl(basePathname, locale)
   const rawImage = route.getImage ? route.getImage(params) : route.image
   const socialImage = toAbsoluteUrl(rawImage)
   const pageType = route.pageType ?? 'website'
@@ -164,24 +183,34 @@ export function resolveRouteSeo(pathname, route, params) {
   const section = route.getSection ? route.getSection(params) : ''
   const tags = route.getTags ? route.getTags(params) : []
   const robots = route.path === '*' ? NOINDEX_ROBOTS : INDEX_ROBOTS
+  const siteName = translate('seo.siteName', locale)
 
   const seo = {
+    alternates: {
+      en: absoluteLocalizedUrl(basePathname, 'en'),
+      ar: absoluteLocalizedUrl(basePathname, 'ar'),
+      'x-default': absoluteLocalizedUrl(basePathname, 'en'),
+    },
     authorName,
     canonical,
     description,
     documentTitle,
     imageAlt,
+    locale,
     modifiedAt,
+    ogAlternateLocale: locale === 'ar' ? 'en_US' : 'ar_SA',
+    ogLocale: locale === 'ar' ? 'ar_SA' : 'en_US',
     pageType,
     publishedAt,
     robots,
     section,
+    siteName,
     socialImage,
     tags,
   }
 
   return {
     ...seo,
-    structuredData: createStructuredData(pathname, route, params, seo),
+    structuredData: createStructuredData(pathname, route, params, seo, locale),
   }
 }

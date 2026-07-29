@@ -1,0 +1,21 @@
+{
+  "ariaLabel": "Portfolio page",
+  "hero": {
+    "eyebrow": "Portfolio",
+    "title": "Work made to clarify, persuade, and launch.",
+    "description": "{count} selected projects across product design, e-commerce, lifestyle, material development, and photorealistic rendering."
+  },
+  "results": {
+    "one": "{count} project shown",
+    "other": "{count} projects shown"
+  },
+  "capabilities": {
+    "eyebrow": "Capabilities",
+    "title": "Explore the work by how it was made.",
+    "description": "Move from a finished project into the capability behind it."
+  },
+  "cta": {
+    "title": "Need visuals like these?",
+    "description": "Share the product, intended platform, and the kind of visual outcome you need."
+  }
+}

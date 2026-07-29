@@ -1,0 +1,51 @@
+{
+  "ariaLabel": "Services page",
+  "hero": {
+    "eyebrow": "Services",
+    "title": "Product visuals built from the inside out.",
+    "description": "From product geometry to campaign imagery, services can stand alone or combine into a complete launch-ready visual system."
+  },
+  "combined": {
+    "eyebrow": "Combined engagements",
+    "title": "One product. A complete visual system.",
+    "description": "Modeling, stills, lifestyle imagery, and motion can be scoped as one connected production instead of four disconnected handoffs.",
+    "packages": [
+      "Product launch package",
+      "E-commerce image suite",
+      "Campaign CGI package",
+      "Animation and stills package"
+    ]
+  },
+  "process": {
+    "eyebrow": "Process",
+    "title": "A clear route from brief to delivery.",
+    "description": "Each checkpoint resolves a different kind of risk before the final assets are produced.",
+    "items": [
+      {
+        "title": "Brief",
+        "description": "Clarify goals, usage, assets, timing, and the decisions the visuals need to support."
+      },
+      {
+        "title": "Direction",
+        "description": "Align on references, composition, materials, environments, and motion language."
+      },
+      {
+        "title": "Production",
+        "description": "Build and refine the required models, scenes, images, and animation."
+      },
+      {
+        "title": "Delivery",
+        "description": "Prepare final formats, variants, crops, and reusable project assets."
+      }
+    ]
+  },
+  "related": {
+    "eyebrow": "Related work",
+    "title": "See the services in context."
+  },
+  "cta": {
+    "title": "Not sure which service fits?",
+    "description": "Share the product, launch date, and intended deliverables. The right service mix can be shaped from there."
+  },
+  "featuredWorkAlt": "{title} featured work"
+}

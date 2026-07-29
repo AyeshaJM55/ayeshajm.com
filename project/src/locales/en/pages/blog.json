@@ -1,0 +1,14 @@
+{
+  "ariaLabel": "Blog page",
+  "hero": {
+    "eyebrow": "Blog",
+    "title": "Useful thinking behind the final image.",
+    "description": "Notes on product visualization, CGI production, art direction, and building commercially useful image systems."
+  },
+  "search": "Search",
+  "searchPlaceholder": "Search articles, categories, or tags",
+  "category": "Category",
+  "tags": "Tags",
+  "emptyTitle": "No articles match your search and filters.",
+  "clearFilters": "Clear filters"
+}

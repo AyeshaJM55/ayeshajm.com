@@ -1,0 +1,32 @@
+{
+  "ariaLabel": "{title} service page",
+  "breadcrumb": "Services",
+  "inquire": "Inquire about this service",
+  "heroAlt": "{title} hero",
+  "overview": {
+    "eyebrow": "Overview",
+    "title": "What this service does."
+  },
+  "deliverables": {
+    "eyebrow": "Deliverables",
+    "title": "Useful outputs, clearly defined."
+  },
+  "idealFor": {
+    "eyebrow": "Ideal for",
+    "title": "When this service fits."
+  },
+  "process": {
+    "eyebrow": "Process",
+    "title": "How the work moves."
+  },
+  "showcase": "Visual showcase",
+  "showcaseLabel": "{title} showcase",
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "{title} questions."
+  },
+  "cta": {
+    "title": "Start a {title} project.",
+    "description": "Share the product, available assets, timeline, and intended output."
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "ariaLabel": "About page",
+  "hero": {
+    "eyebrow": "About",
+    "title": "Visualizing products before they exist in the world.",
+    "description": "I create precise, commercially useful 3D product visuals for brands that need to communicate clearly before, during, and after launch.",
+    "imageAlt": "Minimal studio product render"
+  },
+  "perspective": {
+    "eyebrow": "Perspective",
+    "title": "Realism with a job to do.",
+    "description": "The work sits between technical understanding and visual storytelling. Every image has to feel believable, but it also has to explain, persuade, and fit the place where it will be used.",
+    "body": "I work across modeling, rendering, animation, and art direction so product assets remain consistent from a single launch image to a larger campaign system.",
+    "imageAlt": "Art-directed lifestyle product scene"
+  },
+  "capabilities": {
+    "eyebrow": "Capabilities",
+    "title": "A focused visual toolkit.",
+    "items": [
+      "Product visualization",
+      "Material development",
+      "Lighting and art direction",
+      "Commercial rendering",
+      "CGI animation",
+      "E-commerce imagery"
+    ]
+  },
+  "process": {
+    "eyebrow": "How projects move",
+    "title": "A practical four-stage process.",
+    "description": "Clear checkpoints keep feedback organized and protect the final quality.",
+    "items": [
+      {
+        "title": "Discover",
+        "description": "Understand the product, audience, intended use, timeline, and existing assets."
+      },
+      {
+        "title": "Build",
+        "description": "Create the digital product, scene, materials, and visual foundation."
+      },
+      {
+        "title": "Refine",
+        "description": "Review composition, details, lighting, motion, and brand alignment."
+      },
+      {
+        "title": "Deliver",
+        "description": "Prepare final files for web, marketplaces, campaigns, presentations, or print."
+      }
+    ]
+  },
+  "principles": [
+    {
+      "title": "Detail with purpose",
+      "description": "Precision matters most when it improves understanding, credibility, and use."
+    },
+    {
+      "title": "Clear collaboration",
+      "description": "Feedback is structured around real decisions instead of vague rounds of aesthetic panic."
+    },
+    {
+      "title": "Visuals built for use",
+      "description": "Every output is planned around the platform, audience, and next step."
+    }
+  ],
+  "cta": {
+    "title": "Have a product in mind?",
+    "description": "Explore the portfolio or share the product, timeline, and visual challenge you are working through."
+  }
+}

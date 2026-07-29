@@ -1,142 +1,29 @@
-import productDesign from '../assets/featured-work/3d-product-design.png'
-import amazonHero from '../assets/featured-work/amazon-hero.png'
-import lifestyleRender from '../assets/featured-work/lifestyle-image-render.png'
-import lifestyleRenderTwo from '../assets/featured-work/lifestyle-render-2.png'
-import materialStudy from '../assets/featured-work/material.png'
-import photorealisticRenders from '../assets/featured-work/photo-realistic-renders.png'
-import productRender from '../assets/featured-work/render-1.png'
-import studioRenders from '../assets/featured-work/studio-renders.png'
+import { getActiveLocale, loadLocaleContent } from '../locales'
+import { assets } from '../locales/assetManifests'
 
-export const projects = [
-  {
-    slug: '3d-product-design',
-    title: '3D Product Design',
-    category: 'Product Design',
-    summary: 'Detailed product visualization shaped for clear presentation, marketing, and digital commerce.',
-    challenge: 'Communicate form, construction, and finish clearly before the product is available for a traditional shoot.',
-    approach: 'A clean model, controlled studio lighting, and close attention to product-defining details create a flexible visual asset for presentation and campaign use.',
-    outcome: 'A cohesive image set prepared for product storytelling, stakeholder review, and future variations.',
-    services: ['3d-modeling', 'photorealistic-renders'],
-    coverImage: productDesign,
-    gallery: [productDesign, studioRenders, productRender],
-    year: '2026',
-    client: 'Confidential product brand',
-    deliverables: ['3D model', 'Hero renders', 'Detail views'],
-    nextProjectSlug: 'amazon-product-visuals',
-  },
-  {
-    slug: 'amazon-product-visuals',
-    title: 'Amazon Product Visuals',
-    category: 'E-commerce',
-    summary: 'Conversion-focused imagery created to make listings feel polished, credible, and easy to understand.',
-    challenge: 'Present key product features immediately while maintaining a premium, trustworthy listing aesthetic.',
-    approach: 'A structured image hierarchy balances the hero product, feature communication, detail crops, and clear visual consistency.',
-    outcome: 'A marketplace-ready suite designed to support product understanding across the full listing journey.',
-    services: ['photorealistic-renders', '3d-modeling'],
-    coverImage: amazonHero,
-    gallery: [amazonHero, productRender, materialStudy],
-    year: '2026',
-    client: 'E-commerce brand',
-    deliverables: ['Listing hero', 'Feature images', 'Detail crops'],
-    nextProjectSlug: 'lifestyle-rendering',
-  },
-  {
-    slug: 'lifestyle-rendering',
-    title: 'Lifestyle Rendering',
-    category: 'Lifestyle',
-    summary: 'Context-rich visuals that place products naturally inside believable everyday environments.',
-    challenge: 'Give the product an aspirational setting without losing clarity, scale, or visual priority.',
-    approach: 'Environment design, prop selection, lighting, and composition are developed around the product and its intended audience.',
-    outcome: 'A flexible lifestyle image set suited to web, social, and campaign applications.',
-    services: ['lifestyle-renders', 'photorealistic-renders'],
-    coverImage: lifestyleRender,
-    gallery: [lifestyleRender, lifestyleRenderTwo, materialStudy],
-    year: '2026',
-    client: 'Lifestyle product brand',
-    deliverables: ['Lifestyle hero', 'Alternate views', 'Social crops'],
-    nextProjectSlug: 'lifestyle-art-direction',
-  },
-  {
-    slug: 'lifestyle-art-direction',
-    title: 'Lifestyle Art Direction',
-    category: 'Lifestyle',
-    summary: 'Story-led product scenes combining composition, lighting, and atmosphere into one cohesive frame.',
-    challenge: 'Create a distinctive visual world that feels aligned with the brand rather than assembled from generic props.',
-    approach: 'Mood, material palette, architecture, camera position, and supporting objects are art-directed as one system.',
-    outcome: 'A campaign-ready visual direction that can extend across multiple products and seasonal variations.',
-    services: ['lifestyle-renders'],
-    coverImage: lifestyleRenderTwo,
-    gallery: [lifestyleRenderTwo, lifestyleRender, studioRenders],
-    year: '2026',
-    client: 'Confidential lifestyle brand',
-    deliverables: ['Art direction', 'Campaign scenes', 'Image variations'],
-    nextProjectSlug: 'material-exploration',
-  },
-  {
-    slug: 'material-exploration',
-    title: 'Material Exploration',
-    category: 'Material Studies',
-    summary: 'Carefully developed surfaces and finishes that communicate texture, quality, and physical character.',
-    challenge: 'Translate subtle physical finishes into digital materials that remain convincing under different lighting conditions.',
-    approach: 'Reference study, controlled testing, close crops, and side-by-side variants reveal the behavior of each finish.',
-    outcome: 'Approved material directions ready for final product renders and future visual systems.',
-    services: ['photorealistic-renders', '3d-modeling'],
-    coverImage: materialStudy,
-    gallery: [materialStudy, photorealisticRenders, productDesign],
-    year: '2026',
-    client: 'Product development team',
-    deliverables: ['Material studies', 'Finish variants', 'Detail renders'],
-    nextProjectSlug: 'photorealistic-renders',
-  },
-  {
-    slug: 'photorealistic-renders',
-    title: 'Photorealistic Renders',
-    category: 'Photorealistic',
-    summary: 'High-fidelity imagery with controlled lighting, realistic materials, and production-ready detail.',
-    challenge: 'Create a premium visual result that remains believable at both hero scale and close inspection.',
-    approach: 'Material response, edge detail, reflections, lighting shape, and retouching are tuned as a complete photographic system.',
-    outcome: 'A polished set of commercial images ready for launch, presentation, and digital commerce.',
-    services: ['photorealistic-renders'],
-    coverImage: photorealisticRenders,
-    gallery: [photorealisticRenders, studioRenders, materialStudy],
-    year: '2026',
-    client: 'Consumer product brand',
-    deliverables: ['Hero renders', 'Studio views', 'High-resolution exports'],
-    nextProjectSlug: 'product-visualization',
-  },
-  {
-    slug: 'product-visualization',
-    title: 'Product Visualization',
-    category: 'Product Design',
-    summary: 'Clean commercial renders built to showcase form, construction, and product-defining features.',
-    challenge: 'Turn technical product information into visuals that feel direct, refined, and easy to understand.',
-    approach: 'A restrained studio system emphasizes shape, interface details, materials, and core product benefits.',
-    outcome: 'A versatile visual library for product pages, sales materials, and presentations.',
-    services: ['3d-modeling', 'photorealistic-renders', 'product-cgi-animation'],
-    coverImage: productRender,
-    gallery: [productRender, productDesign, amazonHero],
-    year: '2026',
-    client: 'Technology product brand',
-    deliverables: ['Product hero', 'Feature views', 'Campaign crops'],
-    nextProjectSlug: 'studio-renders',
-  },
-  {
-    slug: 'studio-renders',
-    title: 'Studio Renders',
-    category: 'Photorealistic',
-    summary: 'Minimal studio compositions designed for catalogs, campaigns, and premium brand presentation.',
-    challenge: 'Create a minimal image system that feels intentional rather than empty or generic.',
-    approach: 'Lighting geometry, negative space, surface choice, and camera discipline keep attention on the product.',
-    outcome: 'A clean studio library that can scale across catalogs, launch assets, and product pages.',
-    services: ['photorealistic-renders'],
-    coverImage: studioRenders,
-    gallery: [studioRenders, photorealisticRenders, productRender],
-    year: '2026',
-    client: 'Premium product brand',
-    deliverables: ['Catalog views', 'Hero images', 'Transparent exports'],
-    nextProjectSlug: '3d-product-design',
-  },
+export const projectManifest = [
+  { slug: '3d-product-design', categoryId: 'product-design', services: ['3d-modeling', 'photorealistic-renders'], coverImage: 'productDesign', gallery: ['productDesign', 'studioRenders', 'productRender'], year: '2026', nextProjectSlug: 'amazon-product-visuals' },
+  { slug: 'amazon-product-visuals', categoryId: 'ecommerce', services: ['photorealistic-renders', '3d-modeling'], coverImage: 'amazonHero', gallery: ['amazonHero', 'productRender', 'materialStudy'], year: '2026', nextProjectSlug: 'lifestyle-rendering' },
+  { slug: 'lifestyle-rendering', categoryId: 'lifestyle', services: ['lifestyle-renders', 'photorealistic-renders'], coverImage: 'lifestyleRender', gallery: ['lifestyleRender', 'lifestyleRenderTwo', 'materialStudy'], year: '2026', nextProjectSlug: 'lifestyle-art-direction' },
+  { slug: 'lifestyle-art-direction', categoryId: 'lifestyle', services: ['lifestyle-renders'], coverImage: 'lifestyleRenderTwo', gallery: ['lifestyleRenderTwo', 'lifestyleRender', 'studioRenders'], year: '2026', nextProjectSlug: 'material-exploration' },
+  { slug: 'material-exploration', categoryId: 'material-studies', services: ['photorealistic-renders', '3d-modeling'], coverImage: 'materialStudy', gallery: ['materialStudy', 'photorealisticRenders', 'productDesign'], year: '2026', nextProjectSlug: 'photorealistic-renders' },
+  { slug: 'photorealistic-renders', categoryId: 'photorealistic', services: ['photorealistic-renders'], coverImage: 'photorealisticRenders', gallery: ['photorealisticRenders', 'studioRenders', 'materialStudy'], year: '2026', nextProjectSlug: 'product-visualization' },
+  { slug: 'product-visualization', categoryId: 'product-design', services: ['3d-modeling', 'photorealistic-renders', 'product-cgi-animation'], coverImage: 'productRender', gallery: ['productRender', 'productDesign', 'amazonHero'], year: '2026', nextProjectSlug: 'studio-renders' },
+  { slug: 'studio-renders', categoryId: 'photorealistic', services: ['photorealistic-renders'], coverImage: 'studioRenders', gallery: ['studioRenders', 'photorealisticRenders', 'productRender'], year: '2026', nextProjectSlug: '3d-product-design' },
 ]
 
-export const projectCategories = ['All', ...new Set(projects.map((project) => project.category))]
-export const getProjectBySlug = (slug) => projects.find((project) => project.slug === slug)
+export function getProjects(locale = getActiveLocale()) {
+  const copy = loadLocaleContent(locale).projects
+  return projectManifest.map((item) => ({
+    ...item, ...copy.items[item.slug], category: copy.categories[item.categoryId],
+    coverImage: assets[item.coverImage], gallery: item.gallery.map((key) => assets[key]),
+  }))
+}
+
+export const getProjectCategories = (locale = getActiveLocale()) => {
+  const copy = loadLocaleContent(locale).projects.categories
+  return [{ id: 'all', label: copy.all }, ...[...new Set(projectManifest.map((project) => project.categoryId))].map((id) => ({ id, label: copy[id] }))]
+}
+export const getProjectBySlug = (slug, locale = getActiveLocale()) => getProjects(locale).find((project) => project.slug === slug)
+export const projects = getProjects('en')
+export const projectCategories = getProjectCategories('en').map(({ label }) => label)

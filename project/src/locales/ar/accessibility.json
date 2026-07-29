@@ -1,0 +1,22 @@
+{
+  "loadingPage": "جارٍ تحميل الصفحة",
+  "loadingWebsite": "جارٍ تحميل الموقع",
+  "scrollToTop": "العودة إلى أعلى الصفحة",
+  "breadcrumb": "مسار التنقل",
+  "articleTags": "وسوم المقال",
+  "filterProjects": "تصفية الأعمال",
+  "blogPagination": "تنقل صفحات المدونة",
+  "servicePagination": "التنقل بين الخدمات",
+  "gallery": "معرض {title}",
+  "galleryView": "صورة {index} من {title}",
+  "openProject": "فتح مشروع {title}",
+  "decorativeDivider": "فاصل زخرفي مرسوم يدوياً",
+  "selectedClients": "عملاء مختارون",
+  "previousTestimonial": "التوصية السابقة",
+  "nextTestimonial": "التوصية التالية",
+  "chooseTestimonial": "اختر توصية",
+  "goToTestimonial": "الانتقال إلى التوصية {index}",
+  "previousService": "الخدمة السابقة",
+  "nextService": "الخدمة التالية",
+  "goToService": "الانتقال إلى الخدمة {{index}}"
+}

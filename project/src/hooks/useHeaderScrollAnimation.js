@@ -34,7 +34,7 @@ function useHeaderScrollAnimation(headerRef, innerRef) {
 
           gsap.to(inner, compact ? {
             width: 'calc(100% - 24px)',
-            maxWidth: '860px',
+            maxWidth: '1080px',
             paddingLeft: '28px',
             paddingRight: '12px',
             paddingTop: '8px',

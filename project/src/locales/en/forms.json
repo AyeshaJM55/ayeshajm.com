@@ -1,0 +1,65 @@
+{
+  "fields": {
+    "name": {
+      "label": "Name",
+      "placeholder": "Your name"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "you@example.com"
+    },
+    "company": {
+      "label": "Company",
+      "placeholder": "Company or brand"
+    },
+    "timeline": {
+      "label": "Timeline",
+      "placeholder": "Target launch or delivery"
+    },
+    "service": {
+      "label": "Service",
+      "placeholder": "Select a service"
+    },
+    "projectType": {
+      "label": "Project type",
+      "placeholder": "Select a service"
+    },
+    "stage": {
+      "label": "Project stage",
+      "placeholder": "Select a stage"
+    },
+    "use": {
+      "label": "Intended use",
+      "placeholder": "Website, marketplace, social, campaign..."
+    },
+    "budget": {
+      "label": "Budget range",
+      "placeholder": "Optional"
+    },
+    "details": {
+      "label": "Project details",
+      "placeholder": "Describe the product, deliverables, timing, references, and anything that may affect scope."
+    },
+    "message": {
+      "label": "Project details",
+      "placeholder": "Tell me about the product, deliverables, timeline, and anything else that matters."
+    }
+  },
+  "stages": {
+    "concept": "Concept",
+    "pre-production": "Pre-production",
+    "manufactured": "Manufactured",
+    "existing-assets": "Existing 3D assets"
+  },
+  "projectTypes": {
+    "3d-modeling": "3D Modeling",
+    "product-renders": "Product Renders",
+    "animation": "CGI Animation",
+    "lifestyle-renders": "Lifestyle Renders"
+  },
+  "requiredHint": "Required fields are marked *.",
+  "uploadHint": "Required fields are marked *. Files cannot be uploaded here yet. Mention what CAD, drawings, photography, or references are available.",
+  "contactUnavailable": "This form is not connected to a delivery service yet. Please email {email}.",
+  "messageReady": "Thank you. Your message is ready to be reviewed.",
+  "mailSubject": "Project call request"
+}

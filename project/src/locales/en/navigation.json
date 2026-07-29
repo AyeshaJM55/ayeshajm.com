@@ -1,0 +1,31 @@
+{
+  "primary": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "contact": "Contact",
+    "book": "Book a call"
+  },
+  "header": {
+    "primaryNavigation": "Primary navigation",
+    "mobileNavigation": "Mobile navigation",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "localeMenu": "Choose language",
+    "localeTrigger": "Current language: {symbol}. Choose another language.",
+    "switchTo": "Switch to {symbol}",
+    "currentLocale": "{symbol}, current language",
+    "toggleMenu": "Toggle navigation menu"
+  },
+  "footer": {
+    "label": "Site footer",
+    "pages": "Pages",
+    "services": "Services",
+    "socialMedia": "Social media",
+    "crafted": "Crafted with care",
+    "clickToMail": "Click to mail",
+    "navigation": "Footer navigation"
+  }
+}

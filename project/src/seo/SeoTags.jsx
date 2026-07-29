@@ -12,14 +12,18 @@ function SeoTags({ seo }) {
       <meta content={seo.robots} name='googlebot' />
       {seo.authorName ? <meta content={seo.authorName} name='author' /> : null}
       <link href={seo.canonical} rel='canonical' />
+      {Object.entries(seo.alternates).map(([language, href]) => (
+        <link href={href} hrefLang={language} key={language} rel='alternate' />
+      ))}
 
       <meta content={seo.documentTitle} property='og:title' />
       <meta content={seo.description} property='og:description' />
       <meta content={seo.pageType} property='og:type' />
       <meta content={seo.canonical} property='og:url' />
       <meta content={seo.documentTitle} property='og:image:alt' />
-      <meta content='en_US' property='og:locale' />
-      <meta content='Ayesha JM' property='og:site_name' />
+      <meta content={seo.ogLocale} property='og:locale' />
+      <meta content={seo.ogAlternateLocale} property='og:locale:alternate' />
+      <meta content={seo.siteName} property='og:site_name' />
       {seo.socialImage ? <meta content={seo.socialImage} property='og:image' /> : null}
 
       <meta content='summary_large_image' name='twitter:card' />
@@ -42,16 +46,20 @@ function SeoTags({ seo }) {
 
 SeoTags.propTypes = {
   seo: PropTypes.shape({
+    alternates: PropTypes.objectOf(PropTypes.string).isRequired,
     authorName: PropTypes.string,
     canonical: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     documentTitle: PropTypes.string.isRequired,
     imageAlt: PropTypes.string,
     modifiedAt: PropTypes.string,
+    ogAlternateLocale: PropTypes.string.isRequired,
+    ogLocale: PropTypes.string.isRequired,
     pageType: PropTypes.string.isRequired,
     publishedAt: PropTypes.string,
     robots: PropTypes.string.isRequired,
     section: PropTypes.string,
+    siteName: PropTypes.string.isRequired,
     socialImage: PropTypes.string,
     structuredData: PropTypes.object.isRequired,
     tags: PropTypes.arrayOf(PropTypes.string).isRequired,

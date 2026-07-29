@@ -1,0 +1,58 @@
+{
+  "site": {
+    "name": "Ayesha J.",
+    "shortName": "Ayesha JM",
+    "email": "hello@ayeshajm.com"
+  },
+  "actions": {
+    "bookCall": "Book a call",
+    "startProject": "Start a project",
+    "discussProject": "Discuss a project",
+    "viewPortfolio": "View Portfolio",
+    "viewAllProjects": "View all projects",
+    "exploreService": "Explore service",
+    "readArticle": "Read article",
+    "emailDirectly": "Email directly",
+    "requestCall": "Request a call by email",
+    "sendMessage": "Send Message",
+    "prepareInquiry": "Prepare inquiry",
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
+  },
+  "labels": {
+    "all": "All",
+    "author": "Author",
+    "writtenBy": "Written by",
+    "draft": "Draft",
+    "draftPreview": "Draft preview",
+    "topics": "Topics",
+    "articlesBy": "Articles by {name}",
+    "publishedThinking": "Published thinking",
+    "noPublishedArticles": "No published articles yet.",
+    "selectedProjects": "Selected projects",
+    "relatedWork": "Related work",
+    "relatedArticles": "Related articles",
+    "continueReading": "Continue reading",
+    "client": "Client",
+    "year": "Year",
+    "services": "Services",
+    "deliverables": "Deliverables",
+    "challenge": "Challenge",
+    "approach": "Approach",
+    "outcome": "Outcome",
+    "relatedServices": "Related services",
+    "nextProject": "Next project",
+    "previousService": "Previous service",
+    "nextService": "Next service",
+    "page": "Page {page}",
+    "previous": "Previous",
+    "next": "Next",
+    "updated": "Updated {date}",
+    "readingTime": {
+      "one": "{count} min read",
+      "other": "{count} min read"
+    },
+    "copyright": "© {year} Ayesha JM. All rights reserved."
+  }
+}

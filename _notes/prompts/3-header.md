@@ -778,3 +778,30 @@ looks like a great plan for locales. i moved from `project/_notes/plans/4-locale
 now compeltely implmeent it. let me know when done.
 
 ---
+
+build this project for deployment at ayeshajm.com
+you can copy to `local/ayeshasite.github.io` and then in `local/ayeshasite.github.io` run git add , commit and push commands.
+it will replace the website for ayeshajm.com
+
+let me know when done.
+
+---
+
+for ar, use modern fonts like Cairo, Tajawal, and Amiri
+and why did you not complete ? there are many parts where they are not completed.
+
+complete because it is not compelted yet. also make sure everything according to `_notes/plans/4-locales.md` is also completed.
+
+---
+
+points to verify:
+- in RTL, the carets in home page's testimonials carousels point in opposite (wrong) directions
+- services locales are missing from footer for ar.
+- the logos strip after hero should repeat in both directions. it gets empty space in RTL.
+
+also:
+- make sure that ./docs/ (`../docs/` if you are doing that from project) has info related to how to add locales
+- in each part where it is mentioend to add contents
+- so that if someone using these docs makes changes to site pages / sections or blog, they get them updated rightfully with locales.
+
+---

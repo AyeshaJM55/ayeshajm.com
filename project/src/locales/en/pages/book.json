@@ -1,0 +1,36 @@
+{
+  "ariaLabel": "Book a call page",
+  "hero": {
+    "eyebrow": "Book a call",
+    "title": "Start with the product, not a sales performance.",
+    "description": "A short project call is useful when the product, timeline, or service mix needs discussion before a formal scope is prepared."
+  },
+  "scheduling": {
+    "eyebrow": "Scheduling",
+    "title": "Booking integration coming next.",
+    "description": "A scheduling provider has not been connected yet, so this page avoids dressing a decorative rectangle as an appointment system.",
+    "body": "Until a calendar provider is connected, send a preferred date, timezone, and a short project summary by email."
+  },
+  "prepare": {
+    "eyebrow": "Prepare",
+    "title": "Four things worth bringing.",
+    "items": [
+      {
+        "title": "Product overview",
+        "description": "What it is, who it is for, and what stage it has reached."
+      },
+      {
+        "title": "Deliverables",
+        "description": "The images, animation, formats, or campaign assets you expect."
+      },
+      {
+        "title": "Timeline",
+        "description": "Launch dates, review milestones, and any immovable deadlines."
+      },
+      {
+        "title": "Available assets",
+        "description": "CAD, references, measurements, photography, brand guidelines, or prototypes."
+      }
+    ]
+  }
+}

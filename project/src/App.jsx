@@ -5,6 +5,13 @@ import PageScrollProgress from './components/domain/navigation/PageScrollProgres
 import RouteLoader from './components/domain/navigation/RouteLoader'
 import SiteLoader from './components/domain/navigation/SiteLoader'
 import SiteLayout from './layouts/SiteLayout/SiteLayout'
+import { LocaleProvider } from './locales/LocaleProvider'
+import {
+  getLocaleDirection,
+  resolveLocaleFromPath,
+  setActiveLocale,
+  stripLocalePath,
+} from './locales'
 import siteRoutes from './routes'
 import matchRoute from './routes/matchRoute'
 import SeoTags from './seo/SeoTags'
@@ -32,9 +39,19 @@ function App({
   const siteLoaderStartedAtRef = useRef(initialLoaderVisible ? Date.now() : 0)
   const skipInitialRouteLoadRef = useRef(initialRouteReady)
   const pathname = location.split(/[?#]/)[0]
-  const { params, route } = matchRoute(pathname, siteRoutes)
+  const locale = resolveLocaleFromPath(pathname)
+  const routePathname = stripLocalePath(pathname)
+
+  setActiveLocale(locale)
+
+  const { params, route } = matchRoute(routePathname, siteRoutes)
   const Page = route.Page
-  const seo = resolveRouteSeo(pathname, route, params)
+  const seo = resolveRouteSeo(pathname, route, params, locale)
+
+  useEffect(() => {
+    document.documentElement.lang = locale
+    document.documentElement.dir = getLocaleDirection(locale)
+  }, [locale])
 
   useEffect(() => {
     const navigate = (nextLocation) => {
@@ -133,7 +150,7 @@ function App({
   }, [location, route])
 
   return (
-    <>
+    <LocaleProvider locale={locale}>
       {isPrerenderGuardVisible ? (
         <div
           aria-hidden='true'
@@ -151,7 +168,7 @@ function App({
       </SiteLayout>
       {isSiteLoaderVisible ? <SiteLoader /> : null}
       <PageScrollProgress key={location} />
-    </>
+    </LocaleProvider>
   )
 }
 
