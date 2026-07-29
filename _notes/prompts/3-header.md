@@ -466,6 +466,17 @@ short task: on services, a few images seem missing.
 
 ---
 
+i mean for 01, ..., 04, there is space on side of service. but that's empty. add image there.
+
+also i hope each page lazy laods. we do not need to make it heavy for user in browser. lazy load and clear other page.
+then it re-laods again with a spinner in center.
+
+make sure the header is not loading and footer also. only the central part. make router this way.
+
+let me know when done.
+
+---
+
 create a plan at `_notes/plans/3-blog.md`
 according to this plan, i should be able to add blog pages in markdown files in a folder
 with each one's slug and deatils in its header.

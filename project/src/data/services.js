@@ -1,9 +1,13 @@
 import productDesign from '../assets/featured-work/3d-product-design.png'
+import amazonRender from '../assets/featured-work/amazon-hero.png'
 import lifestyleRender from '../assets/featured-work/lifestyle-image-render.png'
+import lifestyleRenderTwo from '../assets/featured-work/lifestyle-render-2.png'
+import materialRender from '../assets/featured-work/material.png'
 import photorealisticRender from '../assets/featured-work/photo-realistic-renders.png'
-import studioRender from '../assets/featured-work/studio-renders.png'
+import animationRender from '../assets/featured-work/render-1.png'
 import serviceVideoA from '../assets/services/service-a.mp4'
 import serviceVideoB from '../assets/services/service-b.mp4'
+
 
 export const services = [
   {
@@ -14,7 +18,7 @@ export const services = [
     description: 'Precise digital geometry that captures form, proportions, construction, and defining product details.',
     intro: 'Strong imagery begins with a dependable model. Products are rebuilt from CAD, drawings, measurements, sketches, or photography with enough structure to support stills, animation, and future campaign variations.',
     heroMedia: productDesign,
-    supportingMedia: studioRender,
+    supportingMedia: materialRender,
     video: serviceVideoA,
     deliverables: ['Clean production-ready geometry', 'Organized source scenes', 'UV-ready assets', 'Variant-ready product models', 'Web and animation preparation'],
     idealFor: ['Products without usable CAD', 'Pre-production launches', 'Design presentations', 'Reusable campaign assets'],
@@ -39,7 +43,7 @@ export const services = [
     description: 'High-fidelity product imagery with believable materials, controlled lighting, and polished commercial detail.',
     intro: 'Photorealistic rendering turns a digital product into imagery that feels tangible, premium, and ready for commerce. Lighting, material response, composition, and retouching are developed together for a clear visual result.',
     heroMedia: photorealisticRender,
-    supportingMedia: studioRender,
+    supportingMedia: amazonRender,
     video: serviceVideoB,
     deliverables: ['Hero renders', 'Studio packshots', 'Transparent-background images', 'Detail crops', 'Color and material variants', 'Web and print exports'],
     idealFor: ['E-commerce listings', 'Launch campaigns', 'Catalogs', 'Retail presentations'],
@@ -63,8 +67,8 @@ export const services = [
     shortTitle: 'Animation',
     description: 'Purposeful motion that demonstrates features, tells the product story, and creates campaign-ready visual moments.',
     intro: 'CGI animation gives products time, movement, and narrative. Camera choreography, product motion, transitions, lighting, and edit rhythm are designed around the message rather than added as decoration.',
-    heroMedia: studioRender,
-    supportingMedia: productDesign,
+    heroMedia: animationRender,
+    supportingMedia: materialRender,
     video: serviceVideoA,
     deliverables: ['Hero product films', 'Feature demonstrations', 'Social cutdowns', 'Looping website motion', 'Multiple aspect ratios', 'Storyboard and style frames'],
     idealFor: ['Product launches', 'Paid social campaigns', 'Feature education', 'Website hero content'],
@@ -89,7 +93,7 @@ export const services = [
     description: 'Context-rich scenes that place products naturally inside carefully art-directed environments and everyday settings.',
     intro: 'Lifestyle rendering gives a product context, scale, mood, and emotional relevance. Every environment is composed around the product so the scene feels believable without allowing the setting to become the main character.',
     heroMedia: lifestyleRender,
-    supportingMedia: photorealisticRender,
+    supportingMedia: lifestyleRenderTwo,
     video: serviceVideoB,
     deliverables: ['Lifestyle hero images', 'Campaign scene sets', 'Seasonal variations', 'Multiple camera angles', 'Social and marketplace crops', 'Art-direction boards'],
     idealFor: ['Campaign imagery', 'Home and lifestyle products', 'Seasonal launches', 'Brand storytelling'],
