@@ -2,6 +2,7 @@ import { Suspense, useEffect, useState } from 'react'
 
 import PageLoader from './components/domain/navigation/PageLoader'
 import PageScrollProgress from './components/domain/navigation/PageScrollProgress'
+import { site } from './data/site'
 import SiteLayout from './layouts/SiteLayout/SiteLayout'
 import siteRoutes from './routes'
 import matchRoute from './routes/matchRoute'
@@ -17,7 +18,14 @@ function App() {
   const { params, route } = matchRoute(pathname, siteRoutes)
   const Page = route.Page
   const title = route.getTitle ? route.getTitle(params) : route.title
+  const documentTitle = route.getDocumentTitle ? route.getDocumentTitle(params) : `Ayesha J. | ${title}`
   const description = route.getDescription ? route.getDescription(params) : route.description
+  const canonical = route.getCanonical ? route.getCanonical(params) : `${site.url}${pathname === '/' ? '' : pathname}`
+  const socialImage = route.getImage ? route.getImage(params) : ''
+  const pageType = route.pageType ?? 'website'
+  const publishedAt = route.getPublishedAt ? route.getPublishedAt(params) : ''
+  const modifiedAt = route.getModifiedAt ? route.getModifiedAt(params) : ''
+  const authorName = route.getAuthorName ? route.getAuthorName(params) : ''
 
   useEffect(() => {
     const navigate = (nextLocation) => {
@@ -83,8 +91,22 @@ function App() {
 
   return (
     <>
-      <title>{`Ayesha J. | ${title}`}</title>
+      <title>{documentTitle}</title>
       <meta content={description} name='description' />
+      <link href={canonical} rel='canonical' />
+      <meta content={documentTitle} property='og:title' />
+      <meta content={description} property='og:description' />
+      <meta content={pageType} property='og:type' />
+      <meta content={canonical} property='og:url' />
+      <meta content={site.name} property='og:site_name' />
+      <meta content='summary_large_image' name='twitter:card' />
+      <meta content={documentTitle} name='twitter:title' />
+      <meta content={description} name='twitter:description' />
+      {socialImage ? <meta content={socialImage} property='og:image' /> : null}
+      {socialImage ? <meta content={socialImage} name='twitter:image' /> : null}
+      {publishedAt ? <meta content={publishedAt} property='article:published_time' /> : null}
+      {modifiedAt ? <meta content={modifiedAt} property='article:modified_time' /> : null}
+      {authorName ? <meta content={authorName} name='author' /> : null}
       <SiteLayout>
         {isRouteReady ? (
           <Suspense fallback={<PageLoader />}>

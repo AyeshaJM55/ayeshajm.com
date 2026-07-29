@@ -5,6 +5,11 @@ import useHeaderScrollAnimation from '../../../../hooks/useHeaderScrollAnimation
 import useReducedMotion from '../../../../hooks/useReducedMotion'
 import headerLinks from './HeaderLinks'
 
+const isLinkActive = ({ activePrefix, activePrefixes, href }) => {
+  const prefixes = activePrefixes ?? (activePrefix ? [activePrefix] : [])
+  return window.location.pathname === href || prefixes.some((prefix) => window.location.pathname.startsWith(prefix))
+}
+
 function Header() {
   const headerRef = useRef(null)
   const innerRef = useRef(null)
@@ -42,9 +47,9 @@ function Header() {
           </a>
 
           <nav aria-label='Primary navigation' className='hidden items-center gap-8 md:flex'>
-            {headerLinks.map(({ activePrefix, label, href }) => (
+            {headerLinks.map(({ activePrefix, activePrefixes, label, href }) => (
               <motion.a
-                aria-current={window.location.pathname === href || window.location.pathname.startsWith(activePrefix) ? 'page' : undefined}
+                aria-current={isLinkActive({ activePrefix, activePrefixes, href }) ? 'page' : undefined}
                 key={href}
                 className='text-sm font-semibold uppercase tracking-[0.08em] text-black outline-none transition-opacity hover:opacity-50 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 aria-[current=page]:opacity-45'
                 href={href}
@@ -83,9 +88,9 @@ function Header() {
         {isMenuOpen ? (
           <nav aria-label='Mobile navigation' className='md:hidden'>
             <div className='grid gap-1 pt-4'>
-              {headerLinks.map(({ activePrefix, label, href }) => (
+              {headerLinks.map(({ activePrefix, activePrefixes, label, href }) => (
                 <a
-                  aria-current={window.location.pathname === href || window.location.pathname.startsWith(activePrefix) ? 'page' : undefined}
+                  aria-current={isLinkActive({ activePrefix, activePrefixes, href }) ? 'page' : undefined}
                   key={href}
                   className='rounded-full px-4 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-black outline-none hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-black aria-[current=page]:bg-neutral-100'
                   href={href}

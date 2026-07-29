@@ -523,15 +523,24 @@ create plan md now.
 
 ---
 
-
 moved plan from `project/_notes/plans/3-blog.md` to `_notes/plans/3-blog.md`.cz it was supposed to be there.
 now it is time to work in project.
 looks like a great plan. completely implment it.
 
 ---
 
-Add SEO preloads to all pages. including site pages and blog pages.
+add floating scroll-to-top small icon (bottom left) in layout (applies to all pages)
+
+footer mail on hover becomes darker, instead:
+- show a transition of a line below it from left to right on hover
+- and pointer changes to pill "click to mail"
+
 and footer artstation link is ayesha_jm.artstation.com
+
+
+---
+
+Add SEO preloads to all pages. including site pages and blog pages.
 
 ---
 
@@ -665,8 +674,32 @@ audit and update for such updates
 In `docs/`, add compelte details of projects.
 so that content editor can refer these docs to any llm. and ask it to create blog pages, update case study pages, update sections on pages, etc. and it updates them while keeping the integrity and style of those pages.
 
+before writing docs, u need to re-study project's struecture again as well as refer back to `.agents/skills/frontend-dev`
+
 let me know when compelte docs are ready. u can create multi files in dirs.
 start now.
 
 ---
 
+Current Task:
+- we need to add support for locals
+- all text that is in website should be centralized in json files
+- with mapping for both english and arabic
+- when changed, site converts from LTR to RTR from EN to AR
+- json files should be made in a manner so that other languagse support may be created in future
+- each language entry only has symbol (e.g., AR) and mode (LTR or RTL)
+
+header updates:
+- font size of nav links should be reduced a bit to make some space
+- the "book a call" should go inside hamburger manu. instead of displaying alongside hamburgur manu
+- on very right (on large screen) and on left of hamburger (on small screens), add a text that is "EN"
+- any user can go and change it to "AR"
+
+Find a nice arabic font to use with fallbacks.
+Remember to make sure that you work according to KSA market and determine nice words to use in translation accordingly.
+
+check out all things and create a complte plan at `_notes/plans/4-locales.md`.
+
+let me know when ready.
+
+---

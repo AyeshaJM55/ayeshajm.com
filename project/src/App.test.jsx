@@ -10,6 +10,9 @@ describe('App routing', () => {
   it.each([
     ['/', 'Ayesha J. | Home'],
     ['/about', 'Ayesha J. | About'],
+    ['/blog', 'Ayesha J. | Blog'],
+    ['/blog/product-rendering-for-ecommerce', 'Product Rendering for E-commerce | Ayesha J.'],
+    ['/authors/ayesha-jm', 'Ayesha J. | Author | Ayesha J.'],
     ['/services/3d-modeling', 'Ayesha J. | 3D Modeling'],
     ['/work/3d-product-design', 'Ayesha J. | 3D Product Design'],
     ['/missing-page', 'Ayesha J. | Page Not Found'],
