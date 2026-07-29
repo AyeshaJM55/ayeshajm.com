@@ -432,7 +432,29 @@ looks like a great plan. compeltely implmeent it.
 
 ---
 
-Add SEO preload to all pages.
+there is more gap between pagse and services columns in footer.
+actually the email should not get in new line. so u may make it adjustible so that it auto fits in remaining spacee. upto limits (at max, just do not grow any further)
+
+contact's heading is very big. that's not good.
+
+last section in contact page, 2nd last in portfolio and 3rd last in services.
+they have a design that looks very used and very AI. change that.
+also for services and portfolio images, use contain instead of cover.
+
+similarly on each work (case study) pages also.
+
+make updates so that i can review again.
 
 ---
 
+Add SEO preloads to all pages.
+
+---
+
+text like "required fields are marked by browser" in Leave a message
+or similar in other places of website should be removed. insetad add "*" and say "Required fields are marked *".
+
+audit and update for such updates
+
+
+---

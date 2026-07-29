@@ -1,8 +1,3 @@
-const headerLinks = [
-  { label: 'About', href: '/about' },
-  { label: 'Services', href: '/services' },
-  { label: 'Portfolio', href: '/portfolio' },
-  { label: 'Contact', href: '/contact' },
-]
+import { primaryNavigation } from '../../../../data/navigation'
 
-export default headerLinks
+export default primaryNavigation

@@ -49,7 +49,7 @@ function Hero() {
           >
             <motion.a
               className='inline-flex min-h-14 items-center justify-center rounded-full bg-black px-8 text-base font-medium text-white outline-none transition-colors hover:bg-neutral-800 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 sm:min-h-16 sm:min-w-64 sm:text-xl'
-              href='#portfolio'
+              href='/portfolio'
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.98 }}
             >

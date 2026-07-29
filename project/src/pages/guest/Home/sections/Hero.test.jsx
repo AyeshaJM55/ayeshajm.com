@@ -7,6 +7,6 @@ describe('Hero', () => {
 
     expect(screen.getByRole('heading', { name: /3d product experiences/i })).toBeInTheDocument()
     expect(screen.getByRole('img', { name: /3d product visualization/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'View Portfolio' })).toHaveAttribute('href', '#portfolio')
+    expect(screen.getByRole('link', { name: 'View Portfolio' })).toHaveAttribute('href', '/portfolio')
   })
 })

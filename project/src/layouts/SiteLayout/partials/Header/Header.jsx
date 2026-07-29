@@ -40,10 +40,11 @@ function Header() {
           </a>
 
           <nav aria-label='Primary navigation' className='hidden items-center gap-8 md:flex'>
-            {headerLinks.map(({ label, href }) => (
+            {headerLinks.map(({ activePrefix, label, href }) => (
               <motion.a
+                aria-current={window.location.pathname === href || window.location.pathname.startsWith(activePrefix) ? 'page' : undefined}
                 key={href}
-                className='text-sm font-semibold uppercase tracking-[0.08em] text-black outline-none transition-opacity hover:opacity-50 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4'
+                className='text-sm font-semibold uppercase tracking-[0.08em] text-black outline-none transition-opacity hover:opacity-50 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 aria-[current=page]:opacity-45'
                 href={href}
                 whileHover={{ y: -2 }}
               >
@@ -55,7 +56,7 @@ function Header() {
           <div className='flex items-center gap-2'>
             <motion.a
               className='flex items-center gap-2 whitespace-nowrap rounded-full bg-black/10 px-4 py-3 text-xs font-semibold uppercase tracking-[0.06em] text-black outline-none transition-colors hover:bg-black/15 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 sm:px-5 sm:text-sm'
-              href='/contact'
+              href='/book'
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -80,10 +81,11 @@ function Header() {
         {isMenuOpen ? (
           <nav aria-label='Mobile navigation' className='md:hidden'>
             <div className='grid gap-1 pt-4'>
-              {headerLinks.map(({ label, href }) => (
+              {headerLinks.map(({ activePrefix, label, href }) => (
                 <a
+                  aria-current={window.location.pathname === href || window.location.pathname.startsWith(activePrefix) ? 'page' : undefined}
                   key={href}
-                  className='rounded-full px-4 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-black outline-none hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-black'
+                  className='rounded-full px-4 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-black outline-none hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-black aria-[current=page]:bg-neutral-100'
                   href={href}
                   onClick={() => setIsMenuOpen(false)}
                 >

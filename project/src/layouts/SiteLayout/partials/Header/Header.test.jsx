@@ -7,7 +7,7 @@ describe('Header', () => {
 
     expect(screen.getByRole('banner')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Ayesha J.' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Book a call' })).toHaveAttribute('href', '/contact')
+    expect(screen.getByRole('link', { name: 'Book a call' })).toHaveAttribute('href', '/book')
     expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute('href', '/about')
     expect(screen.getByRole('link', { name: 'Services' })).toHaveAttribute('href', '/services')
     expect(screen.getByRole('link', { name: 'Portfolio' })).toHaveAttribute('href', '/portfolio')

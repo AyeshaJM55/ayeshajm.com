@@ -1,16 +1,19 @@
-import { useEffect } from 'react'
-
 import siteRoutes from './routes'
+import matchRoute from './routes/matchRoute'
 
 function App() {
-  const currentRoute = siteRoutes.find(({ path }) => path === window.location.pathname) ?? siteRoutes[0]
-  const Page = currentRoute.Page
+  const { params, route } = matchRoute(window.location.pathname, siteRoutes)
+  const Page = route.Page
+  const title = route.getTitle ? route.getTitle(params) : route.title
+  const description = route.getDescription ? route.getDescription(params) : route.description
 
-  useEffect(() => {
-    document.title = `Ayesha J. | ${currentRoute.title}`
-  }, [currentRoute.title])
-
-  return <Page />
+  return (
+    <>
+      <title>{`Ayesha J. | ${title}`}</title>
+      <meta content={description} name='description' />
+      <Page params={params} />
+    </>
+  )
 }
 
 export default App
