@@ -677,12 +677,6 @@ and i know it is slow, but according that that given speed wait for 1 cycle min 
 
 ---
 
-when that pre-render loads, it shows a glitch of text
-can we have a 100vh div before everything in preloader only ?
-with scroll disabled (also in prerender only)
-
----
-
 for blog:
 - tags should be below category
 - add serach and pagination
@@ -739,6 +733,12 @@ checklist:
 
 ---
 
+when that pre-render loads, it shows a glitch of text
+can we have a 100vh div before everything in preloader only ?
+with scroll disabled (also in prerender only)
+
+---
+
 Current Task:
 - we need to add support for locales
 - all text that is in website should be centralized in json files
@@ -761,5 +761,7 @@ check out all things and create a complte plan at `_notes/plans/4-locales.md`.
 in last of plan, include adding to docs.
 
 let me know when ready.
+
+and docs are in docs/ not in project/docs/
 
 ---
