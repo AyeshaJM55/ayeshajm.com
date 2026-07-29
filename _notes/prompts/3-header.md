@@ -485,5 +485,12 @@ or similar in other places of website should be removed. insetad add "*" and say
 
 audit and update for such updates
 
+---
+
+In `docs/`, add compelte details of projects.
+so that content editor can refer these docs to any llm. and ask it to create blog pages, update case study pages, update sections on pages, etc. and it updates them while keeping the integrity and style of those pages.
+
+let me know when compelte docs are ready. u can create multi files in dirs.
+start now.
 
 ---
