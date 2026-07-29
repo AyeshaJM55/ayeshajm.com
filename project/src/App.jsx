@@ -100,14 +100,14 @@ function App({
   }, [initialLoaderVisible])
 
   useEffect(() => {
-    if (!isSiteLoaderVisible) return undefined
+    if (!initialPrerendered || !isSiteLoaderVisible) return undefined
 
-    const previousOverflow = initialPrerendered ? '' : document.body.style.overflow
     document.body.style.overflow = 'hidden'
 
     return () => {
-      document.body.style.overflow = previousOverflow
-      if (initialPrerendered) document.body.removeAttribute('data-prerendered')
+      document.body.style.removeProperty('overflow')
+      if (!document.body.getAttribute('style')) document.body.removeAttribute('style')
+      document.body.removeAttribute('data-prerendered')
     }
   }, [initialPrerendered, isSiteLoaderVisible])
 

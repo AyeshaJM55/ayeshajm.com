@@ -12,7 +12,8 @@ const app = (
     <App
       initialLoaderVisible
       initialLocation={`${window.location.pathname}${window.location.search}${window.location.hash}`}
-      initialRouteReady={isPrerendered}
+      initialPrerendered={isPrerendered}
+          initialRouteReady={isPrerendered}
     />
   </StrictMode>
 )

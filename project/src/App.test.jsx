@@ -47,4 +47,10 @@ describe('App routing', () => {
     Object.defineProperty(document, 'readyState', { configurable: true, value: originalReadyState })
   })
 
+
+  it('does not lock scrolling for a non-prerendered initial loader', () => {
+    render(<App initialLoaderVisible initialRouteReady />)
+    expect(document.body).not.toHaveStyle({ overflow: 'hidden' })
+  })
+
 })
