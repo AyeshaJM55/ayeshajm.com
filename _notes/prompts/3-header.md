@@ -523,7 +523,14 @@ create plan md now.
 
 ---
 
-Add SEO preloads to all pages.
+
+moved plan from `project/_notes/plans/3-blog.md` to `_notes/plans/3-blog.md`.cz it was supposed to be there.
+now it is time to work in project.
+looks like a great plan. completely implment it.
+
+---
+
+Add SEO preloads to all pages. including site pages and blog pages.
 and footer artstation link is ayesha_jm.artstation.com
 
 ---
